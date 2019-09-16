@@ -53,19 +53,28 @@ class Wrapper
         if($json === '')
             return null;
         else {
-
             $page = json_decode($json, true);
 
             $arr = array();
 
             foreach ($page['items'] as $item) {
+
                 $elem = new CategoryItem();
 
-                $elem->id = $item['id'];
-                $elem->name = $item['name'];
-                $elem->photo = $item['photo'];
-                $elem->icon = $item['icon'];
-                $elem->full_slug = $item['full_slug'];
+                if(isset($item['id']))
+                    $elem->id = $item['id'];
+
+                if(isset($item['name']))
+                   $elem->name = $item['name'];
+
+                if(isset($item['photo']))
+                 $elem->photo = $item['photo'];
+
+                if(isset($item['icon']))
+                   $elem->icon = $item['icon'];
+
+                if(isset($item['full_slug']))
+                  $elem->full_slug = $item['full_slug'];
 
                 array_push($arr, $elem);
             }
@@ -85,7 +94,8 @@ class Wrapper
 
             $arr = array();
 
-            foreach ($page['items'] as $item) {
+            foreach ($page['items'] as $item)
+            {
 
                 //$elem = new GoodsItem();
 
@@ -144,8 +154,12 @@ class Wrapper
                         echo "\n";
 
                     }
-                    echo $item['qty_rules_data']['on'];
-                    echo "\n";
+                    if(isset($item['qty_rules_data']['on']))
+                    {
+                        echo $item['qty_rules_data']['on'];
+                        echo "\n";
+
+                    }
                 }
                 echo $item['category_id'];
                 echo "\n";
