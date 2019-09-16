@@ -1,18 +1,24 @@
 <?php
 
-require_once ('vendor/autoload.php');
-include_once('Objects/SimaLandResponse.php');
+include_once('Wrapper/Wrapper.php');
 
-$curl = curl_init('https://www.sima-land.ru/api/v3/category/');
-curl_setopt($curl, CURLOPT_HTTPHEADER, array('Accept: application/json'));
-curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-$json = curl_exec($curl); // сохранен json
-curl_close($curl);
-//echo $json;
+$wrapper = new Wrapper();
 
-$serializer = JMS\Serializer\SerializerBuilder::create()->build();
-$object = $serializer->deserialize($json, 'SimaLandResponse', 'json');
+for ($i = 1; $i <= 10; $i++)
+{
+    $page = $wrapper->GetCategoryPage($i);
 
-print_r($object);
+    if($page !== '')
+    {
+        $categoryArr = $wrapper->ParsePageToItem($page);
+        if($categoryArr != null)
+        {
+            print_r($categoryArr);
+        }
+    }
+}
+
+
+
 
 
