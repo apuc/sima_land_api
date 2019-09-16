@@ -103,9 +103,51 @@ class Wrapper
                 echo "\n";
                 if($item['trademark'] != null)
                 {
-                    print_r( $item['trademark'] );
-
+                    echo $item['trademark']['id'];
+                    echo "\n";
+                    echo $item['trademark']['name'];
+                    echo "\n";
+                    echo $item['trademark']['slug'];
+                    echo "\n";
+                    echo $item['trademark']['photo'];
+                    echo "\n";
+                    echo $item['trademark']['image'];
+                    echo "\n";
+                    echo $item['trademark']['is_exclusive'];
+                    echo "\n";
                 }
+                if($item['date_info'] != null)
+                {
+                    echo $item['date_info']['min_date'];
+                    echo "\n";
+                    echo $item['date_info']['max_date'];
+                    echo "\n";
+                    echo $item['date_info']['is_paid'];
+                    echo "\n";
+                }
+                if($item['country'] != null)
+                {
+                    echo $item['country']['id'];
+                    echo "\n";
+                    echo $item['country']['name'];
+                    echo "\n";
+                    echo $item['country']['full_name'];
+                    echo "\n";
+                    echo $item['country']['alpha2'];
+                    echo "\n";
+                }
+                if($item['qty_rules_data'] != null)
+                {
+                    if($item['qty_rules_data']['from'] != null)
+                    {
+                        echo $item['qty_rules_data']['from'];
+                        echo "\n";
+
+                    }
+                    echo $item['qty_rules_data']['on'];
+                    echo "\n";
+                }
+                echo $item['category_id'];
                 echo "\n";
                 echo $item['img'];
                 echo "\n";
