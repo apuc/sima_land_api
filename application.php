@@ -3,12 +3,13 @@
 include_once('Wrapper/Wrapper.php');
 
 $wrapper = new Wrapper();
-
-for ($i = 1; $i <= 10; $i++)
+/*
+//Get 10 Page of categories:
+for ($i = 0; $i <= 10; $i++)
 {
     $page = $wrapper->GetCategoryPage($i);
 
-    if($page !== '')
+    if($page !== '' && $page != null)
     {
         $categoryArr = $wrapper->ParsePageToItem($page);
         if($categoryArr != null)
@@ -17,7 +18,12 @@ for ($i = 1; $i <= 10; $i++)
         }
     }
 }
+*/
 
+$cat = 1;
+$page = 1;
+$page = $wrapper->GetItemByCategories($cat, $page);
+print_r($page);
 
 
 

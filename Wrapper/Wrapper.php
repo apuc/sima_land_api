@@ -9,7 +9,13 @@ class Wrapper
         if($page < 1)
             return null;
 
-        $curl = curl_init('https://www.sima-land.ru/api/v3/category/?page=$page');
+        $query = http_build_query([
+            'page' => $page
+        ]);
+
+        $url = "https://www.sima-land.ru/api/v3/category/?".$query;
+
+        $curl = curl_init($url);
         curl_setopt($curl, CURLOPT_HTTPHEADER, array('Accept: application/json'));
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
         $json = curl_exec($curl);
@@ -42,5 +48,27 @@ class Wrapper
             return $arr;
         }
         else return null;
+    }
+
+    public function GetItemByCategories(int $categoryId, int $page)
+    {
+        if($page < 1)
+            return null;
+        if($categoryId < 1)
+            return null;
+
+        $query = http_build_query([
+            'category_id' => $categoryId,
+            'page' => $page
+        ]);
+        $url = "https://www.sima-land.ru/api/v3/item/?".$query;
+
+        $curl = curl_init($url);
+        curl_setopt($curl, CURLOPT_HTTPHEADER, array('Accept: application/json'));
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        $json = curl_exec($curl);
+        curl_close($curl);
+
+        return $json;
     }
 }
