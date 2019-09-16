@@ -101,7 +101,7 @@ class Wrapper
                 echo "\n";
                 echo $item['currency'];
                 echo "\n";
-                if($item['trademark'] != null)
+                if(isset($item['trademark']))
                 {
                     echo $item['trademark']['id'];
                     echo "\n";
@@ -116,7 +116,7 @@ class Wrapper
                     echo $item['trademark']['is_exclusive'];
                     echo "\n";
                 }
-                if($item['date_info'] != null)
+                if(isset($item['date_info']))
                 {
                     echo $item['date_info']['min_date'];
                     echo "\n";
@@ -125,7 +125,7 @@ class Wrapper
                     echo $item['date_info']['is_paid'];
                     echo "\n";
                 }
-                if($item['country'] != null)
+                if(isset($item['country']))
                 {
                     echo $item['country']['id'];
                     echo "\n";
@@ -136,9 +136,9 @@ class Wrapper
                     echo $item['country']['alpha2'];
                     echo "\n";
                 }
-                if($item['qty_rules_data'] != null)
+                if(isset($item['qty_rules_data']))
                 {
-                    if($item['qty_rules_data']['from'] != null)
+                    if(isset($item['qty_rules_data']['from']))
                     {
                         echo $item['qty_rules_data']['from'];
                         echo "\n";
