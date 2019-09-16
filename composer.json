@@ -1,0 +1,13 @@
+{
+    "name": "kizilov/sima-land-wrapper",
+    "authors": [
+        {
+            "name": "Kovalenko Ilja",
+            "email": "dalek@mail.ua"
+        }
+    ],
+    "require": {
+        "jms/serializer": "^1.14",
+        "jms/serializer-bundle": "^2.4"
+    }
+}
