@@ -12,10 +12,12 @@ class GoodsItem
     public $width; //double
     public $height; //double
     public $img; //String
+    public $size; //String
     public $trademark; //Trademark
     public $photos; //array(Photo)
     public $modifier; //Modifier
     public $date_info; //DateInfo
-    public $size; //Object
+
+
 }
 

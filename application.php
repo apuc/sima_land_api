@@ -23,7 +23,12 @@ for ($i = 0; $i <= 10; $i++)
 $cat = 1;
 $page = 1;
 $page = $wrapper->GetItemByCategories($cat, $page);
-print_r($page);
+//print_r($page);
+
+if($page !== '' && $page != null)
+{
+    $wrapper->ParsePageToGoodsItem($page);
+}
 
 
 

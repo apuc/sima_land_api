@@ -1,6 +1,8 @@
 <?php
 
-require_once ('Wrapper/CategoryItem.php');
+require_once('Wrapper/Items/CategoryItem.php');
+require_once('Wrapper/Items/GoodsItem.php');
+require_once('Wrapper/Items/GoodsInfo/Trademark.php');
 
 class Wrapper
 {
@@ -24,32 +26,6 @@ class Wrapper
         return $json;
     }
 
-    public function ParsePageToItem(string $json)
-    {
-        if($json !== '')
-        {
-            $page = json_decode($json, true);
-
-            $arr = array();
-
-            foreach($page['items'] as $item)
-            {
-                $elem = new CategoryItem();
-
-                $elem->id = $item['id'];
-                $elem->name = $item['name'];
-                $elem->photo = $item['photo'];
-                $elem->icon = $item['icon'];
-                $elem->full_slug = $item['full_slug'];
-
-                array_push($arr, $elem);
-            }
-
-            return $arr;
-        }
-        else return null;
-    }
-
     public function GetItemByCategories(int $categoryId, int $page)
     {
         if($page < 1)
@@ -70,5 +46,76 @@ class Wrapper
         curl_close($curl);
 
         return $json;
+    }
+
+    public function ParsePageToCategoryItem(string $json)
+    {
+        if($json === '')
+            return null;
+        else {
+
+            $page = json_decode($json, true);
+
+            $arr = array();
+
+            foreach ($page['items'] as $item) {
+                $elem = new CategoryItem();
+
+                $elem->id = $item['id'];
+                $elem->name = $item['name'];
+                $elem->photo = $item['photo'];
+                $elem->icon = $item['icon'];
+                $elem->full_slug = $item['full_slug'];
+
+                array_push($arr, $elem);
+            }
+
+            return $arr;
+        }
+    }
+
+
+    public function ParsePageToGoodsItem(string $json)
+    {
+        if($json === '')
+            return null;
+        else {
+
+            $page = json_decode($json, true);
+
+            $arr = array();
+
+            foreach ($page['items'] as $item) {
+
+                //$elem = new GoodsItem();
+
+                echo $item['id'];
+                echo "\n";
+                echo $item['name'];
+                echo "\n";
+                echo $item['slug'];
+                echo "\n";
+                echo $item['price'];
+                echo "\n";
+                echo $item['price_max'];
+                echo "\n";
+                echo $item['currency'];
+                echo "\n";
+                if($item['trademark'] != null)
+                {
+                    print_r( $item['trademark'] );
+
+                }
+                echo "\n";
+                echo $item['img'];
+                echo "\n";
+                //echo $item[''];
+
+                //array_push($arr, $elem);
+            }
+
+            //return $arr;
+
+        }
     }
 }

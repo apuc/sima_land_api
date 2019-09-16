@@ -4,7 +4,6 @@
 class Trademark
 {
     public $id; //int
-    public $sid; //String
     public $name; //String
     public $description; //String
     public $slug; //String
