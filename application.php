@@ -129,7 +129,12 @@ echo $json;
 $delivery =  $wrapper->ParsePageToDeliveryAddressItems($json);
 print_r($delivery);*/
 
-$json = $wrapper->GetMaterialPage(1);
+/*$json = $wrapper->GetMaterialPage(1);
 echo $json;
 $material = $wrapper->ParsePageToMaterialItems($json);
-print_r($material);
+print_r($material);*/
+
+$json = $wrapper->GetCountryPage(1);
+echo $json;
+$country =  $wrapper->ParsePageToCountryItems($json);
+print_r($country);

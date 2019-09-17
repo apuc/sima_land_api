@@ -143,6 +143,16 @@ class Wrapper
 
         return $elem;
     }
+    private function CreateCountryFromArr($item): Country
+    {
+        $elem = new Country();
+
+        foreach ($elem as $f => $v)
+            if(isset($item[$f]))
+                $elem->$f = $item[$f];
+
+        return $elem;
+    }
     #endregion
 
     #region Public methods
@@ -749,6 +759,55 @@ class Wrapper
         $item = json_decode($json, true);
 
         return $this->CreateMaterialItemsFromArr($item);
+    }
+    #endregion
+
+    #region Country
+    public function GetCountryById(int $id)
+    {
+        if($id < 1)
+            return null;
+
+        $url = "https://www.sima-land.ru/api/v3/country//".$id.'/';
+        return $this->ExecuteCurl($url);
+    }
+    public function GetCountryPage(int $page)
+    {
+        if($page < 1)
+            return null;
+
+        $query = http_build_query([
+            'page' => $page
+        ]);
+
+        $url = "https://www.sima-land.ru/api/v3/country/?".$query;
+        return $this->ExecuteCurl($url);
+    }
+    public function ParsePageToCountryItems(string $json)
+    {
+        if($json === '')
+            return null;
+
+        $page = json_decode($json, true);
+
+        $arr = array();
+
+        foreach ($page['items'] as $item)
+        {
+            $elem = $this->CreateCountryFromArr($item);
+            array_push($arr, $elem);
+        }
+
+        return $arr;
+    }
+    public function ParseSingleCountry(string $json)
+    {
+        if($json === '')
+            return null;
+
+        $item = json_decode($json, true);
+
+        return $this->CreateCountryFromArr($item);
     }
     #endregion
 
