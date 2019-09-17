@@ -11,6 +11,7 @@ require_once('Wrapper/Items/GiftItem.php');
 require_once('Wrapper/Items/ItemCommentItem.php');
 require_once('Wrapper/Items/OfferItem.php');
 require_once('Wrapper/Items/MaterialItem.php');
+require_once('Wrapper/Items/PickupPointItem.php');
 require_once('Wrapper/Items/GoodsInfo/Trademark.php');
 require_once('Wrapper/Items/GoodsInfo/Country.php');
 require_once('Wrapper/Items/GoodsInfo/DateInfo.php');
@@ -156,6 +157,16 @@ class Wrapper
     private function CreateTrademarkFromArr($item): Trademark
     {
         $elem = new Trademark();
+
+        foreach ($elem as $f => $v)
+            if(isset($item[$f]))
+                $elem->$f = $item[$f];
+
+        return $elem;
+    }
+    private function CreatePickupPointFromArr($item): PickupPointItem
+    {
+        $elem = new PickupPointItem();
 
         foreach ($elem as $f => $v)
             if(isset($item[$f]))
@@ -870,6 +881,54 @@ class Wrapper
     }
     #endregion
 
+    #region Pickup-Point
+    public function GetPickupPointById(int $id)
+    {
+        if($id < 1)
+            return null;
+
+        $url = "https://www.sima-land.ru/api/v3/pickup-point/".$id.'/';
+        return $this->ExecuteCurl($url);
+    }
+    public function GetPickupPointPage(int $page)
+    {
+        if($page < 1)
+            return null;
+
+        $query = http_build_query([
+            'page' => $page
+        ]);
+
+        $url = "https://www.sima-land.ru/api/v3/pickup-point/?".$query;
+        return $this->ExecuteCurl($url);
+    }
+    public function ParsePageToPickupPointItems(string $json)
+    {
+        if($json === '')
+            return null;
+
+        $page = json_decode($json, true);
+
+        $arr = array();
+
+        foreach ($page['items'] as $item)
+        {
+            $elem = $this->CreatePickupPointFromArr($item);
+            array_push($arr, $elem);
+        }
+
+        return $arr;
+    }
+    public function ParseSinglePickupPoint(string $json)
+    {
+        if($json === '')
+            return null;
+
+        $item = json_decode($json, true);
+
+        return $this->CreatePickupPointFromArr($item);
+    }
     #endregion
 
+    #endregion
 }

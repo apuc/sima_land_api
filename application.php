@@ -139,7 +139,7 @@ echo $json;
 $country =  $wrapper->ParsePageToCountryItems($json);
 print_r($country);*/
 
-$json = $wrapper->GetTrademarkPage(1);
+$json = $wrapper->GetPickupPointPage(1);
 echo $json;
-$trademark =  $wrapper->ParsePageToTrademarkItems($json);
-print_r($trademark);
+$pickup_point =  $wrapper->ParsePageToPickupPointItems($json);
+print_r($pickup_point);
