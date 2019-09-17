@@ -113,3 +113,8 @@ print_r($settlement);*/
 echo $json;
 $gifts = $wrapper->ParsePageToGiftsItems($json);
 print_r($gifts);*/
+
+$json = $wrapper->GetItemCommentsPage(1);
+echo $json;
+$comments = $wrapper->ParsePageToItemCommentsItems($json);
+print_r($comments);

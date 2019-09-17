@@ -8,6 +8,7 @@ require_once('Wrapper/Items/SeriesItem.php');
 require_once('Wrapper/Items/DistrictItem.php');
 require_once('Wrapper/Items/SettlementItem.php');
 require_once('Wrapper/Items/GiftItem.php');
+require_once('Wrapper/Items/ItemCommentItem.php');
 require_once('Wrapper/Items/GoodsInfo/Trademark.php');
 require_once('Wrapper/Items/GoodsInfo/Country.php');
 require_once('Wrapper/Items/GoodsInfo/DateInfo.php');
@@ -103,6 +104,16 @@ class Wrapper
     private function CreateGiftFromArr($item): GiftItem
     {
         $elem = new GiftItem();
+
+        foreach ($elem as $f => $v)
+            if(isset($item[$f]))
+                $elem->$f = $item[$f];
+
+        return $elem;
+    }
+    private function CreateItemCommentFromArr($item): ItemCommentItem
+    {
+        $elem = new ItemCommentItem();
 
         foreach ($elem as $f => $v)
             if(isset($item[$f]))
@@ -520,6 +531,55 @@ class Wrapper
         $item = json_decode($json, true);
 
         return $this->CreateGiftFromArr($item);
+    }
+    #endregion
+
+    #region Item-Comment
+    public function GetSingleItemCommentById(int $id)
+    {
+        if($id < 1)
+            return null;
+
+        $url = "https://www.sima-land.ru/api/v3/item-comment/".$id.'/';
+        return $this->ExecuteCurl($url);
+    }
+    public function GetItemCommentsPage(int $page)
+    {
+        if($page < 1)
+            return null;
+
+        $query = http_build_query([
+            'page' => $page
+        ]);
+
+        $url = "https://www.sima-land.ru/api/v3/item-comment/?".$query;
+        return $this->ExecuteCurl($url);
+    }
+    public function ParsePageToItemCommentsItems(string $json)
+    {
+        if($json === '')
+            return null;
+
+        $page = json_decode($json, true);
+
+        $arr = array();
+
+        foreach ($page['items'] as $item)
+        {
+            $elem = $this->CreateItemCommentFromArr($item);
+            array_push($arr, $elem);
+        }
+
+        return $arr;
+    }
+    public function ParseSingleItemComment(string $json)
+    {
+        if($json === '')
+            return null;
+
+        $item = json_decode($json, true);
+
+        return $this->CreateItemCommentFromArr($item);
     }
     #endregion
 
