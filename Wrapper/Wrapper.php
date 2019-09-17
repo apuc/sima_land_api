@@ -4,6 +4,7 @@ require_once('Wrapper/Items/CategoryItem.php');
 require_once('Wrapper/Items/GoodsItem.php');
 require_once('Wrapper/Items/AuthorItem.php');
 require_once('Wrapper/Items/CurrencyItem.php');
+require_once('Wrapper/Items/SeriesItem.php');
 require_once('Wrapper/Items/GoodsInfo/Trademark.php');
 require_once('Wrapper/Items/GoodsInfo/Country.php');
 require_once('Wrapper/Items/GoodsInfo/DateInfo.php');
@@ -12,10 +13,9 @@ require_once('Wrapper/Items/GoodsInfo/Modifier.php');
 
 class Wrapper
 {
-    /**
-     * @param string $url
-     * @return bool|string
-     */
+    #region Private methods
+
+    #region curl
     private function ExecuteCurl(string $url)
     {
         $curl = curl_init($url);
@@ -25,13 +25,69 @@ class Wrapper
         curl_close($curl);
         return $json;
     }
+    #endregion
 
+    private function CreateCategoryFromArr($category): CategoryItem
+    {
+        $elem = new CategoryItem();
+
+        foreach ($elem as $f => $v)
+            if(isset($category[$f]))
+                $elem->$f = $category[$f];
+
+        return $elem;
+    }
+    private function CreateGoodsFromArr($item): GoodsItem
+    {
+        $elem = new GoodsItem();
+
+        foreach ($elem as $f => $v)
+            if(isset($item[$f]))
+                $elem->$f = $item[$f];
+
+        return $elem;
+    }
+    private function CreateAuthorFromArr($item): AuthorItem
+    {
+        $elem = new AuthorItem();
+
+        foreach ($elem as $f => $v)
+            if(isset($item[$f]))
+                $elem->$f = $item[$f];
+
+        return $elem;
+    }
+    private function CreateCurrencyFromArr($item): CurrencyItem
+    {
+        $elem = new CurrencyItem();
+
+        foreach ($elem as $f => $v)
+            if(isset($item[$f]))
+                $elem->$f = $item[$f];
+
+        return $elem;
+    }
+    private function CreateSeriesFromArr($item): SeriesItem
+    {
+        $elem = new SeriesItem();
+
+        foreach ($elem as $f => $v)
+            if(isset($item[$f]))
+                $elem->$f = $item[$f];
+
+        return $elem;
+    }
+
+    #endregion
+
+    #region Public methods
+
+    #region Currency
     public function GetCurrencyPage()
     {
         $url = "https://www.sima-land.ru/api/v3/currency/";
         return $this->ExecuteCurl($url);
     }
-
     public function GetSingleCurrencyById(int $id)
     {
         if($id < 1)
@@ -42,7 +98,35 @@ class Wrapper
         return $this->ExecuteCurl($url);
 
     }
+    public function ParsePageToCurrencyItems(string $json)
+    {
+        if($json === '')
+            return null;
 
+        $page = json_decode($json, true);
+
+        $arr = array();
+
+        foreach ($page['items'] as $item)
+        {
+            $elem = $this->CreateCurrencyFromArr($item);
+            array_push($arr, $elem);
+        }
+
+        return $arr;
+    }
+    public function ParseSingleCurrency(string $json)
+    {
+        if($json === '')
+            return null;
+
+        $item = json_decode($json, true);
+
+        return $this->CreateCurrencyFromArr($item);
+    }
+    #endregion
+
+    #region Author
     public function GetSingleAuthorById(int $id)
     {
         if($id < 1)
@@ -52,7 +136,6 @@ class Wrapper
         $url = "https://www.sima-land.ru/api/v3/author/".$id.'/';
         return $this->ExecuteCurl($url);
     }
-
     public function GetAuthorPage(int $page)
     {
         if($page < 1)
@@ -66,7 +149,35 @@ class Wrapper
         $url = "https://www.sima-land.ru/api/v3/author/?".$query;
         return $this->ExecuteCurl($url);
     }
+    public function ParsePageToAuthorItems(string $json)
+    {
+        if($json === '')
+            return null;
 
+        $page = json_decode($json, true);
+
+        $arr = array();
+
+        foreach ($page['items'] as $item)
+        {
+            $elem = $this->CreateAuthorFromArr($item);
+            array_push($arr, $elem);
+        }
+
+        return $arr;
+    }
+    public function ParseSingleAuthor(string $json)
+    {
+        if($json === '')
+            return null;
+
+        $item = json_decode($json, true);
+
+        return $this->CreateAuthorFromArr($item);
+    }
+    #endregion
+
+    #region Category
     public function GetCategoryPage(int $page)
     {
         if($page < 1)
@@ -86,7 +197,6 @@ class Wrapper
 
         return $json;
     }
-
     public function GetSingleCategoryById(int $id)
     {
         if($id < 1)
@@ -97,34 +207,6 @@ class Wrapper
         //'https://www.sima-land.ru/api/v3/category/<ID>/'
         return $this->ExecuteCurl($url);
     }
-
-    public function GetSingleGoodsById(int $id)
-    {
-        if($id < 1)
-            return null;
-
-        $url = "https://www.sima-land.ru/api/v3/item/".$id.'/';
-
-        //'https://www.sima-land.ru/api/v3/item/<ID>/'
-        return $this->ExecuteCurl($url);
-    }
-
-    public function GetItemsByCategories(int $categoryId, int $page)
-    {
-        if($page < 1)
-            return null;
-        if($categoryId < 1)
-            return null;
-
-        $query = http_build_query([
-            'category_id' => $categoryId,
-            'page' => $page
-        ]);
-        $url = "https://www.sima-land.ru/api/v3/item/?".$query;
-
-        return $this->ExecuteCurl($url);
-    }
-
     public function ParsePageToCategoryItems(string $json)
     {
         if($json === '')
@@ -143,7 +225,46 @@ class Wrapper
         return $arr;
 
     }
+    public function ParseSingleCategory(string $json)
+    {
+        if($json === '')
+            return null;
 
+        $category = json_decode($json, true);
+
+        return $this->CreateCategoryFromArr($category);
+
+        //return $elem;
+
+    }
+    #endregion
+
+    #region Goods
+    public function GetSingleGoodsById(int $id)
+    {
+        if($id < 1)
+            return null;
+
+        $url = "https://www.sima-land.ru/api/v3/item/".$id.'/';
+
+        //'https://www.sima-land.ru/api/v3/item/<ID>/'
+        return $this->ExecuteCurl($url);
+    }
+    public function GetItemsByCategories(int $categoryId, int $page)
+    {
+        if($page < 1)
+            return null;
+        if($categoryId < 1)
+            return null;
+
+        $query = http_build_query([
+            'category_id' => $categoryId,
+            'page' => $page
+        ]);
+        $url = "https://www.sima-land.ru/api/v3/item/?".$query;
+
+        return $this->ExecuteCurl($url);
+    }
     public function ParsePageToGoodsItems(string $json)
     {
         if($json === '')
@@ -161,66 +282,6 @@ class Wrapper
 
         return $arr;
     }
-
-    public function ParsePageToAuthorItems(string $json)
-    {
-        if($json === '')
-            return null;
-
-        $page = json_decode($json, true);
-
-        $arr = array();
-
-        foreach ($page['items'] as $item)
-        {
-            $elem = $this->CreateAuthorFromArr($item);
-            array_push($arr, $elem);
-        }
-
-        return $arr;
-    }
-
-    public function ParsePageToCurrencyItems(string $json)
-    {
-        if($json === '')
-            return null;
-
-        $page = json_decode($json, true);
-
-        $arr = array();
-
-        foreach ($page['items'] as $item)
-        {
-            $elem = $this->CreateCurrencyFromArr($item);
-            array_push($arr, $elem);
-        }
-
-        return $arr;
-    }
-
-    public function ParseSingleCategory(string $json)
-    {
-        if($json === '')
-            return null;
-
-        $category = json_decode($json, true);
-
-        return $this->CreateCategoryFromArr($category);
-
-        //return $elem;
-
-    }
-
-    public function ParseSingleAuthor(string $json)
-    {
-        if($json === '')
-            return null;
-
-        $item = json_decode($json, true);
-
-        return $this->CreateAuthorFromArr($item);
-    }
-
     public function ParseSingleGoods(string $json)
     {
         if($json === '')
@@ -230,66 +291,58 @@ class Wrapper
 
         return $this->CreateGoodsFromArr($item);
     }
+    #endregion
 
-    public function ParseSingleCurrency(string $json)
+    #region Series
+    public function GetSingleSeriesById(int $id)
+    {
+        if($id < 1)
+            return null;
+
+        //https://www.sima-land.ru/api/v3/series/<ID>/
+        $url = "https://www.sima-land.ru/api/v3/series/".$id.'/';
+        return $this->ExecuteCurl($url);
+    }
+    public function GetSeriesPage(int $page)
+    {
+        if($page < 1)
+            return null;
+
+        $query = http_build_query([
+            'page' => $page
+        ]);
+
+        $url = "https://www.sima-land.ru/api/v3/series/?".$query;
+        return $this->ExecuteCurl($url);
+    }
+    public function ParseSingleSeries(string $json)
     {
         if($json === '')
             return null;
 
         $item = json_decode($json, true);
 
-        return $this->CreateCurrencyFromArr($item);
+        return $this->CreateSeriesFromArr($item);
     }
-
-    /**
-     * @param $category
-     * @return CategoryItem
-     */
-    private function CreateCategoryFromArr($category): CategoryItem
+    public function ParsePageToSeriesItems(string $json)
     {
-        $elem = new CategoryItem();
+        if($json === '')
+            return null;
 
-        foreach ($elem as $f => $v)
-            if(isset($category[$f]))
-                $elem->$f = $category[$f];
+        $page = json_decode($json, true);
 
-        return $elem;
+        $arr = array();
+
+        foreach ($page['items'] as $item)
+        {
+            $elem = $this->CreateSeriesFromArr($item);
+            array_push($arr, $elem);
+        }
+
+        return $arr;
     }
-    /**
-     * @param $item
-     * @return GoodsItem
-     */
-    private function CreateGoodsFromArr($item): GoodsItem
-    {
-        $elem = new GoodsItem();
+    #endregion
 
-        foreach ($elem as $f => $v)
-            if(isset($item[$f]))
-                $elem->$f = $item[$f];
-
-        return $elem;
-    }
-
-    private function CreateAuthorFromArr($item): AuthorItem
-    {
-        $elem = new AuthorItem();
-
-        foreach ($elem as $f => $v)
-            if(isset($item[$f]))
-                $elem->$f = $item[$f];
-
-        return $elem;
-    }
-
-    private function CreateCurrencyFromArr($item): CurrencyItem
-    {
-        $elem = new CurrencyItem();
-
-        foreach ($elem as $f => $v)
-            if(isset($item[$f]))
-                $elem->$f = $item[$f];
-
-        return $elem;
-    }
+    #endregion
 
 }

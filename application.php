@@ -81,7 +81,7 @@ echo $json;
 $currency = $wrapper->ParseSingleCurrency($json);
 print_r($currency);*/
 
-//Get page of Currency
+/*//Get page of Currency
 $json = $wrapper->GetCurrencyPage();
 echo $json;
 if($json !== '' && $json != null)
@@ -91,4 +91,8 @@ if($json !== '' && $json != null)
     {
         print_r($currencyArr);
     }
-}
+}*/
+
+//echo $wrapper->GetSeriesPage(1);
+$json = $wrapper->GetSeriesPage(1);
+print_r($wrapper->ParsePageToSeriesItems($json));
