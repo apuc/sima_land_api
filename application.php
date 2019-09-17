@@ -133,8 +133,13 @@ print_r($delivery);*/
 echo $json;
 $material = $wrapper->ParsePageToMaterialItems($json);
 print_r($material);*/
-
+/*
 $json = $wrapper->GetCountryPage(1);
 echo $json;
 $country =  $wrapper->ParsePageToCountryItems($json);
-print_r($country);
+print_r($country);*/
+
+$json = $wrapper->GetTrademarkPage(1);
+echo $json;
+$trademark =  $wrapper->ParsePageToTrademarkItems($json);
+print_r($trademark);

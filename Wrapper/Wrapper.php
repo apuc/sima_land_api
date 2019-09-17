@@ -153,6 +153,16 @@ class Wrapper
 
         return $elem;
     }
+    private function CreateTrademarkFromArr($item): Trademark
+    {
+        $elem = new Trademark();
+
+        foreach ($elem as $f => $v)
+            if(isset($item[$f]))
+                $elem->$f = $item[$f];
+
+        return $elem;
+    }
     #endregion
 
     #region Public methods
@@ -768,7 +778,7 @@ class Wrapper
         if($id < 1)
             return null;
 
-        $url = "https://www.sima-land.ru/api/v3/country//".$id.'/';
+        $url = "https://www.sima-land.ru/api/v3/country/".$id.'/';
         return $this->ExecuteCurl($url);
     }
     public function GetCountryPage(int $page)
@@ -808,6 +818,55 @@ class Wrapper
         $item = json_decode($json, true);
 
         return $this->CreateCountryFromArr($item);
+    }
+    #endregion
+
+    #region Trademark
+    public function GetTrademarkById(int $id)
+    {
+        if($id < 1)
+            return null;
+
+        $url = "https://www.sima-land.ru/api/v3/trademark/".$id.'/';
+        return $this->ExecuteCurl($url);
+    }
+    public function GetTrademarkPage(int $page)
+    {
+        if($page < 1)
+            return null;
+
+        $query = http_build_query([
+            'page' => $page
+        ]);
+
+        $url = "https://www.sima-land.ru/api/v3/trademark/?".$query;
+        return $this->ExecuteCurl($url);
+    }
+    public function ParsePageToTrademarkItems(string $json)
+    {
+        if($json === '')
+            return null;
+
+        $page = json_decode($json, true);
+
+        $arr = array();
+
+        foreach ($page['items'] as $item)
+        {
+            $elem = $this->CreateTrademarkFromArr($item);
+            array_push($arr, $elem);
+        }
+
+        return $arr;
+    }
+    public function ParseSingleTrademark(string $json)
+    {
+        if($json === '')
+            return null;
+
+        $item = json_decode($json, true);
+
+        return $this->CreateTrademarkFromArr($item);
     }
     #endregion
 
