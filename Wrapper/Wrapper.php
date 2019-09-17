@@ -18,6 +18,7 @@ require_once('Wrapper/Items/CarModelItem.php');
 require_once('Wrapper/Items/BoxtypeItem.php');
 require_once('Wrapper/Items/BarcodeItem.php');
 require_once('Wrapper/Items/PaymentTypeItem.php');
+require_once('Wrapper/Items/CertificateTypeItem.php');
 require_once('Wrapper/Items/SpecOfferTypeItem.php');
 require_once('Wrapper/Items/DeliveryConditionItem.php');
 require_once('Wrapper/Items/DeliveryCompanyItem.php');
@@ -1237,6 +1238,55 @@ class Wrapper
         $item = json_decode($json, true);
 
         return $this->CreateObjectFromArr($item, "SpecOfferTypeItem");
+    }
+    #endregion
+
+    #region Certificate-Type
+    public function GetCertificateTypeById(int $id)
+    {
+        if($id < 1)
+            return null;
+
+        $url = "https://www.sima-land.ru/api/v3/certificate-type/".$id.'/';
+        return $this->ExecuteCurl($url);
+    }
+    public function GetCertificateTypePage(int $page)
+    {
+        if($page < 1)
+            return null;
+
+        $query = http_build_query([
+            'page' => $page
+        ]);
+
+        $url = "https://www.sima-land.ru/api/v3/certificate-type/?".$query;
+        return $this->ExecuteCurl($url);
+    }
+    public function ParsePageToCertificateTypeItems(string $json)
+    {
+        if($json === '')
+            return null;
+
+        $page = json_decode($json, true);
+
+        $arr = array();
+
+        foreach ($page['items'] as $item)
+        {
+            $elem = $this->CreateObjectFromArr($item, "CertificateTypeItem");
+            array_push($arr, $elem);
+        }
+
+        return $arr;
+    }
+    public function ParseCertificateType(string $json)
+    {
+        if($json === '')
+            return null;
+
+        $item = json_decode($json, true);
+
+        return $this->CreateObjectFromArr($item, "CertificateTypeItem");
     }
     #endregion
 }

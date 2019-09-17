@@ -177,7 +177,12 @@ echo $json;
 $type =  $wrapper->ParsePageToPaymentTypeItems($json);
 print_r($type);*/
 
-$json = $wrapper->GetSpecOfferTypePage(1);
+/*$json = $wrapper->GetSpecOfferTypePage(1);
 echo $json;
 $type =  $wrapper->ParsePageToSpecOfferTypeItems($json);
+print_r($type);*/
+
+$json = $wrapper->GetCertificateTypePage(1);
+echo $json;
+$type =  $wrapper->ParsePageToCertificateTypeItems($json);
 print_r($type);
