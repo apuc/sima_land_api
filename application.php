@@ -146,8 +146,13 @@ print_r($most_liked);*/
 echo $json;
 $news =  $wrapper->ParsePageToNewsItems($json);
 print_r($news);*/
-
+/*
 $json = $wrapper->GetCarModelPage(1);
 echo $json;
 $car =  $wrapper->ParsePageToCarModelItems($json);
-print_r($car);
+print_r($car);*/
+
+$json = $wrapper->GetBoxtypePage(1);
+echo $json;
+$boxtype =  $wrapper->ParsePageToBoxtypeItems($json);
+print_r($boxtype);

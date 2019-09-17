@@ -15,6 +15,7 @@ require_once('Wrapper/Items/MaterialItem.php');
 require_once('Wrapper/Items/PickupPointItem.php');
 require_once('Wrapper/Items/NewsItem.php');
 require_once('Wrapper/Items/CarModelItem.php');
+require_once('Wrapper/Items/BoxtypeItem.php');
 require_once('Wrapper/Items/GoodsInfo/Trademark.php');
 require_once('Wrapper/Items/GoodsInfo/Country.php');
 require_once('Wrapper/Items/GoodsInfo/DateInfo.php');
@@ -936,6 +937,55 @@ class Wrapper
         $item = json_decode($json, true);
 
         return $this->CreateObjectFromArr($item, "CarModelItem");
+    }
+    #endregion
+
+    #region Boxtype
+    public function GetBoxtypeById(int $id)
+    {
+        if($id < 1)
+            return null;
+
+        $url = "https://www.sima-land.ru/api/v3/boxtype/".$id.'/';
+        return $this->ExecuteCurl($url);
+    }
+    public function GetBoxtypePage(int $page)
+    {
+        if($page < 1)
+            return null;
+
+        $query = http_build_query([
+            'page' => $page
+        ]);
+
+        $url = "https://www.sima-land.ru/api/v3/boxtype/?".$query;
+        return $this->ExecuteCurl($url);
+    }
+    public function ParsePageToBoxtypeItems(string $json)
+    {
+        if($json === '')
+            return null;
+
+        $page = json_decode($json, true);
+
+        $arr = array();
+
+        foreach ($page['items'] as $item)
+        {
+            $elem = $this->CreateObjectFromArr($item, "BoxtypeItem");
+            array_push($arr, $elem);
+        }
+
+        return $arr;
+    }
+    public function ParseSingleBoxtype(string $json)
+    {
+        if($json === '')
+            return null;
+
+        $item = json_decode($json, true);
+
+        return $this->CreateObjectFromArr($item, "BoxtypeItem");
     }
     #endregion
 }
