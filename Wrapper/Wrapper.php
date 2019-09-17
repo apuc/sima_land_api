@@ -2,6 +2,7 @@
 
 require_once('Wrapper/Items/CategoryItem.php');
 require_once('Wrapper/Items/GoodsItem.php');
+require_once('Wrapper/Items/AuthorItem.php');
 require_once('Wrapper/Items/GoodsInfo/Trademark.php');
 require_once('Wrapper/Items/GoodsInfo/Country.php');
 require_once('Wrapper/Items/GoodsInfo/DateInfo.php');
@@ -10,6 +11,40 @@ require_once('Wrapper/Items/GoodsInfo/Modifier.php');
 
 class Wrapper
 {
+    /**
+     * @param string $url
+     * @return bool|string
+     */
+    private function ExecuteCurl(string $url)
+    {
+        $curl = curl_init($url);
+        curl_setopt($curl, CURLOPT_HTTPHEADER, array('Accept: application/json'));
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        $json = curl_exec($curl);
+        curl_close($curl);
+        return $json;
+    }
+
+    public function GetSingleAuthor(int $id)
+    {
+        if($id < 1)
+            return null;
+
+        //https://www.sima-land.ru/api/v3/author/<ID>/
+        $url = "https://www.sima-land.ru/api/v3/author/".$id.'/';
+        return $this->ExecuteCurl($url);
+    }
+
+    public function GetAuthorPage(int $page)
+    {
+        if($page < 1)
+            return null;
+
+        //https://www.sima-land.ru/api/v3/author/
+        $url = "https://www.sima-land.ru/api/v3/author/";
+        return $this->ExecuteCurl($url);
+    }
+
     public function GetCategoryPage(int $page)
     {
         if($page < 1)
@@ -105,6 +140,24 @@ class Wrapper
         return $arr;
     }
 
+    public function ParsePageToAuthorItems(string $json)
+    {
+        if($json === '')
+            return null;
+
+        $page = json_decode($json, true);
+
+        $arr = array();
+
+        foreach ($page['items'] as $item)
+        {
+            $elem = $this->CreateAuthorFromArr($item);
+            array_push($arr, $elem);
+        }
+
+        return $arr;
+    }
+
     public function ParseSingleCategory(string $json)
     {
         if($json === '')
@@ -144,26 +197,33 @@ class Wrapper
     }
 
     /**
-     * @param string $url
-     * @return bool|string
-     */
-    private function ExecuteCurl(string $url)
-    {
-        $curl = curl_init($url);
-        curl_setopt($curl, CURLOPT_HTTPHEADER, array('Accept: application/json'));
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-        $json = curl_exec($curl);
-        curl_close($curl);
-        return $json;
-    }
-
-    /**
      * @param $item
      * @return GoodsItem
      */
     public function CreateGoodsFromArr($item): GoodsItem
     {
         $elem = new GoodsItem();
+
+        foreach ($elem as $f => $v)
+            if(isset($item[$f]))
+                $elem->$f = $item[$f];
+
+        return $elem;
+    }
+
+    public function ParseSingleAuthor(string $json)
+    {
+        if($json === '')
+            return null;
+
+        $item = json_decode($json, true);
+
+        return $this->CreateAuthorFromArr($item);
+    }
+
+    private function CreateAuthorFromArr($item): AuthorItem
+    {
+        $elem = new AuthorItem();
 
         foreach ($elem as $f => $v)
             if(isset($item[$f]))
