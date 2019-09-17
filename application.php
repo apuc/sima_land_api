@@ -162,7 +162,12 @@ echo $json;
 $barcode =  $wrapper->ParsePageToBarcodeItems($json);
 print_r($barcode);*/
 
-$json = $wrapper->GetDeliveryCompanyPage(1);
+/*$json = $wrapper->GetDeliveryCompanyPage(1);
 echo $json;
 $company =  $wrapper->ParsePageToDeliveryCompanyItems($json);
-print_r($company);
+print_r($company);*/
+
+$json = $wrapper->GetDeliveryConditionPage(1);
+echo $json;
+$condition =  $wrapper->ParsePageToDeliveryConditionItems($json);
+print_r($condition);

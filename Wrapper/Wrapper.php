@@ -17,6 +17,7 @@ require_once('Wrapper/Items/NewsItem.php');
 require_once('Wrapper/Items/CarModelItem.php');
 require_once('Wrapper/Items/BoxtypeItem.php');
 require_once('Wrapper/Items/BarcodeItem.php');
+require_once('Wrapper/Items/DeliveryConditionItem.php');
 require_once('Wrapper/Items/DeliveryCompanyItem.php');
 require_once('Wrapper/Items/GoodsInfo/Trademark.php');
 require_once('Wrapper/Items/GoodsInfo/Country.php');
@@ -1086,6 +1087,55 @@ class Wrapper
         $item = json_decode($json, true);
 
         return $this->CreateObjectFromArr($item, "DeliveryCompanyItem");
+    }
+    #endregion
+
+    #region Delivery-Condition
+    public function GetDeliveryConditionById(int $id)
+    {
+        if($id < 1)
+            return null;
+
+        $url = "https://www.sima-land.ru/api/v3/delivery-condition/".$id.'/';
+        return $this->ExecuteCurl($url);
+    }
+    public function GetDeliveryConditionPage(int $page)
+    {
+        if($page < 1)
+            return null;
+
+        $query = http_build_query([
+            'page' => $page
+        ]);
+
+        $url = "https://www.sima-land.ru/api/v3/delivery-condition/?".$query;
+        return $this->ExecuteCurl($url);
+    }
+    public function ParsePageToDeliveryConditionItems(string $json)
+    {
+        if($json === '')
+            return null;
+
+        $page = json_decode($json, true);
+
+        $arr = array();
+
+        foreach ($page['items'] as $item)
+        {
+            $elem = $this->CreateObjectFromArr($item, "DeliveryConditionItem");
+            array_push($arr, $elem);
+        }
+
+        return $arr;
+    }
+    public function ParseSingleDeliveryCondition(string $json)
+    {
+        if($json === '')
+            return null;
+
+        $item = json_decode($json, true);
+
+        return $this->CreateObjectFromArr($item, "DeliveryConditionItem");
     }
     #endregion
 }
