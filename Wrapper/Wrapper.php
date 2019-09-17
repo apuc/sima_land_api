@@ -9,6 +9,7 @@ require_once('Wrapper/Items/DistrictItem.php');
 require_once('Wrapper/Items/SettlementItem.php');
 require_once('Wrapper/Items/GiftItem.php');
 require_once('Wrapper/Items/ItemCommentItem.php');
+require_once('Wrapper/Items/OfferItems.php');
 require_once('Wrapper/Items/GoodsInfo/Trademark.php');
 require_once('Wrapper/Items/GoodsInfo/Country.php');
 require_once('Wrapper/Items/GoodsInfo/DateInfo.php');
@@ -114,6 +115,16 @@ class Wrapper
     private function CreateItemCommentFromArr($item): ItemCommentItem
     {
         $elem = new ItemCommentItem();
+
+        foreach ($elem as $f => $v)
+            if(isset($item[$f]))
+                $elem->$f = $item[$f];
+
+        return $elem;
+    }
+    private function CreateOfferItemsFromArr($item): OfferItems
+    {
+        $elem = new OfferItems();
 
         foreach ($elem as $f => $v)
             if(isset($item[$f]))
@@ -580,6 +591,55 @@ class Wrapper
         $item = json_decode($json, true);
 
         return $this->CreateItemCommentFromArr($item);
+    }
+    #endregion
+
+    #region Offer
+    public function GetSingleItemOfferById(int $id)
+    {
+        if($id < 1)
+            return null;
+
+        $url = "https://www.sima-land.ru/api/v3/offer/".$id.'/';
+        return $this->ExecuteCurl($url);
+    }
+    public function GetOffersPage(int $page)
+    {
+        if($page < 1)
+            return null;
+
+        $query = http_build_query([
+            'page' => $page
+        ]);
+
+        $url = "https://www.sima-land.ru/api/v3/offer/?".$query;
+        return $this->ExecuteCurl($url);
+    }
+    public function ParsePageToOfferItems(string $json)
+    {
+        if($json === '')
+            return null;
+
+        $page = json_decode($json, true);
+
+        $arr = array();
+
+        foreach ($page['items'] as $item)
+        {
+            $elem = $this->CreateOfferItemsFromArr($item);
+            array_push($arr, $elem);
+        }
+
+        return $arr;
+    }
+    public function ParseSingleOffer(string $json)
+    {
+        if($json === '')
+            return null;
+
+        $item = json_decode($json, true);
+
+        return $this->CreateOfferItemsFromArr($item);
     }
     #endregion
 

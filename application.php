@@ -114,7 +114,12 @@ echo $json;
 $gifts = $wrapper->ParsePageToGiftsItems($json);
 print_r($gifts);*/
 
-$json = $wrapper->GetItemCommentsPage(1);
+/*$json = $wrapper->GetItemCommentsPage(1);
 echo $json;
 $comments = $wrapper->ParsePageToItemCommentsItems($json);
-print_r($comments);
+print_r($comments);*/
+
+$json = $wrapper->GetOffersPage(1);
+echo $json;
+$offers =  $wrapper->ParsePageToOfferItems($json);
+print_r($offers);
