@@ -18,6 +18,7 @@ require_once('Wrapper/Items/CarModelItem.php');
 require_once('Wrapper/Items/BoxtypeItem.php');
 require_once('Wrapper/Items/BarcodeItem.php');
 require_once('Wrapper/Items/PaymentTypeItem.php');
+require_once('Wrapper/Items/SpecOfferTypeItem.php');
 require_once('Wrapper/Items/DeliveryConditionItem.php');
 require_once('Wrapper/Items/DeliveryCompanyItem.php');
 require_once('Wrapper/Items/GoodsInfo/Trademark.php');
@@ -1187,6 +1188,55 @@ class Wrapper
         $item = json_decode($json, true);
 
         return $this->CreateObjectFromArr($item, "PaymentTypeItem");
+    }
+    #endregion
+
+    #region Special-Offer-Type
+    public function GetSpecOfferTypeById(int $id)
+    {
+        if($id < 1)
+            return null;
+
+        $url = "https://www.sima-land.ru/api/v3/special-offer-type/".$id.'/';
+        return $this->ExecuteCurl($url);
+    }
+    public function GetSpecOfferTypePage(int $page)
+    {
+        if($page < 1)
+            return null;
+
+        $query = http_build_query([
+            'page' => $page
+        ]);
+
+        $url = "https://www.sima-land.ru/api/v3/special-offer-type/?".$query;
+        return $this->ExecuteCurl($url);
+    }
+    public function ParsePageToSpecOfferTypeItems(string $json)
+    {
+        if($json === '')
+            return null;
+
+        $page = json_decode($json, true);
+
+        $arr = array();
+
+        foreach ($page['items'] as $item)
+        {
+            $elem = $this->CreateObjectFromArr($item, "SpecOfferTypeItem");
+            array_push($arr, $elem);
+        }
+
+        return $arr;
+    }
+    public function ParseSingleSpecOfferType(string $json)
+    {
+        if($json === '')
+            return null;
+
+        $item = json_decode($json, true);
+
+        return $this->CreateObjectFromArr($item, "SpecOfferTypeItem");
     }
     #endregion
 }

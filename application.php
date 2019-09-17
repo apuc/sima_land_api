@@ -172,7 +172,12 @@ echo $json;
 $condition =  $wrapper->ParsePageToDeliveryConditionItems($json);
 print_r($condition);*/
 
-$json = $wrapper->GetDeliveryConditionPage(1);
+/*$json = $wrapper->GetDeliveryConditionPage(1);
 echo $json;
 $type =  $wrapper->ParsePageToPaymentTypeItems($json);
+print_r($type);*/
+
+$json = $wrapper->GetSpecOfferTypePage(1);
+echo $json;
+$type =  $wrapper->ParsePageToSpecOfferTypeItems($json);
 print_r($type);
