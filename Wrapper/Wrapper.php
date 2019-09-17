@@ -7,6 +7,7 @@ require_once('Wrapper/Items/CurrencyItem.php');
 require_once('Wrapper/Items/SeriesItem.php');
 require_once('Wrapper/Items/DistrictItem.php');
 require_once('Wrapper/Items/SettlementItem.php');
+require_once('Wrapper/Items/GiftItem.php');
 require_once('Wrapper/Items/GoodsInfo/Trademark.php');
 require_once('Wrapper/Items/GoodsInfo/Country.php');
 require_once('Wrapper/Items/GoodsInfo/DateInfo.php');
@@ -92,6 +93,16 @@ class Wrapper
     private function CreateSettlementFromArr($item): SettlementItem
     {
         $elem = new SettlementItem();
+
+        foreach ($elem as $f => $v)
+            if(isset($item[$f]))
+                $elem->$f = $item[$f];
+
+        return $elem;
+    }
+    private function CreateGiftFromArr($item): GiftItem
+    {
+        $elem = new GiftItem();
 
         foreach ($elem as $f => $v)
             if(isset($item[$f]))
@@ -463,10 +474,53 @@ class Wrapper
     }
     #endregion
 
-    #region gift
+    #region Gift
+    public function GetSingleGiftById(int $id)
+    {
+        if($id < 1)
+            return null;
 
+        $url = "https://www.sima-land.ru/api/v3/gift/".$id.'/';
+        return $this->ExecuteCurl($url);
+    }
+    public function GetGiftsPage(int $page)
+    {
+        if($page < 1)
+            return null;
 
+        $query = http_build_query([
+            'page' => $page
+        ]);
 
+        $url = "https://www.sima-land.ru/api/v3/gift/?".$query;
+        return $this->ExecuteCurl($url);
+    }
+    public function ParsePageToGiftsItems(string $json)
+    {
+        if($json === '')
+            return null;
+
+        $page = json_decode($json, true);
+
+        $arr = array();
+
+        foreach ($page['items'] as $item)
+        {
+            $elem = $this->CreateGiftFromArr($item);
+            array_push($arr, $elem);
+        }
+
+        return $arr;
+    }
+    public function ParseSingleGift(string $json)
+    {
+        if($json === '')
+            return null;
+
+        $item = json_decode($json, true);
+
+        return $this->CreateGiftFromArr($item);
+    }
     #endregion
 
     #endregion

@@ -108,3 +108,8 @@ print_r($districts);*/
 echo $json;
 $settlement = $wrapper->ParsePageToSettlementsItems($json);
 print_r($settlement);*/
+
+/*$json = $wrapper->GetGiftsPage(1);
+echo $json;
+$gifts = $wrapper->ParsePageToGiftsItems($json);
+print_r($gifts);*/
