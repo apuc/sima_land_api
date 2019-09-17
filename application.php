@@ -139,7 +139,12 @@ echo $json;
 $country =  $wrapper->ParsePageToCountryItems($json);
 print_r($country);*/
 
-$json = $wrapper->GetMostLikedPage(1);
+/*$json = $wrapper->GetMostLikedPage(1);
 echo $json;
 $most_liked =  $wrapper->ParsePageToMostLikedItems($json);
-print_r($most_liked);
+print_r($most_liked);*/
+
+$json = $wrapper->GetNewsPage(1);
+echo $json;
+$news =  $wrapper->ParsePageToNewsItems($json);
+print_r($news);

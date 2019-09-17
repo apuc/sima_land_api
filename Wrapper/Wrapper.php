@@ -12,6 +12,7 @@ require_once('Wrapper/Items/ItemCommentItem.php');
 require_once('Wrapper/Items/OfferItem.php');
 require_once('Wrapper/Items/MaterialItem.php');
 require_once('Wrapper/Items/PickupPointItem.php');
+require_once('Wrapper/Items/NewsItem.php');
 require_once('Wrapper/Items/GoodsInfo/Trademark.php');
 require_once('Wrapper/Items/GoodsInfo/Country.php');
 require_once('Wrapper/Items/GoodsInfo/DateInfo.php');
@@ -34,13 +35,13 @@ class Wrapper
     }
     #endregion
 
-    private function CreateCategoryFromArr($category): CategoryItem
+    private function CreateCategoryFromArr($item): CategoryItem
     {
         $elem = new CategoryItem();
 
         foreach ($elem as $f => $v)
-            if(isset($category[$f]))
-                $elem->$f = $category[$f];
+            if(isset($item[$f]))
+                $elem->$f = $item[$f];
 
         return $elem;
     }
@@ -167,6 +168,16 @@ class Wrapper
     private function CreatePickupPointFromArr($item): PickupPointItem
     {
         $elem = new PickupPointItem();
+
+        foreach ($elem as $f => $v)
+            if(isset($item[$f]))
+                $elem->$f = $item[$f];
+
+        return $elem;
+    }
+    private function CreateNewsItemFromArr($item): NewsItem
+    {
+        $elem = new NewsItem();
 
         foreach ($elem as $f => $v)
             if(isset($item[$f]))
@@ -976,6 +987,55 @@ class Wrapper
         $item = json_decode($json, true);
 
         return $this->CreateGoodsFromArr($item);
+    }
+    #endregion
+
+    #region News
+    public function GetNewsById(int $id)
+    {
+        if($id < 1)
+            return null;
+
+        $url = "https://www.sima-land.ru/api/v3/news/".$id.'/';
+        return $this->ExecuteCurl($url);
+    }
+    public function GetNewsPage(int $page)
+    {
+        if($page < 1)
+            return null;
+
+        $query = http_build_query([
+            'page' => $page
+        ]);
+
+        $url = "https://www.sima-land.ru/api/v3/news/?".$query;
+        return $this->ExecuteCurl($url);
+    }
+    public function ParsePageToNewsItems(string $json)
+    {
+        if($json === '')
+            return null;
+
+        $page = json_decode($json, true);
+
+        $arr = array();
+
+        foreach ($page['items'] as $item)
+        {
+            $elem = $this->CreateNewsItemFromArr($item);
+            array_push($arr, $elem);
+        }
+
+        return $arr;
+    }
+    public function ParseSingleNews(string $json)
+    {
+        if($json === '')
+            return null;
+
+        $item = json_decode($json, true);
+
+        return $this->CreateNewsItemFromArr($item);
     }
     #endregion
 
