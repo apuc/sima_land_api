@@ -98,7 +98,13 @@ if($json !== '' && $json != null)
 print_r($wrapper->ParsePageToSeriesItems($json));*/
 
 //echo $wrapper->GetDistrictsPage(1);
-$json = $wrapper->GetDistrictsPage(1);
+/*$json = $wrapper->GetDistrictsPage(1);
 echo $json;
 $districts = $wrapper->ParsePageToDistrictsItems($json);
-print_r($districts);
+print_r($districts);*/
+
+//echo $wrapper->GetSettlementsPage(1);
+/*$json = $wrapper->GetSettlementsPage(2);
+echo $json;
+$settlement = $wrapper->ParsePageToSettlementsItems($json);
+print_r($settlement);*/
