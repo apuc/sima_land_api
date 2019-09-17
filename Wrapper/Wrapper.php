@@ -643,6 +643,55 @@ class Wrapper
     }
     #endregion
 
+    #region Delivery-Address
+    public function GetSingleDeliveryAddressById(int $id)
+    {
+        if($id < 1)
+            return null;
+
+        $url = "https://www.sima-land.ru/api/v3/offer/".$id.'/';
+        return $this->ExecuteCurl($url);
+    }
+    public function GetDeliveryAddressPage(int $page)
+    {
+        if($page < 1)
+            return null;
+
+        $query = http_build_query([
+            'page' => $page
+        ]);
+
+        $url = "https://www.sima-land.ru/api/v3/offer/?".$query;
+        return $this->ExecuteCurl($url);
+    }
+    public function ParsePageToDeliveryAddressItems(string $json)
+    {
+        if($json === '')
+            return null;
+
+        $page = json_decode($json, true);
+
+        $arr = array();
+
+        foreach ($page['items'] as $item)
+        {
+            $elem = $this->CreateOfferItemsFromArr($item);
+            array_push($arr, $elem);
+        }
+
+        return $arr;
+    }
+    public function ParseSingleDeliveryAddress(string $json)
+    {
+        if($json === '')
+            return null;
+
+        $item = json_decode($json, true);
+
+        return $this->CreateOfferItemsFromArr($item);
+    }
+    #endregion
+
     #endregion
 
 }

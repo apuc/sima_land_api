@@ -119,7 +119,12 @@ echo $json;
 $comments = $wrapper->ParsePageToItemCommentsItems($json);
 print_r($comments);*/
 
-$json = $wrapper->GetOffersPage(1);
+/*$json = $wrapper->GetOffersPage(1);
 echo $json;
 $offers =  $wrapper->ParsePageToOfferItems($json);
-print_r($offers);
+print_r($offers);*/
+
+$json = $wrapper->GetDeliveryAddressPage(1);
+echo $json;
+$delivery =  $wrapper->ParsePageToDeliveryAddressItems($json);
+print_r($delivery);
