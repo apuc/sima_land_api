@@ -4,13 +4,13 @@ include_once('Wrapper/Wrapper.php');
 
 $wrapper = new Wrapper();
 
-/*
-//Get Single Category By ID
+
+/*//Get Single Category By ID
 $json = $wrapper->GetSingleCategoryById(1);
 echo $json;
 $category = $wrapper->ParseSingleCategory($json);
-print_r($category);
-*/
+print_r($category);*/
+
 
 /*
 //Get 10 Page of categories:
@@ -18,18 +18,16 @@ for ($i = 0; $i <= 10; $i++)
 {
     $page = $wrapper->GetCategoryPage($i);
 
-    //echo $page;
-
     if($page !== '' && $page != null)
     {
-        $categoryArr = $wrapper->ParsePageToCategoryItem($page);
+        $categoryArr = $wrapper->ParsePageToCategoryItems($page);
         if($categoryArr != null)
         {
             print_r($categoryArr);
         }
     }
-}
-*/
+}*/
+
 
 /*
 //Get page of items by category ID
@@ -54,9 +52,9 @@ echo $json;
 $good = $wrapper->ParseSingleGoods($json);
 print_r($good);
 */
-
-/*//Get Single Author By ID
-$json = $wrapper->GetSingleAuthor(116);
+/*
+//Get Single Author By ID
+$json = $wrapper->GetSingleAuthorById(116);
 echo $json."\n";
 $author = $wrapper->ParseSingleAuthor($json);
 print_r($author);*/
@@ -123,8 +121,8 @@ print_r($comments);*/
 echo $json;
 $offers =  $wrapper->ParsePageToOfferItems($json);
 print_r($offers);*/
-
-/*$json = $wrapper->GetDeliveryAddressPage(1);
+/*
+$json = $wrapper->GetDeliveryAddressPage(1);
 echo $json;
 $delivery =  $wrapper->ParsePageToDeliveryAddressItems($json);
 print_r($delivery);*/
@@ -144,7 +142,12 @@ echo $json;
 $most_liked =  $wrapper->ParsePageToMostLikedItems($json);
 print_r($most_liked);*/
 
-$json = $wrapper->GetNewsPage(1);
+/*$json = $wrapper->GetNewsPage(1);
 echo $json;
 $news =  $wrapper->ParsePageToNewsItems($json);
-print_r($news);
+print_r($news);*/
+
+$json = $wrapper->GetCarModelPage(1);
+echo $json;
+$car =  $wrapper->ParsePageToCarModelItems($json);
+print_r($car);

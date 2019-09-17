@@ -8,11 +8,13 @@ require_once('Wrapper/Items/SeriesItem.php');
 require_once('Wrapper/Items/DistrictItem.php');
 require_once('Wrapper/Items/SettlementItem.php');
 require_once('Wrapper/Items/GiftItem.php');
-require_once('Wrapper/Items/ItemCommentItem.php');
+require_once('Wrapper/Items/CommentItem.php');
+require_once('Wrapper/Items/DeliveryAddressItem.php');
 require_once('Wrapper/Items/OfferItem.php');
 require_once('Wrapper/Items/MaterialItem.php');
 require_once('Wrapper/Items/PickupPointItem.php');
 require_once('Wrapper/Items/NewsItem.php');
+require_once('Wrapper/Items/CarModelItem.php');
 require_once('Wrapper/Items/GoodsInfo/Trademark.php');
 require_once('Wrapper/Items/GoodsInfo/Country.php');
 require_once('Wrapper/Items/GoodsInfo/DateInfo.php');
@@ -35,149 +37,9 @@ class Wrapper
     }
     #endregion
 
-    private function CreateCategoryFromArr($item): CategoryItem
+    private function  CreateObjectFromArr($item, $object)
     {
-        $elem = new CategoryItem();
-
-        foreach ($elem as $f => $v)
-            if(isset($item[$f]))
-                $elem->$f = $item[$f];
-
-        return $elem;
-    }
-    private function CreateGoodsFromArr($item): GoodsItem
-    {
-        $elem = new GoodsItem();
-
-        foreach ($elem as $f => $v)
-            if(isset($item[$f]))
-                $elem->$f = $item[$f];
-
-        return $elem;
-    }
-    private function CreateAuthorFromArr($item): AuthorItem
-    {
-        $elem = new AuthorItem();
-
-        foreach ($elem as $f => $v)
-            if(isset($item[$f]))
-                $elem->$f = $item[$f];
-
-        return $elem;
-    }
-    private function CreateCurrencyFromArr($item): CurrencyItem
-    {
-        $elem = new CurrencyItem();
-
-        foreach ($elem as $f => $v)
-            if(isset($item[$f]))
-                $elem->$f = $item[$f];
-
-        return $elem;
-    }
-    private function CreateSeriesFromArr($item): SeriesItem
-    {
-        $elem = new SeriesItem();
-
-        foreach ($elem as $f => $v)
-            if(isset($item[$f]))
-                $elem->$f = $item[$f];
-
-        return $elem;
-    }
-    private function CreateDistrictFromArr($item): DistrictItem
-    {
-        $elem = new DistrictItem();
-
-        foreach ($elem as $f => $v)
-            if(isset($item[$f]))
-                $elem->$f = $item[$f];
-
-        return $elem;
-    }
-    private function CreateSettlementFromArr($item): SettlementItem
-    {
-        $elem = new SettlementItem();
-
-        foreach ($elem as $f => $v)
-            if(isset($item[$f]))
-                $elem->$f = $item[$f];
-
-        return $elem;
-    }
-    private function CreateGiftFromArr($item): GiftItem
-    {
-        $elem = new GiftItem();
-
-        foreach ($elem as $f => $v)
-            if(isset($item[$f]))
-                $elem->$f = $item[$f];
-
-        return $elem;
-    }
-    private function CreateItemCommentFromArr($item): ItemCommentItem
-    {
-        $elem = new ItemCommentItem();
-
-        foreach ($elem as $f => $v)
-            if(isset($item[$f]))
-                $elem->$f = $item[$f];
-
-        return $elem;
-    }
-    private function CreateOfferItemsFromArr($item): OfferItem
-    {
-        $elem = new OfferItem();
-
-        foreach ($elem as $f => $v)
-            if(isset($item[$f]))
-                $elem->$f = $item[$f];
-
-        return $elem;
-    }
-    private function CreateMaterialItemsFromArr($item): MaterialItem
-    {
-        $elem = new MaterialItem();
-
-        foreach ($elem as $f => $v)
-            if(isset($item[$f]))
-                $elem->$f = $item[$f];
-
-        return $elem;
-    }
-    private function CreateCountryFromArr($item): Country
-    {
-        $elem = new Country();
-
-        foreach ($elem as $f => $v)
-            if(isset($item[$f]))
-                $elem->$f = $item[$f];
-
-        return $elem;
-    }
-    private function CreateTrademarkFromArr($item): Trademark
-    {
-        $elem = new Trademark();
-
-        foreach ($elem as $f => $v)
-            if(isset($item[$f]))
-                $elem->$f = $item[$f];
-
-        return $elem;
-    }
-    private function CreatePickupPointFromArr($item): PickupPointItem
-    {
-        $elem = new PickupPointItem();
-
-        foreach ($elem as $f => $v)
-            if(isset($item[$f]))
-                $elem->$f = $item[$f];
-
-        return $elem;
-    }
-    private function CreateNewsItemFromArr($item): NewsItem
-    {
-        $elem = new NewsItem();
+        $elem = new $object();
 
         foreach ($elem as $f => $v)
             if(isset($item[$f]))
@@ -216,7 +78,7 @@ class Wrapper
 
         foreach ($page['items'] as $item)
         {
-            $elem = $this->CreateCurrencyFromArr($item);
+            $elem = $this->CreateObjectFromArr($item, "CurrencyItem");
             array_push($arr, $elem);
         }
 
@@ -229,7 +91,7 @@ class Wrapper
 
         $item = json_decode($json, true);
 
-        return $this->CreateCurrencyFromArr($item);
+        return $this->CreateObjectFromArr($item, "CurrencyItem");
     }
     #endregion
 
@@ -267,7 +129,7 @@ class Wrapper
 
         foreach ($page['items'] as $item)
         {
-            $elem = $this->CreateAuthorFromArr($item);
+            $elem = $this->CreateObjectFromArr($item, "AuthorItem");
             array_push($arr, $elem);
         }
 
@@ -280,7 +142,7 @@ class Wrapper
 
         $item = json_decode($json, true);
 
-        return $this->CreateAuthorFromArr($item);
+        return $this->CreateObjectFromArr($item, "AuthorItem");
     }
     #endregion
 
@@ -295,14 +157,7 @@ class Wrapper
         ]);
 
         $url = "https://www.sima-land.ru/api/v3/category/?".$query;
-
-        $curl = curl_init($url);
-        curl_setopt($curl, CURLOPT_HTTPHEADER, array('Accept: application/json'));
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-        $json = curl_exec($curl);
-        curl_close($curl);
-
-        return $json;
+        return $this->ExecuteCurl($url);
     }
     public function GetSingleCategoryById(int $id)
     {
@@ -311,7 +166,6 @@ class Wrapper
 
         $url = "https://www.sima-land.ru/api/v3/category/".$id.'/';
 
-        //'https://www.sima-land.ru/api/v3/category/<ID>/'
         return $this->ExecuteCurl($url);
     }
     public function ParsePageToCategoryItems(string $json)
@@ -324,7 +178,7 @@ class Wrapper
 
         foreach ($page['items'] as $item) {
 
-            $elem = $this->CreateCategoryFromArr($item);
+            $elem = $this->CreateObjectFromArr($item, "CategoryItem");
 
             array_push($arr, $elem);
         }
@@ -337,12 +191,9 @@ class Wrapper
         if($json === '')
             return null;
 
-        $category = json_decode($json, true);
+        $item = json_decode($json, true);
 
-        return $this->CreateCategoryFromArr($category);
-
-        //return $elem;
-
+        return $this->CreateObjectFromArr($item, "CategoryItem");
     }
     #endregion
 
@@ -383,7 +234,7 @@ class Wrapper
 
         foreach ($page['items'] as $item)
         {
-            $elem = $this->CreateGoodsFromArr($item);
+            $elem = $this->CreateObjectFromArr($item, "GoodsItem");
             array_push($arr, $elem);
         }
 
@@ -396,7 +247,7 @@ class Wrapper
 
         $item = json_decode($json, true);
 
-        return $this->CreateGoodsFromArr($item);
+        return $this->CreateObjectFromArr($item, "GoodsItem");
     }
     #endregion
 
@@ -429,7 +280,7 @@ class Wrapper
 
         $item = json_decode($json, true);
 
-        return $this->CreateSeriesFromArr($item);
+        return $this->CreateObjectFromArr($item, "SeriesItem");
     }
     public function ParsePageToSeriesItems(string $json)
     {
@@ -442,7 +293,7 @@ class Wrapper
 
         foreach ($page['items'] as $item)
         {
-            $elem = $this->CreateSeriesFromArr($item);
+            $elem = $this->CreateObjectFromArr($item, "SeriesItem");
             array_push($arr, $elem);
         }
 
@@ -483,7 +334,7 @@ class Wrapper
 
         foreach ($page['items'] as $item)
         {
-            $elem = $this->CreateDistrictFromArr($item);
+            $elem = $this->CreateObjectFromArr($item, "DistrictItem");
             array_push($arr, $elem);
         }
 
@@ -496,7 +347,7 @@ class Wrapper
 
         $item = json_decode($json, true);
 
-        return $this->CreateDistrictFromArr($item);
+        return $this->CreateObjectFromArr($item, "DistrictItem");
     }
     #endregion
 
@@ -532,7 +383,7 @@ class Wrapper
 
         foreach ($page['items'] as $item)
         {
-            $elem = $this->CreateSettlementFromArr($item);
+            $elem = $this->CreateObjectFromArr($item, "SettlementItem");
             array_push($arr, $elem);
         }
 
@@ -545,7 +396,7 @@ class Wrapper
 
         $item = json_decode($json, true);
 
-        return $this->CreateSettlementFromArr($item);
+        return $this->CreateObjectFromArr($item, "SettlementItem");
     }
     #endregion
 
@@ -581,7 +432,7 @@ class Wrapper
 
         foreach ($page['items'] as $item)
         {
-            $elem = $this->CreateGiftFromArr($item);
+            $elem = $this->CreateObjectFromArr($item, "GiftItem");
             array_push($arr, $elem);
         }
 
@@ -594,7 +445,7 @@ class Wrapper
 
         $item = json_decode($json, true);
 
-        return $this->CreateGiftFromArr($item);
+        return $this->CreateObjectFromArr($item,"GiftItem");
     }
     #endregion
 
@@ -630,7 +481,7 @@ class Wrapper
 
         foreach ($page['items'] as $item)
         {
-            $elem = $this->CreateItemCommentFromArr($item);
+            $elem = $this->CreateObjectFromArr($item, "CommentItem");
             array_push($arr, $elem);
         }
 
@@ -643,7 +494,7 @@ class Wrapper
 
         $item = json_decode($json, true);
 
-        return $this->CreateItemCommentFromArr($item);
+        return $this->CreateObjectFromArr($item,  "CommentItem");
     }
     #endregion
 
@@ -679,7 +530,7 @@ class Wrapper
 
         foreach ($page['items'] as $item)
         {
-            $elem = $this->CreateOfferItemsFromArr($item);
+            $elem = $this->CreateObjectFromArr($item, "OfferItem");
             array_push($arr, $elem);
         }
 
@@ -692,7 +543,7 @@ class Wrapper
 
         $item = json_decode($json, true);
 
-        return $this->CreateOfferItemsFromArr($item);
+        return $this->CreateObjectFromArr($item, "OfferItem");
     }
     #endregion
 
@@ -702,7 +553,7 @@ class Wrapper
         if($id < 1)
             return null;
 
-        $url = "https://www.sima-land.ru/api/v3/offer/".$id.'/';
+        $url = "https://www.sima-land.ru/api/v3/delivery-address/".$id.'/';
         return $this->ExecuteCurl($url);
     }
     public function GetDeliveryAddressPage(int $page)
@@ -714,7 +565,7 @@ class Wrapper
             'page' => $page
         ]);
 
-        $url = "https://www.sima-land.ru/api/v3/offer/?".$query;
+        $url = "https://www.sima-land.ru/api/v3/delivery-address/?".$query;
         return $this->ExecuteCurl($url);
     }
     public function ParsePageToDeliveryAddressItems(string $json)
@@ -728,7 +579,7 @@ class Wrapper
 
         foreach ($page['items'] as $item)
         {
-            $elem = $this->CreateOfferItemsFromArr($item);
+            $elem = $this->CreateObjectFromArr($item, "DeliveryAddressItem" );
             array_push($arr, $elem);
         }
 
@@ -741,7 +592,7 @@ class Wrapper
 
         $item = json_decode($json, true);
 
-        return $this->CreateOfferItemsFromArr($item);
+        return $this->CreateObjectFromArr($item, "DeliveryAddressItem" );
     }
     #endregion
 
@@ -777,7 +628,7 @@ class Wrapper
 
         foreach ($page['items'] as $item)
         {
-            $elem = $this->CreateMaterialItemsFromArr($item);
+            $elem = $this->CreateObjectFromArr($item, "MaterialItem");
             array_push($arr, $elem);
         }
 
@@ -790,7 +641,7 @@ class Wrapper
 
         $item = json_decode($json, true);
 
-        return $this->CreateMaterialItemsFromArr($item);
+        return $this->CreateObjectFromArr($item, "MaterialItem");
     }
     #endregion
 
@@ -826,7 +677,7 @@ class Wrapper
 
         foreach ($page['items'] as $item)
         {
-            $elem = $this->CreateCountryFromArr($item);
+            $elem = $this->CreateObjectFromArr($item, "Country");
             array_push($arr, $elem);
         }
 
@@ -839,7 +690,7 @@ class Wrapper
 
         $item = json_decode($json, true);
 
-        return $this->CreateCountryFromArr($item);
+        return $this->CreateObjectFromArr($item, "Country");
     }
     #endregion
 
@@ -875,7 +726,7 @@ class Wrapper
 
         foreach ($page['items'] as $item)
         {
-            $elem = $this->CreateTrademarkFromArr($item);
+            $elem = $this->CreateObjectFromArr($item, "Trademark");
             array_push($arr, $elem);
         }
 
@@ -888,7 +739,7 @@ class Wrapper
 
         $item = json_decode($json, true);
 
-        return $this->CreateTrademarkFromArr($item);
+        return $this->CreateObjectFromArr($item, "Trademark");
     }
     #endregion
 
@@ -924,7 +775,7 @@ class Wrapper
 
         foreach ($page['items'] as $item)
         {
-            $elem = $this->CreatePickupPointFromArr($item);
+            $elem = $this->CreateObjectFromArr($item, "PickupPointItem");
             array_push($arr, $elem);
         }
 
@@ -937,7 +788,7 @@ class Wrapper
 
         $item = json_decode($json, true);
 
-        return $this->CreatePickupPointFromArr($item);
+        return $this->CreateObjectFromArr($item, "PickupPointItem");
     }
     #endregion
 
@@ -973,7 +824,7 @@ class Wrapper
 
         foreach ($page['items'] as $item)
         {
-            $elem = $this->CreateGoodsFromArr($item);
+            $elem = $this->CreateObjectFromArr($item, "GoodsItem");
             array_push($arr, $elem);
         }
 
@@ -986,7 +837,7 @@ class Wrapper
 
         $item = json_decode($json, true);
 
-        return $this->CreateGoodsFromArr($item);
+        return $this->CreateObjectFromArr($item, "GoodsItem");
     }
     #endregion
 
@@ -1022,7 +873,7 @@ class Wrapper
 
         foreach ($page['items'] as $item)
         {
-            $elem = $this->CreateNewsItemFromArr($item);
+            $elem = $this->CreateObjectFromArr($item, "NewsItem");
             array_push($arr, $elem);
         }
 
@@ -1035,9 +886,56 @@ class Wrapper
 
         $item = json_decode($json, true);
 
-        return $this->CreateNewsItemFromArr($item);
+        return $this->CreateObjectFromArr($item, "NewsItem");
     }
     #endregion
 
+    #region Car-Model
+    public function GetCarModelById(int $id)
+    {
+        if($id < 1)
+            return null;
+
+        $url = "https://www.sima-land.ru/api/v3/car-model/".$id.'/';
+        return $this->ExecuteCurl($url);
+    }
+    public function GetCarModelPage(int $page)
+    {
+        if($page < 1)
+            return null;
+
+        $query = http_build_query([
+            'page' => $page
+        ]);
+
+        $url = "https://www.sima-land.ru/api/v3/car-model/?".$query;
+        return $this->ExecuteCurl($url);
+    }
+    public function ParsePageToCarModelItems(string $json)
+    {
+        if($json === '')
+            return null;
+
+        $page = json_decode($json, true);
+
+        $arr = array();
+
+        foreach ($page['items'] as $item)
+        {
+            $elem = $this->CreateObjectFromArr($item, "CarModelItem");
+            array_push($arr, $elem);
+        }
+
+        return $arr;
+    }
+    public function ParseSingleCarModel(string $json)
+    {
+        if($json === '')
+            return null;
+
+        $item = json_decode($json, true);
+
+        return $this->CreateObjectFromArr($item, "CarModelItem");
+    }
     #endregion
 }

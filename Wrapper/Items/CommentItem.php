@@ -1,7 +1,7 @@
 <?php
 
 
-class ItemCommentItem
+class CommentItem
 {
     public $id; //int
     public $rating_id; //int
