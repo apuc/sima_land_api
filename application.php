@@ -152,7 +152,12 @@ echo $json;
 $car =  $wrapper->ParsePageToCarModelItems($json);
 print_r($car);*/
 
-$json = $wrapper->GetBoxtypePage(1);
+/*$json = $wrapper->GetBoxtypePage(1);
 echo $json;
 $boxtype =  $wrapper->ParsePageToBoxtypeItems($json);
-print_r($boxtype);
+print_r($boxtype);*/
+
+$json = $wrapper->GetBarcodePage(1);
+echo $json;
+$barcode =  $wrapper->ParsePageToBarcodeItems($json);
+print_r($barcode);

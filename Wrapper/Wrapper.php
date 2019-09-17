@@ -16,6 +16,7 @@ require_once('Wrapper/Items/PickupPointItem.php');
 require_once('Wrapper/Items/NewsItem.php');
 require_once('Wrapper/Items/CarModelItem.php');
 require_once('Wrapper/Items/BoxtypeItem.php');
+require_once('Wrapper/Items/BarcodeItem.php');
 require_once('Wrapper/Items/GoodsInfo/Trademark.php');
 require_once('Wrapper/Items/GoodsInfo/Country.php');
 require_once('Wrapper/Items/GoodsInfo/DateInfo.php');
@@ -38,7 +39,7 @@ class Wrapper
     }
     #endregion
 
-    private function  CreateObjectFromArr($item, $object)
+    private function CreateObjectFromArr($item, $object)
     {
         $elem = new $object();
 
@@ -986,6 +987,55 @@ class Wrapper
         $item = json_decode($json, true);
 
         return $this->CreateObjectFromArr($item, "BoxtypeItem");
+    }
+    #endregion
+
+    #region Item-Barcode
+    public function GetBarcodeById(int $id)
+    {
+        if($id < 1)
+            return null;
+
+        $url = "https://www.sima-land.ru/api/v3/item-barcode/".$id.'/';
+        return $this->ExecuteCurl($url);
+    }
+    public function GetBarcodePage(int $page)
+    {
+        if($page < 1)
+            return null;
+
+        $query = http_build_query([
+            'page' => $page
+        ]);
+
+        $url = "https://www.sima-land.ru/api/v3/item-barcode/?".$query;
+        return $this->ExecuteCurl($url);
+    }
+    public function ParsePageToBarcodeItems(string $json)
+    {
+        if($json === '')
+            return null;
+
+        $page = json_decode($json, true);
+
+        $arr = array();
+
+        foreach ($page['items'] as $item)
+        {
+            $elem = $this->CreateObjectFromArr($item, "BarcodeItem");
+            array_push($arr, $elem);
+        }
+
+        return $arr;
+    }
+    public function ParseSingleBarcode(string $json)
+    {
+        if($json === '')
+            return null;
+
+        $item = json_decode($json, true);
+
+        return $this->CreateObjectFromArr($item, "BarcodeItem");
     }
     #endregion
 }
