@@ -5,6 +5,7 @@ require_once('Wrapper/Items/GoodsItem.php');
 require_once('Wrapper/Items/AuthorItem.php');
 require_once('Wrapper/Items/CurrencyItem.php');
 require_once('Wrapper/Items/SeriesItem.php');
+require_once('Wrapper/Items/DistrictItem.php');
 require_once('Wrapper/Items/GoodsInfo/Trademark.php');
 require_once('Wrapper/Items/GoodsInfo/Country.php');
 require_once('Wrapper/Items/GoodsInfo/DateInfo.php');
@@ -77,7 +78,16 @@ class Wrapper
 
         return $elem;
     }
+    private function CreateDistrictFromArr($item): DistrictItem
+    {
+        $elem = new DistrictItem();
 
+        foreach ($elem as $f => $v)
+            if(isset($item[$f]))
+                $elem->$f = $item[$f];
+
+        return $elem;
+    }
     #endregion
 
     #region Public methods
@@ -340,6 +350,56 @@ class Wrapper
         }
 
         return $arr;
+    }
+    #endregion
+
+    #region District
+    public function GetSingleDistrictById(int $id)
+    {
+        if($id < 1)
+            return null;
+
+        //https://www.sima-land.ru/api/v3/district/<ID>/
+        $url = "https://www.sima-land.ru/api/v3/district/".$id.'/';
+        return $this->ExecuteCurl($url);
+    }
+    public function GetDistrictsPage(int $page)
+    {
+        if($page < 1)
+            return null;
+
+        $query = http_build_query([
+            'page' => $page
+        ]);
+
+        $url = "https://www.sima-land.ru/api/v3/district/?".$query;
+        return $this->ExecuteCurl($url);
+    }
+    public function ParsePageToDistrictsItems(string $json)
+    {
+        if($json === '')
+            return null;
+
+        $page = json_decode($json, true);
+
+        $arr = array();
+
+        foreach ($page['items'] as $item)
+        {
+            $elem = $this->CreateDistrictFromArr($item);
+            array_push($arr, $elem);
+        }
+
+        return $arr;
+    }
+    public function ParseSingleDistrict(string $json)
+    {
+        if($json === '')
+            return null;
+
+        $item = json_decode($json, true);
+
+        return $this->CreateDistrictFromArr($item);
     }
     #endregion
 

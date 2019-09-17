@@ -94,5 +94,11 @@ if($json !== '' && $json != null)
 }*/
 
 //echo $wrapper->GetSeriesPage(1);
-$json = $wrapper->GetSeriesPage(1);
-print_r($wrapper->ParsePageToSeriesItems($json));
+/*$json = $wrapper->GetSeriesPage(1);
+print_r($wrapper->ParsePageToSeriesItems($json));*/
+
+//echo $wrapper->GetDistrictsPage(1);
+$json = $wrapper->GetDistrictsPage(1);
+echo $json;
+$districts = $wrapper->ParsePageToDistrictsItems($json);
+print_r($districts);
