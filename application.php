@@ -4,6 +4,7 @@ include_once('Wrapper/Wrapper.php');
 
 $wrapper = new Wrapper();
 
+
 /*
 //Get Single Category By ID
 $json = $wrapper->GetSingleCategoryById(1);
@@ -29,17 +30,23 @@ for ($i = 0; $i <= 10; $i++)
         }
     }
 }
+*/
 
+/*
 $cat = 1;
 $page = 1;
-$page = $wrapper->GetItemByCategories($cat, $page);
-//print_r($page);
+$page = $wrapper->GetItemsByCategories($cat, $page);
+print_r($page);
 
 if($page !== '' && $page != null)
 {
     $wrapper->ParsePageToGoodsItem($page);
-}
-*/
+}*/
+//Get Single Goods By ID
+$json = $wrapper->GetSingleGoodsById(955033);
+echo $json;
+$good = $wrapper->ParseSingleGoods($json);
+print_r($good);
 
 
 
