@@ -1,7 +1,7 @@
 <?php
 
 
-class OfferItems
+class OfferItem
 {
     public $id; //int
     public $title; //String

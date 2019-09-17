@@ -9,7 +9,8 @@ require_once('Wrapper/Items/DistrictItem.php');
 require_once('Wrapper/Items/SettlementItem.php');
 require_once('Wrapper/Items/GiftItem.php');
 require_once('Wrapper/Items/ItemCommentItem.php');
-require_once('Wrapper/Items/OfferItems.php');
+require_once('Wrapper/Items/OfferItem.php');
+require_once('Wrapper/Items/MaterialItem.php');
 require_once('Wrapper/Items/GoodsInfo/Trademark.php');
 require_once('Wrapper/Items/GoodsInfo/Country.php');
 require_once('Wrapper/Items/GoodsInfo/DateInfo.php');
@@ -122,9 +123,19 @@ class Wrapper
 
         return $elem;
     }
-    private function CreateOfferItemsFromArr($item): OfferItems
+    private function CreateOfferItemsFromArr($item): OfferItem
     {
-        $elem = new OfferItems();
+        $elem = new OfferItem();
+
+        foreach ($elem as $f => $v)
+            if(isset($item[$f]))
+                $elem->$f = $item[$f];
+
+        return $elem;
+    }
+    private function CreateMaterialItemsFromArr($item): MaterialItem
+    {
+        $elem = new MaterialItem();
 
         foreach ($elem as $f => $v)
             if(isset($item[$f]))
@@ -689,6 +700,55 @@ class Wrapper
         $item = json_decode($json, true);
 
         return $this->CreateOfferItemsFromArr($item);
+    }
+    #endregion
+
+    #region Material
+    public function GetMaterialById(int $id)
+    {
+        if($id < 1)
+            return null;
+
+        $url = "https://www.sima-land.ru/api/v3/material/".$id.'/';
+        return $this->ExecuteCurl($url);
+    }
+    public function GetMaterialPage(int $page)
+    {
+        if($page < 1)
+            return null;
+
+        $query = http_build_query([
+            'page' => $page
+        ]);
+
+        $url = "https://www.sima-land.ru/api/v3/material/?".$query;
+        return $this->ExecuteCurl($url);
+    }
+    public function ParsePageToMaterialItems(string $json)
+    {
+        if($json === '')
+            return null;
+
+        $page = json_decode($json, true);
+
+        $arr = array();
+
+        foreach ($page['items'] as $item)
+        {
+            $elem = $this->CreateMaterialItemsFromArr($item);
+            array_push($arr, $elem);
+        }
+
+        return $arr;
+    }
+    public function ParseSingleMaterial(string $json)
+    {
+        if($json === '')
+            return null;
+
+        $item = json_decode($json, true);
+
+        return $this->CreateMaterialItemsFromArr($item);
     }
     #endregion
 

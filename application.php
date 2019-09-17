@@ -124,7 +124,12 @@ echo $json;
 $offers =  $wrapper->ParsePageToOfferItems($json);
 print_r($offers);*/
 
-$json = $wrapper->GetDeliveryAddressPage(1);
+/*$json = $wrapper->GetDeliveryAddressPage(1);
 echo $json;
 $delivery =  $wrapper->ParsePageToDeliveryAddressItems($json);
-print_r($delivery);
+print_r($delivery);*/
+
+$json = $wrapper->GetMaterialPage(1);
+echo $json;
+$material = $wrapper->ParsePageToMaterialItems($json);
+print_r($material);
