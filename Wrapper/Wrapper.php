@@ -930,5 +930,54 @@ class Wrapper
     }
     #endregion
 
+    #region Item-Most-Liked
+    public function GetMostLikedById(int $id)
+    {
+        if($id < 1)
+            return null;
+
+        $url = "https://www.sima-land.ru/api/v3/item-most-liked/".$id.'/';
+        return $this->ExecuteCurl($url);
+    }
+    public function GetMostLikedPage(int $page)
+    {
+        if($page < 1)
+            return null;
+
+        $query = http_build_query([
+            'page' => $page
+        ]);
+
+        $url = "https://www.sima-land.ru/api/v3/item-most-liked/?".$query;
+        return $this->ExecuteCurl($url);
+    }
+    public function ParsePageToMostLikedItems(string $json)
+    {
+        if($json === '')
+            return null;
+
+        $page = json_decode($json, true);
+
+        $arr = array();
+
+        foreach ($page['items'] as $item)
+        {
+            $elem = $this->CreateGoodsFromArr($item);
+            array_push($arr, $elem);
+        }
+
+        return $arr;
+    }
+    public function ParseSingleMostLiked(string $json)
+    {
+        if($json === '')
+            return null;
+
+        $item = json_decode($json, true);
+
+        return $this->CreateGoodsFromArr($item);
+    }
+    #endregion
+
     #endregion
 }

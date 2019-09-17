@@ -139,7 +139,7 @@ echo $json;
 $country =  $wrapper->ParsePageToCountryItems($json);
 print_r($country);*/
 
-$json = $wrapper->GetPickupPointPage(1);
+$json = $wrapper->GetMostLikedPage(1);
 echo $json;
-$pickup_point =  $wrapper->ParsePageToPickupPointItems($json);
-print_r($pickup_point);
+$most_liked =  $wrapper->ParsePageToMostLikedItems($json);
+print_r($most_liked);
