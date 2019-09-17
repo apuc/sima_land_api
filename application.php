@@ -61,7 +61,8 @@ echo $json."\n";
 $author = $wrapper->ParseSingleAuthor($json);
 print_r($author);*/
 
-//Get page of Author
+/*
+//Get page of Authors
 $page = $wrapper->GetCategoryPage(1);
 echo $page;
 if($page !== '' && $page != null)
@@ -70,5 +71,24 @@ if($page !== '' && $page != null)
     if($authorArr != null)
     {
         print_r($authorArr);
+    }
+}*/
+
+/*
+//Get Single Currency By ID
+$json = $wrapper->GetSingleCurrencyById(1);
+echo $json;
+$currency = $wrapper->ParseSingleCurrency($json);
+print_r($currency);*/
+
+//Get page of Currency
+$json = $wrapper->GetCurrencyPage();
+echo $json;
+if($json !== '' && $json != null)
+{
+    $currencyArr = $wrapper->ParsePageToCurrencyItems($json);
+    if($currencyArr != null)
+    {
+        print_r($currencyArr);
     }
 }
