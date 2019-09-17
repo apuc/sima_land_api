@@ -166,8 +166,13 @@ print_r($barcode);*/
 echo $json;
 $company =  $wrapper->ParsePageToDeliveryCompanyItems($json);
 print_r($company);*/
-
+/*
 $json = $wrapper->GetDeliveryConditionPage(1);
 echo $json;
 $condition =  $wrapper->ParsePageToDeliveryConditionItems($json);
-print_r($condition);
+print_r($condition);*/
+
+$json = $wrapper->GetDeliveryConditionPage(1);
+echo $json;
+$type =  $wrapper->ParsePageToPaymentTypeItems($json);
+print_r($type);

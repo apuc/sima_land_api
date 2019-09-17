@@ -17,6 +17,7 @@ require_once('Wrapper/Items/NewsItem.php');
 require_once('Wrapper/Items/CarModelItem.php');
 require_once('Wrapper/Items/BoxtypeItem.php');
 require_once('Wrapper/Items/BarcodeItem.php');
+require_once('Wrapper/Items/PaymentTypeItem.php');
 require_once('Wrapper/Items/DeliveryConditionItem.php');
 require_once('Wrapper/Items/DeliveryCompanyItem.php');
 require_once('Wrapper/Items/GoodsInfo/Trademark.php');
@@ -24,6 +25,7 @@ require_once('Wrapper/Items/GoodsInfo/Country.php');
 require_once('Wrapper/Items/GoodsInfo/DateInfo.php');
 require_once('Wrapper/Items/GoodsInfo/QtyRulesData.php');
 require_once('Wrapper/Items/GoodsInfo/Modifier.php');
+
 
 class Wrapper
 {
@@ -1136,6 +1138,55 @@ class Wrapper
         $item = json_decode($json, true);
 
         return $this->CreateObjectFromArr($item, "DeliveryConditionItem");
+    }
+    #endregion
+
+    #region Payment-Type
+    public function GetPaymentTypeById(int $id)
+    {
+        if($id < 1)
+            return null;
+
+        $url = "https://www.sima-land.ru/api/v3/payment-type/".$id.'/';
+        return $this->ExecuteCurl($url);
+    }
+    public function GetPaymentTypePage(int $page)
+    {
+        if($page < 1)
+            return null;
+
+        $query = http_build_query([
+            'page' => $page
+        ]);
+
+        $url = "https://www.sima-land.ru/api/v3/payment-type/?".$query;
+        return $this->ExecuteCurl($url);
+    }
+    public function ParsePageToPaymentTypeItems(string $json)
+    {
+        if($json === '')
+            return null;
+
+        $page = json_decode($json, true);
+
+        $arr = array();
+
+        foreach ($page['items'] as $item)
+        {
+            $elem = $this->CreateObjectFromArr($item, "PaymentTypeItem");
+            array_push($arr, $elem);
+        }
+
+        return $arr;
+    }
+    public function ParseSinglePaymentType(string $json)
+    {
+        if($json === '')
+            return null;
+
+        $item = json_decode($json, true);
+
+        return $this->CreateObjectFromArr($item, "PaymentTypeItem");
     }
     #endregion
 }
