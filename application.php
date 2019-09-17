@@ -157,7 +157,12 @@ echo $json;
 $boxtype =  $wrapper->ParsePageToBoxtypeItems($json);
 print_r($boxtype);*/
 
-$json = $wrapper->GetBarcodePage(1);
+/*$json = $wrapper->GetBarcodePage(1);
 echo $json;
 $barcode =  $wrapper->ParsePageToBarcodeItems($json);
-print_r($barcode);
+print_r($barcode);*/
+
+$json = $wrapper->GetDeliveryCompanyPage(1);
+echo $json;
+$company =  $wrapper->ParsePageToDeliveryCompanyItems($json);
+print_r($company);
