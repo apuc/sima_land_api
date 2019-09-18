@@ -9,6 +9,7 @@ include_once('Wrapper/Classes/DistrictWrapper.php');
 include_once('Wrapper/Classes/SettlementWrapper.php');
 include_once('Wrapper/Classes/ItemCommentWrapper.php');
 include_once('Wrapper/Classes/OfferWrapper.php');
+include_once('Wrapper/Classes/MaterialWrapper.php');
 
 
 /*
@@ -127,7 +128,7 @@ catch (Exception $e)
     echo $e;
 }*/
 
-$delivery_address = new OfferWrapper();
+/*$delivery_address = new OfferWrapper();
 try
 {
     $json = $delivery_address->GetPage(1);
@@ -137,4 +138,17 @@ try
 catch (Exception $e)
 {
     echo $e;
+}*/
+
+$material = new MaterialWrapper();
+try
+{
+    $json = $material->GetPage(1);
+    echo $json;
+    print_r($material->ParseJson($json));
 }
+catch (Exception $e)
+{
+    echo $e;
+}
+
