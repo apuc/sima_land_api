@@ -213,12 +213,24 @@ catch (Exception $e)
     echo $e;
 }*/
 
-$carModel = new CarModelWrapper();
+/*$carModel = new CarModelWrapper();
 try
 {
     $json = $carModel->GetPage(1);
     echo $json;
     print_r($carModel->ParseJson($json));
+}
+catch (Exception $e)
+{
+    echo $e;
+}*/
+
+$boxtype = new BoxtypeWrapper();
+try
+{
+    $json = $boxtype->GetPage(1);
+    echo $json;
+    print_r($boxtype->ParseJson($json));
 }
 catch (Exception $e)
 {
