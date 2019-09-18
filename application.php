@@ -5,6 +5,7 @@ include_once('Wrapper/Classes/GoodsWrapper.php');
 include_once('Wrapper/Classes/CurrencyWrapper.php');
 include_once('Wrapper/Classes/AuthorWrapper.php');
 include_once('Wrapper/Classes/SeriesWrapper.php');
+include_once('Wrapper/Classes/DistrictWrapper.php');
 
 
 $category = new CategoryWrapper();
@@ -63,13 +64,27 @@ catch (Exception $e)
 {
     echo $e;
 }*/
-$series = new SeriesWrapper();
+/*$series = new SeriesWrapper();
 
 try
 {
     $json = $series->GetPage(100);
     echo $json;
     print_r($series->ParseJson($json)) ;
+}
+catch (Exception $e)
+{
+    echo $e;
+}*/
+
+
+$district = new DistrictWrapper();
+
+try
+{
+    $json = $district->GetPage(1);
+    echo $json;
+    print_r($district->ParseJson($json));
 }
 catch (Exception $e)
 {
