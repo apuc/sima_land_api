@@ -190,12 +190,23 @@ catch (Exception $e)
     echo $e;
 }*/
 
-$mostLiked = new ItemMostLikedWrapper();
+/*$mostLiked = new ItemMostLikedWrapper();
 try
 {
     $json = $mostLiked->GetPage(1);
     echo $json;
     print_r($mostLiked->ParseJson($json));
+}
+catch (Exception $e)
+{
+    echo $e;
+}*/
+$news = new NewsWrapper();
+try
+{
+    $json = $news->GetPage(1);
+    echo $json;
+    print_r($news->ParseJson($json));
 }
 catch (Exception $e)
 {
