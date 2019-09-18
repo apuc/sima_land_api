@@ -4,6 +4,7 @@ include_once('Wrapper/Classes/CategoryWrapper.php');
 include_once('Wrapper/Classes/GoodsWrapper.php');
 include_once('Wrapper/Classes/CurrencyWrapper.php');
 include_once('Wrapper/Classes/AuthorWrapper.php');
+include_once('Wrapper/Classes/SeriesWrapper.php');
 
 
 $category = new CategoryWrapper();
@@ -50,13 +51,25 @@ catch (Exception $e)
     echo$e;
 }*/
 
-$author = new AuthorWrapper();
+/*$author = new AuthorWrapper();
 
 try
 {
     $json = $author->GetById(116);
     //echo $json;
     print_r($author->ParseJson($json));
+}
+catch (Exception $e)
+{
+    echo $e;
+}*/
+$series = new SeriesWrapper();
+
+try
+{
+    $json = $series->GetPage(100);
+    echo $json;
+    print_r($series->ParseJson($json)) ;
 }
 catch (Exception $e)
 {
