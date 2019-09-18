@@ -4,7 +4,7 @@ abstract class Wrapper
 {
     protected static function ExecuteCurl(string $url)
     {
-        echo $url . "\n";
+        //echo $url . "\n";
         $curl = curl_init($url);
         curl_setopt($curl, CURLOPT_HTTPHEADER, array('Accept: application/json'));
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
@@ -85,7 +85,7 @@ abstract class Wrapper
         return $page;
     }
 
-    protected static function getObjFromJson($page, $object )
+    protected static function getObjFromJson($page, $object)
     {
         if (isset($page['items'])) {
             $arr = array();
@@ -98,4 +98,10 @@ abstract class Wrapper
             return self::createObjFromArr($page, $object);
     }
 
+    abstract public function getById($id);
+
+    abstract public function getPage($page);
+
+    abstract public function query(array $data);
 }
+
