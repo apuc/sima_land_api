@@ -11,6 +11,6 @@
       "ext-curl": "*"
     },
     "autoload": {
-        "classmap": ["/Wrapper/Classes"]
+        "classmap": ["Wrapper/Classes", "Wrapper/Items"]
     }
 }

@@ -1,11 +1,10 @@
 <?php
 
-include_once('Wrapper/Classes/Wrapper.php');
-include_once('Wrapper/Items/CurrencyItem.php');
+namespace Classes\Wrapper;
 
 class Currency extends Wrapper
 {
-    private string $json = '';
+    private $json = '';
 
     public static function run()
     {

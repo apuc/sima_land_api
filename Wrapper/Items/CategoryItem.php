@@ -1,6 +1,5 @@
 <?php
 
-
 class CategoryItem
 {
     public $id; //int

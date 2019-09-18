@@ -1,5 +1,7 @@
 <?php
 
+namespace Classes\Wrapper;
+
 abstract class Wrapper
 {
     protected static function ExecuteCurl(string $url)

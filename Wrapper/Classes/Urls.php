@@ -1,5 +1,6 @@
 <?php
 
+namespace Classes\Wrapper;
 
 interface Urls
 {
