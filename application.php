@@ -178,12 +178,24 @@ catch (Exception $e)
 {
     echo $e;
 }*/
-$point = new PickupPointWrapper();
+/*$point = new PickupPointWrapper();
 try
 {
     $json = $point->GetPage(1);
     echo $json;
     print_r($point->ParseJson($json));
+}
+catch (Exception $e)
+{
+    echo $e;
+}*/
+
+$mostLiked = new ItemMostLikedWrapper();
+try
+{
+    $json = $mostLiked->GetPage(1);
+    echo $json;
+    print_r($mostLiked->ParseJson($json));
 }
 catch (Exception $e)
 {

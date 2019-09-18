@@ -1,10 +1,11 @@
 <?php
 
 include_once('Wrapper/Classes/Wrapper.php');
-include_once('Wrapper/Items/CategoryItem.php');
+include_once('Wrapper/Items/GoodsItem.php');
 
-class CategoryWrapper extends Wrapper
+class ItemMostLikedWrapper extends Wrapper
 {
+
     public function GetPage(int $page)
     {
         if($page < 1)
@@ -14,7 +15,7 @@ class CategoryWrapper extends Wrapper
             'page' => $page
         ]);
 
-        $url = "https://www.sima-land.ru/api/v3/category/?".$query;
+        $url = "https://www.sima-land.ru/api/v3/item-most-liked/?".$query;
         return $this->ExecuteCurl($url);
     }
 
@@ -23,19 +24,16 @@ class CategoryWrapper extends Wrapper
         if($id < 1)
             return null;
 
-        $url = "https://www.sima-land.ru/api/v3/category/".$id.'/';
-
+        $url = "https://www.sima-land.ru/api/v3/item-most-liked/".$id.'/';
         return $this->ExecuteCurl($url);
     }
 
     public function Query($data)
     {
-        //https://www.sima-land.ru/api/v3/category/?path=2&level=2
-
         if (!empty($data))
         {
             $query = http_build_query( $data );
-            $url = "https://www.sima-land.ru/api/v3/category/?".$query;
+            $url = "https://www.sima-land.ru/api/v3/item-most-liked/?".$query;
 
             return $this->ExecuteCurl($url);
         }
@@ -62,12 +60,12 @@ class CategoryWrapper extends Wrapper
             $arr = array();
             foreach ($page['items'] as $item)
             {
-                $elem = $this->CreateObjectFromArr($item, "CategoryItem");
+                $elem = $this->CreateObjectFromArr($item, "GoodsItem");
                 array_push($arr, $elem);
             }
             return $arr;
         }
         else
-            return $this->CreateObjectFromArr($page, "CategoryItem");
+            return $this->CreateObjectFromArr($page, "GoodsItem");
     }
 }

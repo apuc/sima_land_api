@@ -30,10 +30,14 @@ class GiftWrapper extends Wrapper
 
     public function Query($data)
     {
-        $query = http_build_query( $data );
-        $url = "https://www.sima-land.ru/api/v3/gift/?".$query;
+        if (!empty($data))
+        {
+            $query = http_build_query( $data );
+            $url = "https://www.sima-land.ru/api/v3/gift/?".$query;
 
-        return $this->ExecuteCurl($url);
+            return $this->ExecuteCurl($url);
+        }
+        else return null;
     }
 
     public function ParseJson($json)

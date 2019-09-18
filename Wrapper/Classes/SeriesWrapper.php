@@ -30,10 +30,14 @@ class SeriesWrapper extends Wrapper
 
     public function Query($data)
     {
-        $query = http_build_query( $data );
-        $url = "https://www.sima-land.ru/api/v3/series/?".$query;
+        if (!empty($data))
+        {
+            $query = http_build_query($data);
+            $url = "https://www.sima-land.ru/api/v3/series/?" . $query;
 
-        return $this->ExecuteCurl($url);
+            return $this->ExecuteCurl($url);
+        }
+        else return null;
     }
 
     public function ParseJson($json)
