@@ -2,7 +2,7 @@
 
 abstract class Wrapper
 {
-    protected function ExecuteCurl(string $url)
+    protected static function ExecuteCurl(string $url)
     {
         $curl = curl_init($url);
         curl_setopt($curl, CURLOPT_HTTPHEADER, array('Accept: application/json'));
@@ -11,7 +11,7 @@ abstract class Wrapper
         curl_close($curl);
         return $json;
     }
-    protected function CreateObjectFromArr($item, $object)
+    protected static function createObjFromArr($item, $object)
     {
         $elem = new $object();
 
@@ -21,7 +21,7 @@ abstract class Wrapper
 
         return $elem;
     }
-    protected function ValidateJson($json)
+    protected static function ValidateJson($json)
     {
         // decode the JSON data
         $result = json_decode($json, true);
@@ -72,7 +72,7 @@ abstract class Wrapper
         // everything is OK
         return $result;
     }
-    protected function CheckStatus($page)
+    protected static function CheckStatus($page)
     {
         if(isset($page['status']))
         {
@@ -82,10 +82,27 @@ abstract class Wrapper
                 throw new Exception($error);
             }
         }
+        return $page;
     }
-
-    abstract public function GetPage(int $page);
-    abstract public function GetById(int $id);
-    abstract public function Query($data);
-    abstract public function ParseJson($json);
+    /**
+     * @param $page
+     * @return array
+     */
+    protected static function getObjFromJson($page): array
+    {
+        if (isset($page['items'])) {
+            $arr = array();
+            foreach ($page['items'] as $item) {
+                $elem = self::createObjFromArr($item, "CategoryItem");
+                array_push($arr, $elem);
+            }
+            return $arr;
+        } else
+            return self::CreateObjectFromArr($page, "CategoryItem");
+        return $arr;
+    }
+    //abstract public function GetPage(int $page);
+    //abstract public function GetById(int $id);
+    //abstract public function Query(array $data);
+    //abstract public function ParseJson($json);
 }

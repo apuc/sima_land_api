@@ -60,12 +60,12 @@ class TrademarkWrapper extends Wrapper
             $arr = array();
             foreach ($page['items'] as $item)
             {
-                $elem = $this->CreateObjectFromArr($item, "Trademark");
+                $elem = $this->createObjFromArr($item, "Trademark");
                 array_push($arr, $elem);
             }
             return $arr;
         }
         else
-            return $this->CreateObjectFromArr($page, "Trademark");
+            return $this->createObjFromArr($page, "Trademark");
     }
 }

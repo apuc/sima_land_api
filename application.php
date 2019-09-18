@@ -4,8 +4,23 @@ foreach (glob('Wrapper/Classes/*.php') as $filename)
 {
     include_once $filename;
 }
-/*
-$category = new CategoryWrapper();
+
+$data = array(
+    'path'=>'2',
+    'level'=>'2');
+
+try {
+    print_r(Category::getInstance()
+        ->query($data)
+        ->JsonToObj());
+}
+catch (Exception $e)
+{
+    echo $e;
+}
+
+
+/*$category = new CategoryWrapper();
 $data = array(
     'path'=>'2',
     'level'=>'2');
@@ -19,6 +34,8 @@ catch (Exception $e)
 {
     echo $e;
 }*/
+
+
 /*
 $goods = new GoodsWrapper();
 
@@ -225,7 +242,7 @@ catch (Exception $e)
     echo $e;
 }*/
 
-$boxtype = new BoxtypeWrapper();
+/*$boxtype = new BoxtypeWrapper();
 try
 {
     $json = $boxtype->GetPage(1);
@@ -235,4 +252,4 @@ try
 catch (Exception $e)
 {
     echo $e;
-}
+}*/

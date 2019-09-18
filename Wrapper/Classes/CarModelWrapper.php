@@ -60,12 +60,12 @@ class CarModelWrapper extends Wrapper
             $arr = array();
             foreach ($page['items'] as $item)
             {
-                $elem = $this->CreateObjectFromArr($item, "CarModelItem");
+                $elem = $this->createObjFromArr($item, "CarModelItem");
                 array_push($arr, $elem);
             }
             return $arr;
         }
         else
-            return $this->CreateObjectFromArr($page, "CarModelItem");
+            return $this->createObjFromArr($page, "CarModelItem");
     }
 }

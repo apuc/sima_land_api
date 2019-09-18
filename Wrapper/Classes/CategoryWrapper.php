@@ -62,12 +62,12 @@ class CategoryWrapper extends Wrapper
             $arr = array();
             foreach ($page['items'] as $item)
             {
-                $elem = $this->CreateObjectFromArr($item, "CategoryItem");
+                $elem = $this->createObjFromArr($item, "CategoryItem");
                 array_push($arr, $elem);
             }
             return $arr;
         }
         else
-            return $this->CreateObjectFromArr($page, "CategoryItem");
+            return $this->createObjFromArr($page, "CategoryItem");
     }
 }

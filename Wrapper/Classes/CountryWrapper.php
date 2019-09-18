@@ -60,12 +60,12 @@ class CountryWrapper extends Wrapper
             $arr = array();
             foreach ($page['items'] as $item)
             {
-                $elem = $this->CreateObjectFromArr($item, "Country");
+                $elem = $this->createObjFromArr($item, "Country");
                 array_push($arr, $elem);
             }
             return $arr;
         }
         else
-            return $this->CreateObjectFromArr($page, "Country");
+            return $this->createObjFromArr($page, "Country");
     }
 }

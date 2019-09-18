@@ -60,12 +60,12 @@ class AuthorWrapper extends Wrapper
             $arr = array();
             foreach ($page['items'] as $item)
             {
-                $elem = $this->CreateObjectFromArr($item, "AuthorItem");
+                $elem = $this->createObjFromArr($item, "AuthorItem");
                 array_push($arr, $elem);
             }
             return $arr;
         }
         else
-            return $this->CreateObjectFromArr($page, "AuthorItem");
+            return $this->createObjFromArr($page, "AuthorItem");
     }
 }

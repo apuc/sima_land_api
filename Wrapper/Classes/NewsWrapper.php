@@ -60,12 +60,12 @@ class NewsWrapper extends Wrapper
             $arr = array();
             foreach ($page['items'] as $item)
             {
-                $elem = $this->CreateObjectFromArr($item, "NewsItem");
+                $elem = $this->createObjFromArr($item, "NewsItem");
                 array_push($arr, $elem);
             }
             return $arr;
         }
         else
-            return $this->CreateObjectFromArr($page, "NewsItem");
+            return $this->createObjFromArr($page, "NewsItem");
     }
 }

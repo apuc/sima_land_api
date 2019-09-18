@@ -60,12 +60,12 @@ class DeliveryAddressWrapper extends Wrapper
             $arr = array();
             foreach ($page['items'] as $item)
             {
-                $elem = $this->CreateObjectFromArr($item, "DeliveryAddressItem");
+                $elem = $this->createObjFromArr($item, "DeliveryAddressItem");
                 array_push($arr, $elem);
             }
             return $arr;
         }
         else
-            return $this->CreateObjectFromArr($page, "DeliveryAddressItem");
+            return $this->createObjFromArr($page, "DeliveryAddressItem");
     }
 }

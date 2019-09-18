@@ -61,12 +61,12 @@ class PickupPointWrapper extends Wrapper
             $arr = array();
             foreach ($page['items'] as $item)
             {
-                $elem = $this->CreateObjectFromArr($item, "PickupPointItem");
+                $elem = $this->createObjFromArr($item, "PickupPointItem");
                 array_push($arr, $elem);
             }
             return $arr;
         }
         else
-            return $this->CreateObjectFromArr($page, "PickupPointItem");
+            return $this->createObjFromArr($page, "PickupPointItem");
     }
 }

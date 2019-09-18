@@ -61,12 +61,12 @@ class ItemCommentWrapper extends Wrapper
             $arr = array();
             foreach ($page['items'] as $item)
             {
-                $elem = $this->CreateObjectFromArr($item, "CommentItem");
+                $elem = $this->createObjFromArr($item, "CommentItem");
                 array_push($arr, $elem);
             }
             return $arr;
         }
         else
-            return $this->CreateObjectFromArr($page, "CommentItem");
+            return $this->createObjFromArr($page, "CommentItem");
     }
 }

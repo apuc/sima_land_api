@@ -61,12 +61,12 @@ class GoodsWrapper extends Wrapper
             $arr = array();
             foreach ($page['items'] as $item)
             {
-                $elem = $this->CreateObjectFromArr($item, "GoodsItem");
+                $elem = $this->createObjFromArr($item, "GoodsItem");
                 array_push($arr, $elem);
             }
             return $arr;
         }
         else
-            return $this->CreateObjectFromArr($page, "GoodsItem");
+            return $this->createObjFromArr($page, "GoodsItem");
     }
 }

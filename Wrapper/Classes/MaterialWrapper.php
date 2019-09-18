@@ -60,12 +60,12 @@ class MaterialWrapper extends Wrapper
             $arr = array();
             foreach ($page['items'] as $item)
             {
-                $elem = $this->CreateObjectFromArr($item, "MaterialItem");
+                $elem = $this->createObjFromArr($item, "MaterialItem");
                 array_push($arr, $elem);
             }
             return $arr;
         }
         else
-            return $this->CreateObjectFromArr($page, "MaterialItem");
+            return $this->createObjFromArr($page, "MaterialItem");
     }
 }

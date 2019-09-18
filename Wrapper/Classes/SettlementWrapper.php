@@ -60,12 +60,12 @@ class SettlementWrapper extends Wrapper
             $arr = array();
             foreach ($page['items'] as $item)
             {
-                $elem = $this->CreateObjectFromArr($item, "SettlementItem");
+                $elem = $this->createObjFromArr($item, "SettlementItem");
                 array_push($arr, $elem);
             }
             return $arr;
         }
         else
-            return $this->CreateObjectFromArr($page, "SettlementItem");
+            return $this->createObjFromArr($page, "SettlementItem");
     }
 }

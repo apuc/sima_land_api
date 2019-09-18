@@ -60,12 +60,12 @@ class CurrencyWrapper extends Wrapper
             $arr = array();
             foreach ($page['items'] as $item)
             {
-                $elem = $this->CreateObjectFromArr($item, "CurrencyItem");
+                $elem = $this->createObjFromArr($item, "CurrencyItem");
                 array_push($arr, $elem);
             }
             return $arr;
         }
         else
-            return $this->CreateObjectFromArr($page, "CurrencyItem");
+            return $this->createObjFromArr($page, "CurrencyItem");
     }
 }

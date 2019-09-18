@@ -60,12 +60,12 @@ class BoxtypeWrapper extends Wrapper
             $arr = array();
             foreach ($page['items'] as $item)
             {
-                $elem = $this->CreateObjectFromArr($item, "BoxtypeItem");
+                $elem = $this->createObjFromArr($item, "BoxtypeItem");
                 array_push($arr, $elem);
             }
             return $arr;
         }
         else
-            return $this->CreateObjectFromArr($page, "BoxtypeItem");
+            return $this->createObjFromArr($page, "BoxtypeItem");
     }
 }

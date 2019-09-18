@@ -60,12 +60,12 @@ class DistrictWrapper extends Wrapper
             $arr = array();
             foreach ($page['items'] as $item)
             {
-                $elem = $this->CreateObjectFromArr($item, "DistrictItem");
+                $elem = $this->createObjFromArr($item, "DistrictItem");
                 array_push($arr, $elem);
             }
             return $arr;
         }
         else
-            return $this->CreateObjectFromArr($page, "DistrictItem");
+            return $this->createObjFromArr($page, "DistrictItem");
     }
 }

@@ -60,12 +60,12 @@ class SeriesWrapper extends Wrapper
             $arr = array();
             foreach ($page['items'] as $item)
             {
-                $elem = $this->CreateObjectFromArr($item, "SeriesItem");
+                $elem = $this->createObjFromArr($item, "SeriesItem");
                 array_push($arr, $elem);
             }
             return $arr;
         }
         else
-            return $this->CreateObjectFromArr($page, "SeriesItem");
+            return $this->createObjFromArr($page, "SeriesItem");
     }
 }

@@ -60,12 +60,12 @@ class OfferWrapper extends Wrapper
             $arr = array();
             foreach ($page['items'] as $item)
             {
-                $elem = $this->CreateObjectFromArr($item, "OfferItem");
+                $elem = $this->createObjFromArr($item, "OfferItem");
                 array_push($arr, $elem);
             }
             return $arr;
         }
         else
-            return $this->CreateObjectFromArr($page, "OfferItem");
+            return $this->createObjFromArr($page, "OfferItem");
     }
 }

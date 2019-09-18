@@ -60,12 +60,12 @@ class GiftWrapper extends Wrapper
             $arr = array();
             foreach ($page['items'] as $item)
             {
-                $elem = $this->CreateObjectFromArr($item, "GiftItem");
+                $elem = $this->createObjFromArr($item, "GiftItem");
                 array_push($arr, $elem);
             }
             return $arr;
         }
         else
-            return $this->CreateObjectFromArr($page, "GiftItem");
+            return $this->createObjFromArr($page, "GiftItem");
     }
 }
