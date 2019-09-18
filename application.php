@@ -115,7 +115,7 @@ catch (Exception $e)
     echo $e;
 }*/
 
-$offer = new OfferWrapper();
+/*$offer = new OfferWrapper();
 try
 {
     $json = $offer->GetPage(1);
@@ -125,5 +125,16 @@ try
 catch (Exception $e)
 {
     echo $e;
-}
+}*/
 
+$delivery_address = new OfferWrapper();
+try
+{
+    $json = $delivery_address->GetPage(1);
+    echo $json;
+    print_r($delivery_address->ParseJson($json));
+}
+catch (Exception $e)
+{
+    echo $e;
+}
