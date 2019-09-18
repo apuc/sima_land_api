@@ -1,10 +1,9 @@
 <?php
 
-include_once("Wrapper/Classes/Wrapper.php");
 
-class Category extends Wrapper
+class Goods extends Wrapper
 {
-    private $url = "https://www.sima-land.ru/api/v3/category/";
+    private $url = "https://www.sima-land.ru/api/v3/item/";
     private $json = '';
 
     public static function run()
@@ -26,6 +25,12 @@ class Category extends Wrapper
         return $this;
     }
 
+    public function getAllMostLiked()
+    {
+        $this->json = Wrapper::ExecuteCurl('https://www.sima-land.ru/api/v3/item-most-liked/');
+        return $this;
+    }
+
     public function query(array $data)
     {
         if (!empty($data))
@@ -38,7 +43,7 @@ class Category extends Wrapper
         if ($this->json === '') return null;
 
         try {
-            return $this->getObjFromJson($this->CheckStatus($this->ValidateJson($this->json)), "CategoryItem");
+            return $this->getObjFromJson($this->CheckStatus($this->ValidateJson($this->json)), "GoodsItem");
         } catch (Exception $e) {
             throw $e;
         }

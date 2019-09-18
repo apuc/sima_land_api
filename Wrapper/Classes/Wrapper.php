@@ -85,17 +85,17 @@ abstract class Wrapper
         return $page;
     }
 
-    protected static function getObjFromJson($page)
+    protected static function getObjFromJson($page, $object )
     {
         if (isset($page['items'])) {
             $arr = array();
             foreach ($page['items'] as $item) {
-                $elem = self::createObjFromArr($item, "CategoryItem");
+                $elem = self::createObjFromArr($item, $object);
                 array_push($arr, $elem);
             }
             return $arr;
         } else
-            return self::createObjFromArr($page, "CategoryItem");
+            return self::createObjFromArr($page, $object);
     }
 
 }
