@@ -1,18 +1,9 @@
 <?php
 
-include_once('Wrapper/Classes/CategoryWrapper.php');
-include_once('Wrapper/Classes/GoodsWrapper.php');
-include_once('Wrapper/Classes/CurrencyWrapper.php');
-include_once('Wrapper/Classes/AuthorWrapper.php');
-include_once('Wrapper/Classes/SeriesWrapper.php');
-include_once('Wrapper/Classes/DistrictWrapper.php');
-include_once('Wrapper/Classes/SettlementWrapper.php');
-include_once('Wrapper/Classes/ItemCommentWrapper.php');
-include_once('Wrapper/Classes/OfferWrapper.php');
-include_once('Wrapper/Classes/MaterialWrapper.php');
-include_once('Wrapper/Classes/GiftWrapper.php');
-
-
+foreach (glob('Wrapper/Classes/*.php') as $filename)
+{
+    include_once $filename;
+}
 /*
 $category = new CategoryWrapper();
 $data = array(
@@ -153,12 +144,24 @@ catch (Exception $e)
     echo $e;
 }*/
 
-$gift = new GiftWrapper();
+/*$gift = new GiftWrapper();
 try
 {
     $json = $gift->GetPage(1);
     echo $json;
     print_r($gift->ParseJson($json));
+}
+catch (Exception $e)
+{
+    echo $e;
+}*/
+
+$country = new CountryWrapper();
+try
+{
+    $json = $country->GetPage(1);
+    echo $json;
+    print_r($country->ParseJson($json));
 }
 catch (Exception $e)
 {
