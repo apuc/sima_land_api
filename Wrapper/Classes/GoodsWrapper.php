@@ -42,7 +42,14 @@ class GoodsWrapper extends Wrapper
         if($json === '')
             return null;
 
-        $page = json_decode($json, true);
+        try
+        {
+            $page = $this->ValidateJson($json);
+        }
+        catch (Exception $e)
+        {
+            return ($e->getMessage());
+        }
 
         if(isset($page['items'] ))
         {

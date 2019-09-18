@@ -19,6 +19,8 @@ print_r($category->ParseJson($json));*/
 
 $goods = new GoodsWrapper();
 
-$json = $goods->GetById(10000);
+
+$json = $goods->GetById(1000);
 echo $json;
 print_r($goods->ParseJson($json));
+
