@@ -201,12 +201,24 @@ catch (Exception $e)
 {
     echo $e;
 }*/
-$news = new NewsWrapper();
+/*$news = new NewsWrapper();
 try
 {
     $json = $news->GetPage(1);
     echo $json;
     print_r($news->ParseJson($json));
+}
+catch (Exception $e)
+{
+    echo $e;
+}*/
+
+$carModel = new CarModelWrapper();
+try
+{
+    $json = $carModel->GetPage(1);
+    echo $json;
+    print_r($carModel->ParseJson($json));
 }
 catch (Exception $e)
 {
