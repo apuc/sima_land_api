@@ -2,6 +2,7 @@
 
 include_once('Wrapper/Classes/CategoryWrapper.php');
 include_once('Wrapper/Classes/GoodsWrapper.php');
+include_once('Wrapper/Classes/CurrencyWrapper.php');
 
 /*
 $category = new CategoryWrapper();
@@ -17,10 +18,30 @@ $json = $category->GetById(1);
 echo $json;
 print_r($category->ParseJson($json));*/
 
+/*
 $goods = new GoodsWrapper();
 
+try
+{
+    $json = $goods->GetById(100);
+    echo $json;
+    $goods->ParseJson($json);
+}
+catch (Exception $e)
+{
+    echo$e;
+}
+*/
 
-$json = $goods->GetById(1000);
-echo $json;
-print_r($goods->ParseJson($json));
+$currency = new CurrencyWrapper();
 
+try
+{
+    $json = $currency->GetById(2);
+    echo $json;
+    print_r($currency->ParseJson($json)) ;
+}
+catch (Exception $e)
+{
+    echo$e;
+}

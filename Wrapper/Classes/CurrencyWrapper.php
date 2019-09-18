@@ -1,9 +1,9 @@
 <?php
 
 include_once('Wrapper/Classes/Wrapper.php');
-include_once('Wrapper/Items/GoodsItem.php');
+include_once('Wrapper/Items/CurrencyItem.php');
 
-class GoodsWrapper extends Wrapper
+class CurrencyWrapper extends Wrapper
 {
 
     public function GetPage(int $page)
@@ -15,7 +15,7 @@ class GoodsWrapper extends Wrapper
             'page' => $page
         ]);
 
-        $url = "https://www.sima-land.ru/api/v3/item/?".$query;
+        $url = "https://www.sima-land.ru/api/v3/currency/?".$query;
         return $this->ExecuteCurl($url);
     }
 
@@ -24,15 +24,14 @@ class GoodsWrapper extends Wrapper
         if($id < 1)
             return null;
 
-        $url = "https://www.sima-land.ru/api/v3/item/".$id.'/';
-
+        $url = "https://www.sima-land.ru/api/v3/currency/".$id.'/';
         return $this->ExecuteCurl($url);
     }
 
     public function Query($data)
     {
         $query = http_build_query( $data );
-        $url = "https://www.sima-land.ru/api/v3/category/?".$query;
+        $url = "https://www.sima-land.ru/api/v3/currency/?".$query;
 
         return $this->ExecuteCurl($url);
     }
@@ -57,12 +56,12 @@ class GoodsWrapper extends Wrapper
             $arr = array();
             foreach ($page['items'] as $item)
             {
-                $elem = $this->CreateObjectFromArr($item, "GoodsItem");
+                $elem = $this->CreateObjectFromArr($item, "CurrencyItem");
                 array_push($arr, $elem);
             }
             return $arr;
         }
         else
-            return $this->CreateObjectFromArr($page, "GoodsItem");
+            return $this->CreateObjectFromArr($page, "CurrencyItem");
     }
 }

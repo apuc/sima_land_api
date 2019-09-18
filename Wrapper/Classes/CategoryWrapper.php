@@ -46,29 +46,24 @@ class CategoryWrapper extends Wrapper
         try
         {
             $page = $this->ValidateJson($json);
+            $this->CheckStatus($page);
         }
         catch (Exception $e)
         {
-            return ($e->getMessage());
+            throw $e;
         }
 
-        if ($page && true === $page->success)
+        if(isset($page['items'] ))
         {
-            // success
-            if(isset($page['items'] ))
+            $arr = array();
+            foreach ($page['items'] as $item)
             {
-                $arr = array();
-                foreach ($page['items'] as $item)
-                {
-                    $elem = $this->CreateObjectFromArr($item, "CategoryItem");
-                    array_push($arr, $elem);
-                }
-                return $arr;
+                $elem = $this->CreateObjectFromArr($item, "CategoryItem");
+                array_push($arr, $elem);
             }
-            else
-                return $this->CreateObjectFromArr($page, "CategoryItem");
+            return $arr;
         }
-
-        return "Error!";
+        else
+            return $this->CreateObjectFromArr($page, "CategoryItem");
     }
 }

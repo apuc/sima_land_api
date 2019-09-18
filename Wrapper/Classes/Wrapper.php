@@ -72,6 +72,17 @@ abstract class Wrapper
         // everything is OK
         return $result;
     }
+    protected function CheckStatus($page)
+    {
+        if(isset($page['status']))
+        {
+            if($page['status'] === 404)
+            {
+                $error = $page['message'];
+                throw new Exception($error);
+            }
+        }
+    }
 
     abstract public function GetPage(int $page);
     abstract public function GetById(int $id);
