@@ -1,7 +1,5 @@
 <?php
 
-include_once("Wrapper/Classes/Wrapper.php");
-
 class Category extends Wrapper
 {
     private $url = "https://www.sima-land.ru/api/v3/category/";
