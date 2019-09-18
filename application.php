@@ -3,20 +3,24 @@
 include_once('Wrapper/Classes/CategoryWrapper.php');
 include_once('Wrapper/Classes/GoodsWrapper.php');
 include_once('Wrapper/Classes/CurrencyWrapper.php');
+include_once('Wrapper/Classes/AuthorWrapper.php');
 
-/*
+
 $category = new CategoryWrapper();
 
-$data = array(
+/*$data = array(
     'path'=>'2',
     'level'=>'2');
 
-$json = $category->Query($data);
-print_r($category->ParseJson($json));
-
-$json = $category->GetById(1);
-echo $json;
-print_r($category->ParseJson($json));*/
+try
+{
+    $json = $category->Query($data);
+    print_r($category->ParseJson($json));
+}
+catch (Exception $e)
+{
+    echo $e;
+}*/
 
 /*
 $goods = new GoodsWrapper();
@@ -33,7 +37,7 @@ catch (Exception $e)
 }
 */
 
-$currency = new CurrencyWrapper();
+/*$currency = new CurrencyWrapper();
 
 try
 {
@@ -44,4 +48,17 @@ try
 catch (Exception $e)
 {
     echo$e;
+}*/
+
+$author = new AuthorWrapper();
+
+try
+{
+    $json = $author->GetById(116);
+    //echo $json;
+    print_r($author->ParseJson($json));
+}
+catch (Exception $e)
+{
+    echo $e;
 }
