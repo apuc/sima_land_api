@@ -155,13 +155,24 @@ catch (Exception $e)
 {
     echo $e;
 }*/
-
+/*
 $country = new CountryWrapper();
 try
 {
     $json = $country->GetPage(1);
     echo $json;
     print_r($country->ParseJson($json));
+}
+catch (Exception $e)
+{
+    echo $e;
+}*/
+$trademark = new TrademarkWrapper();
+try
+{
+    $json = $trademark->GetPage(1);
+    echo $json;
+    print_r($trademark->ParseJson($json));
 }
 catch (Exception $e)
 {
