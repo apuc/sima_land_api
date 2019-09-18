@@ -10,6 +10,7 @@ include_once('Wrapper/Classes/SettlementWrapper.php');
 include_once('Wrapper/Classes/ItemCommentWrapper.php');
 include_once('Wrapper/Classes/OfferWrapper.php');
 include_once('Wrapper/Classes/MaterialWrapper.php');
+include_once('Wrapper/Classes/GiftWrapper.php');
 
 
 /*
@@ -140,7 +141,7 @@ catch (Exception $e)
     echo $e;
 }*/
 
-$material = new MaterialWrapper();
+/*$material = new MaterialWrapper();
 try
 {
     $json = $material->GetPage(1);
@@ -150,5 +151,16 @@ try
 catch (Exception $e)
 {
     echo $e;
-}
+}*/
 
+$gift = new GiftWrapper();
+try
+{
+    $json = $gift->GetPage(1);
+    echo $json;
+    print_r($gift->ParseJson($json));
+}
+catch (Exception $e)
+{
+    echo $e;
+}
