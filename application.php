@@ -8,6 +8,8 @@ include_once('Wrapper/Classes/SeriesWrapper.php');
 include_once('Wrapper/Classes/DistrictWrapper.php');
 include_once('Wrapper/Classes/SettlementWrapper.php');
 include_once('Wrapper/Classes/ItemCommentWrapper.php');
+include_once('Wrapper/Classes/OfferWrapper.php');
+
 
 /*
 $category = new CategoryWrapper();
@@ -100,7 +102,7 @@ catch (Exception $e)
     echo $e;
 }*/
 
-$item = new ItemCommentWrapper();
+/*$item = new ItemCommentWrapper();
 
 try
 {
@@ -111,4 +113,17 @@ try
 catch (Exception $e)
 {
     echo $e;
+}*/
+
+$offer = new OfferWrapper();
+try
+{
+    $json = $offer->GetPage(1);
+    echo $json;
+    print_r($offer->ParseJson($json));
 }
+catch (Exception $e)
+{
+    echo $e;
+}
+

@@ -1,9 +1,9 @@
 <?php
 
 include_once('Wrapper/Classes/Wrapper.php');
-include_once('Wrapper/Items/DistrictItem.php');
+include_once('Wrapper/Items/OfferItem.php');
 
-class DistrictWrapper extends Wrapper
+class OfferWrapper extends Wrapper
 {
 
     public function GetPage(int $page)
@@ -15,7 +15,7 @@ class DistrictWrapper extends Wrapper
             'page' => $page
         ]);
 
-        $url = "https://www.sima-land.ru/api/v3/district/?".$query;
+        $url = "https://www.sima-land.ru/api/v3/offer/?".$query;
         return $this->ExecuteCurl($url);
     }
 
@@ -24,14 +24,14 @@ class DistrictWrapper extends Wrapper
         if($id < 1)
             return null;
 
-        $url = "https://www.sima-land.ru/api/v3/district/".$id.'/';
+        $url = "https://www.sima-land.ru/api/v3/offer/".$id.'/';
         return $this->ExecuteCurl($url);
     }
 
     public function Query($data)
     {
         $query = http_build_query( $data );
-        $url = "https://www.sima-land.ru/api/v3/district/?".$query;
+        $url = "https://www.sima-land.ru/api/v3/offer/?".$query;
 
         return $this->ExecuteCurl($url);
     }
@@ -56,12 +56,12 @@ class DistrictWrapper extends Wrapper
             $arr = array();
             foreach ($page['items'] as $item)
             {
-                $elem = $this->CreateObjectFromArr($item, "DistrictItem");
+                $elem = $this->CreateObjectFromArr($item, "OfferItem");
                 array_push($arr, $elem);
             }
             return $arr;
         }
         else
-            return $this->CreateObjectFromArr($page, "DistrictItem");
+            return $this->CreateObjectFromArr($page, "OfferItem");
     }
 }
