@@ -7,9 +7,11 @@ include_once('Wrapper/Classes/AuthorWrapper.php');
 include_once('Wrapper/Classes/SeriesWrapper.php');
 include_once('Wrapper/Classes/DistrictWrapper.php');
 include_once('Wrapper/Classes/SettlementWrapper.php');
+include_once('Wrapper/Classes/ItemCommentWrapper.php');
 
+/*
 $category = new CategoryWrapper();
-/*$data = array(
+$data = array(
     'path'=>'2',
     'level'=>'2');
 
@@ -97,3 +99,16 @@ catch (Exception $e)
 {
     echo $e;
 }*/
+
+$item = new ItemCommentWrapper();
+
+try
+{
+    $json = $item->GetPage(1);
+    echo $json;
+    print_r($item->ParseJson($json));
+}
+catch (Exception $e)
+{
+    echo $e;
+}
