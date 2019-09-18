@@ -167,12 +167,23 @@ catch (Exception $e)
 {
     echo $e;
 }*/
-$trademark = new TrademarkWrapper();
+/*$trademark = new TrademarkWrapper();
 try
 {
     $json = $trademark->GetPage(1);
     echo $json;
     print_r($trademark->ParseJson($json));
+}
+catch (Exception $e)
+{
+    echo $e;
+}*/
+$point = new PickupPointWrapper();
+try
+{
+    $json = $point->GetPage(1);
+    echo $json;
+    print_r($point->ParseJson($json));
 }
 catch (Exception $e)
 {
