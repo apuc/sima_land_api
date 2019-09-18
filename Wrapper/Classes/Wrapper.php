@@ -4,6 +4,7 @@ abstract class Wrapper
 {
     protected static function ExecuteCurl(string $url)
     {
+        echo $url . "\n";
         $curl = curl_init($url);
         curl_setopt($curl, CURLOPT_HTTPHEADER, array('Accept: application/json'));
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
@@ -11,24 +12,25 @@ abstract class Wrapper
         curl_close($curl);
         return $json;
     }
+
     protected static function createObjFromArr($item, $object)
     {
         $elem = new $object();
 
         foreach ($elem as $f => $v)
-            if(isset($item[$f]))
+            if (isset($item[$f]))
                 $elem->$f = $item[$f];
 
         return $elem;
     }
+
     protected static function ValidateJson($json)
     {
         // decode the JSON data
         $result = json_decode($json, true);
 
         // switch and check possible JSON errors
-        switch (json_last_error())
-        {
+        switch (json_last_error()) {
             case JSON_ERROR_NONE:
                 $error = ''; // JSON is valid // No error has occurred
                 break;
@@ -64,31 +66,26 @@ abstract class Wrapper
                 break;
         }
 
-        if ($error !== '')
-        {
+        if ($error !== '') {
             throw new Exception($error);
         }
 
         // everything is OK
         return $result;
     }
+
     protected static function CheckStatus($page)
     {
-        if(isset($page['status']))
-        {
-            if($page['status'] === 404)
-            {
+        if (isset($page['status'])) {
+            if ($page['status'] === 404) {
                 $error = $page['message'];
                 throw new Exception($error);
             }
         }
         return $page;
     }
-    /**
-     * @param $page
-     * @return array
-     */
-    protected static function getObjFromJson($page): array
+
+    protected static function getObjFromJson($page)
     {
         if (isset($page['items'])) {
             $arr = array();
@@ -98,11 +95,7 @@ abstract class Wrapper
             }
             return $arr;
         } else
-            return self::CreateObjectFromArr($page, "CategoryItem");
-        return $arr;
+            return self::createObjFromArr($page, "CategoryItem");
     }
-    //abstract public function GetPage(int $page);
-    //abstract public function GetById(int $id);
-    //abstract public function Query(array $data);
-    //abstract public function ParseJson($json);
+
 }

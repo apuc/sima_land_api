@@ -1,39 +1,45 @@
 <?php
 
+include_once("Wrapper/Classes/Wrapper.php");
+
 class Category extends Wrapper
 {
-    private static $url= "https://www.sima-land.ru/api/v3/category";
-    private static $json = '';
+    private $url = "https://www.sima-land.ru/api/v3/category";
+    private $json = '';
 
-    private static $_instance = null;
-
-    private function __construct () { }
-
-    public static function getInstance ()
+    public static function run()
     {
-        if (self::$_instance === null) {
-            self::$_instance = new self;
-        }
-        return self::$_instance;
+        return new self();
     }
 
-    public static function query(array $data) : self
+    public function getById($id)
     {
-        if (!empty($data)) {
-            self::$json = Wrapper::ExecuteCurl(self::$url."/?".http_build_query( $data ));
-        }
-        return self::$_instance;
+        if ($id >= 1)
+            $this->json = Wrapper::ExecuteCurl($this->url . "/" . $id . '/');
+        return $this;
     }
 
-    public static function JsonToObj()
+    public function getPage($page)
     {
-        if(self::$json === '') return null;
+        if ($page >= 1)
+            $this->json = Wrapper::ExecuteCurl($this->url . "/?" . http_build_query(['page' => $page]));
+        return $this;
+    }
+
+    public function query(array $data)
+    {
+        if (!empty($data))
+            $this->json = Wrapper::ExecuteCurl($this->url . "/?" . http_build_query($data));
+        return $this;
+    }
+
+    public function jsonToObj()
+    {
+        if ($this->json === '') return null;
 
         try {
-            return self::getObjFromJson(self::CheckStatus(self::ValidateJson(self::$json)));
-        }
-        catch (Exception $e)
-        {
+            return $this->getObjFromJson($this->CheckStatus($this->ValidateJson($this->json)));
+        } catch (Exception $e) {
             throw $e;
         }
     }

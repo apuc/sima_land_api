@@ -9,5 +9,8 @@
     "require": {
       "ext-json": "*",
       "ext-curl": "*"
+    },
+    "autoload": {
+        "classmap": ["/Wrapper/Classes"]
     }
 }
