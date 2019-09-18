@@ -6,10 +6,9 @@ include_once('Wrapper/Classes/CurrencyWrapper.php');
 include_once('Wrapper/Classes/AuthorWrapper.php');
 include_once('Wrapper/Classes/SeriesWrapper.php');
 include_once('Wrapper/Classes/DistrictWrapper.php');
-
+include_once('Wrapper/Classes/SettlementWrapper.php');
 
 $category = new CategoryWrapper();
-
 /*$data = array(
     'path'=>'2',
     'level'=>'2');
@@ -23,7 +22,6 @@ catch (Exception $e)
 {
     echo $e;
 }*/
-
 /*
 $goods = new GoodsWrapper();
 
@@ -38,7 +36,6 @@ catch (Exception $e)
     echo$e;
 }
 */
-
 /*$currency = new CurrencyWrapper();
 
 try
@@ -51,7 +48,6 @@ catch (Exception $e)
 {
     echo$e;
 }*/
-
 /*$author = new AuthorWrapper();
 
 try
@@ -76,9 +72,7 @@ catch (Exception $e)
 {
     echo $e;
 }*/
-
-
-$district = new DistrictWrapper();
+/*$district = new DistrictWrapper();
 
 try
 {
@@ -89,4 +83,17 @@ try
 catch (Exception $e)
 {
     echo $e;
+}*/
+
+/*$settlement= new SettlementWrapper();
+
+try
+{
+    $json = $settlement->GetPage(1);
+    echo $json;
+    print_r($settlement->ParseJson($json));
 }
+catch (Exception $e)
+{
+    echo $e;
+}*/

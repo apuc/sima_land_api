@@ -89,6 +89,3 @@ abstract class Wrapper
     abstract public function Query($data);
     abstract public function ParseJson($json);
 }
-
-
-
