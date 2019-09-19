@@ -23,6 +23,7 @@ interface Urls
     const Trademark = 'trademark/';
     const PickupPoint = 'pickup-point/';
     const News = 'news/';
+    const NewsComment = 'news-comment/';
     const CarModel = 'car-model/';
     const Boxtype = 'boxtype/';
     const Barcode = 'item-barcode/';

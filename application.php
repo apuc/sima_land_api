@@ -142,7 +142,7 @@ catch (Exception $e)
 */
 
 try {
-    print_r(Classes\Wrapper\WheelLz::run()
+    print_r(Classes\Wrapper\NewsComment::run()
         ->getPage(1)
         ->getItemFromJson());
 }
