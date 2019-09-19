@@ -12,4 +12,5 @@ interface Urls
     const Author = 'author/';
     const Series = 'series/';
     const District = 'district/';
+    const Settlement = 'settlement/';
 }

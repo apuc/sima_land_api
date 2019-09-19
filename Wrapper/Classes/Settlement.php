@@ -5,7 +5,7 @@ namespace Classes\Wrapper;
 
 use http\Exception;
 
-class District extends Wrapper
+class Settlement extends Wrapper
 {
     public static function run()
     {
@@ -16,7 +16,7 @@ class District extends Wrapper
     {
         if ($id >= 1)
             $this->json = Wrapper::ExecuteCurl(
-                Urls::MainPath . Urls::District . $id . '/');
+                Urls::MainPath . Urls::Settlement . $id . '/');
         return $this;
     }
 
@@ -24,7 +24,7 @@ class District extends Wrapper
     {
         if ($page >= 1)
             $this->json = Wrapper::ExecuteCurl(
-                Urls::MainPath . Urls::District . "?" . http_build_query(['page' => $page]));
+                Urls::MainPath . Urls::Settlement . "?" . http_build_query(['page' => $page]));
         return $this;
     }
 
@@ -32,7 +32,7 @@ class District extends Wrapper
     {
         if (!empty($data))
             $this->json = Wrapper::ExecuteCurl(
-                Urls::MainPath.Urls::District . "?" . http_build_query($data));
+                Urls::MainPath . Urls::Settlement . "?" . http_build_query($data));
         return $this;
     }
 
@@ -41,7 +41,7 @@ class District extends Wrapper
         if ($this->json === '') return null;
 
         try {
-            return $this->getObjFromJson($this->CheckStatus($this->ValidateJson($this->json)), "DistrictItem");
+            return $this->getObjFromJson($this->CheckStatus($this->ValidateJson($this->json)), "SettlementItem");
         } catch (Exception $e) {
             throw $e;
         }

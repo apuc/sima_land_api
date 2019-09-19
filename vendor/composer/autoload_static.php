@@ -19,6 +19,7 @@ class ComposerStaticInit92ebd324df36a7db2111e8bed48013af
         'Classes\\Wrapper\\District' => __DIR__ . '/../..' . '/Wrapper/Classes/District.php',
         'Classes\\Wrapper\\Goods' => __DIR__ . '/../..' . '/Wrapper/Classes/Goods.php',
         'Classes\\Wrapper\\Series' => __DIR__ . '/../..' . '/Wrapper/Classes/Series.php',
+        'Classes\\Wrapper\\Settlement' => __DIR__ . '/../..' . '/Wrapper/Classes/Settlement.php',
         'Classes\\Wrapper\\Urls' => __DIR__ . '/../..' . '/Wrapper/Classes/Urls.php',
         'Classes\\Wrapper\\Wrapper' => __DIR__ . '/../..' . '/Wrapper/Classes/Wrapper.php',
         'CommentItem' => __DIR__ . '/../..' . '/Wrapper/Items/CommentItem.php',
