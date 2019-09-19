@@ -142,7 +142,7 @@ catch (Exception $e)
 */
 
 try {
-    print_r(Classes\Wrapper\WheelDia::run()
+    print_r(Classes\Wrapper\WheelDiameter::run()
         ->getPage(1)
         ->getItemFromJson());
 }

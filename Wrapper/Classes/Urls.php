@@ -45,4 +45,5 @@ interface Urls
     const TireDiameter = 'tire-diameter/';
     const WheelPcd = 'wheel-pcd/';
     const WheelDia = 'wheel-dia/';
+    const WheelDiameter = 'wheel-diameter/';
 }

@@ -53,6 +53,7 @@ return array(
     'Classes\\Wrapper\\Urls' => $baseDir . '/Wrapper/Classes/Urls.php',
     'Classes\\Wrapper\\VolumeDiscount' => $baseDir . '/Wrapper/Classes/VolumeDiscount.php',
     'Classes\\Wrapper\\WheelDia' => $baseDir . '/Wrapper/Classes/WheelDia.php',
+    'Classes\\Wrapper\\WheelDiameter' => $baseDir . '/Wrapper/Classes/WheelDiameter.php',
     'Classes\\Wrapper\\WheelPcd' => $baseDir . '/Wrapper/Classes/WheelPcd.php',
     'Classes\\Wrapper\\Wrapper' => $baseDir . '/Wrapper/Classes/Wrapper.php',
     'CommentItem' => $baseDir . '/Wrapper/Items/CommentItem.php',
