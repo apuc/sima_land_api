@@ -140,7 +140,7 @@ catch (Exception $e)
 }
 */
 try {
-    print_r(Classes\Wrapper\News::run()
+    print_r(Classes\Wrapper\CarModel::run()
         ->getPage(1)
         ->jsonToObj());
 }

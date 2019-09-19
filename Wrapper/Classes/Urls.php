@@ -22,4 +22,5 @@ interface Urls
     const Trademark = 'trademark/';
     const PickupPoint = 'pickup-point/';
     const News = 'news/';
+    const CarModel = 'car-model/';
 }

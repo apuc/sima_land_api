@@ -13,6 +13,7 @@ return array(
     'CategoryItem' => $baseDir . '/Wrapper/Items/CategoryItem.php',
     'CertificateTypeItem' => $baseDir . '/Wrapper/Items/CertificateTypeItem.php',
     'Classes\\Wrapper\\Author' => $baseDir . '/Wrapper/Classes/Author.php',
+    'Classes\\Wrapper\\CarModel' => $baseDir . '/Wrapper/Classes/CarModel.php',
     'Classes\\Wrapper\\Category' => $baseDir . '/Wrapper/Classes/Category.php',
     'Classes\\Wrapper\\Comment' => $baseDir . '/Wrapper/Classes/Comment.php',
     'Classes\\Wrapper\\Country' => $baseDir . '/Wrapper/Classes/Country.php',
