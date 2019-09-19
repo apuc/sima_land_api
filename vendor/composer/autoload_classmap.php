@@ -15,6 +15,7 @@ return array(
     'Classes\\Wrapper\\Author' => $baseDir . '/Wrapper/Classes/Author.php',
     'Classes\\Wrapper\\Category' => $baseDir . '/Wrapper/Classes/Category.php',
     'Classes\\Wrapper\\Comment' => $baseDir . '/Wrapper/Classes/Comment.php',
+    'Classes\\Wrapper\\Country' => $baseDir . '/Wrapper/Classes/Country.php',
     'Classes\\Wrapper\\Currency' => $baseDir . '/Wrapper/Classes/Currency.php',
     'Classes\\Wrapper\\DeliveryAddress' => $baseDir . '/Wrapper/Classes/DeliveryAddress.php',
     'Classes\\Wrapper\\District' => $baseDir . '/Wrapper/Classes/District.php',

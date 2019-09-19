@@ -127,10 +127,19 @@ catch (Exception $e)
 {
     echo $e;
 }
-*/
 
 try {
     print_r(Material::run()
+        ->getPage(1)
+        ->jsonToObj());
+}
+catch (Exception $e)
+{
+    echo $e;
+}
+*/
+try {
+    print_r(Classes\Wrapper\Country::run()
         ->getPage(1)
         ->jsonToObj());
 }
