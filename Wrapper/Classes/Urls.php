@@ -48,6 +48,7 @@ interface Urls
     const TireLoadIndex = 'tire-load-index/';
     const TireSpeedIndex = 'tire-speed-index/';
     const WheelLz = 'wheel-lz/';
+    const WheelEt = 'wheel-et/';
     const WheelPcd = 'wheel-pcd/';
     const WheelDia = 'wheel-dia/';
     const WheelDiameter = 'wheel-diameter/';

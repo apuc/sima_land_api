@@ -142,7 +142,7 @@ catch (Exception $e)
 */
 
 try {
-    print_r(Classes\Wrapper\Datatype::run()
+    print_r(Classes\Wrapper\WheelEt::run()
         ->getPage(1)
         ->getItemFromJson());
 }
