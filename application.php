@@ -8,6 +8,7 @@ use Classes\Wrapper\Author;
 use Classes\Wrapper\DeliveryAddress;
 use Classes\Wrapper\District;
 use Classes\Wrapper\Gift;
+use Classes\Wrapper\Material;
 use Classes\Wrapper\Offer;
 use Classes\Wrapper\Series;
 use Classes\Wrapper\Settlement;
@@ -116,9 +117,20 @@ catch (Exception $e)
 {
     echo $e;
 }
-*/
+
 try {
     print_r(DeliveryAddress::run()
+        ->getPage(1)
+        ->jsonToObj());
+}
+catch (Exception $e)
+{
+    echo $e;
+}
+*/
+
+try {
+    print_r(Material::run()
         ->getPage(1)
         ->jsonToObj());
 }
