@@ -140,7 +140,7 @@ catch (Exception $e)
 }
 */
 try {
-    print_r(Classes\Wrapper\PickupPoint::run()
+    print_r(Classes\Wrapper\News::run()
         ->getPage(1)
         ->jsonToObj());
 }

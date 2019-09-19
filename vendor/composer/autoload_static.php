@@ -23,6 +23,7 @@ class ComposerStaticInit92ebd324df36a7db2111e8bed48013af
         'Classes\\Wrapper\\Gift' => __DIR__ . '/../..' . '/Wrapper/Classes/Gift.php',
         'Classes\\Wrapper\\Goods' => __DIR__ . '/../..' . '/Wrapper/Classes/Goods.php',
         'Classes\\Wrapper\\Material' => __DIR__ . '/../..' . '/Wrapper/Classes/Material.php',
+        'Classes\\Wrapper\\News' => __DIR__ . '/../..' . '/Wrapper/Classes/News.php',
         'Classes\\Wrapper\\Offer' => __DIR__ . '/../..' . '/Wrapper/Classes/Offer.php',
         'Classes\\Wrapper\\PickupPoint' => __DIR__ . '/../..' . '/Wrapper/Classes/PickupPoint.php',
         'Classes\\Wrapper\\Series' => __DIR__ . '/../..' . '/Wrapper/Classes/Series.php',

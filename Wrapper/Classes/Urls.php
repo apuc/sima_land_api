@@ -21,4 +21,5 @@ interface Urls
     const Country = 'country/';
     const Trademark = 'trademark/';
     const PickupPoint = 'pickup-point/';
+    const News = 'news/';
 }

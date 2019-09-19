@@ -22,6 +22,7 @@ return array(
     'Classes\\Wrapper\\Gift' => $baseDir . '/Wrapper/Classes/Gift.php',
     'Classes\\Wrapper\\Goods' => $baseDir . '/Wrapper/Classes/Goods.php',
     'Classes\\Wrapper\\Material' => $baseDir . '/Wrapper/Classes/Material.php',
+    'Classes\\Wrapper\\News' => $baseDir . '/Wrapper/Classes/News.php',
     'Classes\\Wrapper\\Offer' => $baseDir . '/Wrapper/Classes/Offer.php',
     'Classes\\Wrapper\\PickupPoint' => $baseDir . '/Wrapper/Classes/PickupPoint.php',
     'Classes\\Wrapper\\Series' => $baseDir . '/Wrapper/Classes/Series.php',
