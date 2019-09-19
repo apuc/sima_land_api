@@ -140,8 +140,8 @@ catch (Exception $e)
 }
 */
 try {
-    print_r(Classes\Wrapper\VolumeDiscount::run()
-        ->getById(8)
+    print_r(Classes\Wrapper\Attr::run()
+        ->getPage(1)
         ->jsonToObj());
 }
 catch (Exception $e)

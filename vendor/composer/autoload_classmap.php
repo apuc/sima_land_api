@@ -6,12 +6,14 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AttrItem' => $baseDir . '/Wrapper/Items/AttrItem.php',
     'AuthorItem' => $baseDir . '/Wrapper/Items/AuthorItem.php',
     'BarcodeItem' => $baseDir . '/Wrapper/Items/BarcodeItem.php',
     'BoxtypeItem' => $baseDir . '/Wrapper/Items/BoxtypeItem.php',
     'CarModelItem' => $baseDir . '/Wrapper/Items/CarModelItem.php',
     'CategoryItem' => $baseDir . '/Wrapper/Items/CategoryItem.php',
     'CertificateTypeItem' => $baseDir . '/Wrapper/Items/CertificateTypeItem.php',
+    'Classes\\Wrapper\\Attr' => $baseDir . '/Wrapper/Classes/Attr.php',
     'Classes\\Wrapper\\Author' => $baseDir . '/Wrapper/Classes/Author.php',
     'Classes\\Wrapper\\Barcode' => $baseDir . '/Wrapper/Classes/Barcode.php',
     'Classes\\Wrapper\\Boxtype' => $baseDir . '/Wrapper/Classes/Boxtype.php',

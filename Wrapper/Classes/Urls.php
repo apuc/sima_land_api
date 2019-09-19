@@ -31,4 +31,5 @@ interface Urls
     const SpecialOfferType = 'special-offer-type/';
     const CertificateType = 'certificate-type/';
     const VolumeDiscount = 'volume-discount/';
+    const Attr = 'attr/';
 }

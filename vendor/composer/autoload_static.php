@@ -7,12 +7,14 @@ namespace Composer\Autoload;
 class ComposerStaticInit92ebd324df36a7db2111e8bed48013af
 {
     public static $classMap = array (
+        'AttrItem' => __DIR__ . '/../..' . '/Wrapper/Items/AttrItem.php',
         'AuthorItem' => __DIR__ . '/../..' . '/Wrapper/Items/AuthorItem.php',
         'BarcodeItem' => __DIR__ . '/../..' . '/Wrapper/Items/BarcodeItem.php',
         'BoxtypeItem' => __DIR__ . '/../..' . '/Wrapper/Items/BoxtypeItem.php',
         'CarModelItem' => __DIR__ . '/../..' . '/Wrapper/Items/CarModelItem.php',
         'CategoryItem' => __DIR__ . '/../..' . '/Wrapper/Items/CategoryItem.php',
         'CertificateTypeItem' => __DIR__ . '/../..' . '/Wrapper/Items/CertificateTypeItem.php',
+        'Classes\\Wrapper\\Attr' => __DIR__ . '/../..' . '/Wrapper/Classes/Attr.php',
         'Classes\\Wrapper\\Author' => __DIR__ . '/../..' . '/Wrapper/Classes/Author.php',
         'Classes\\Wrapper\\Barcode' => __DIR__ . '/../..' . '/Wrapper/Classes/Barcode.php',
         'Classes\\Wrapper\\Boxtype' => __DIR__ . '/../..' . '/Wrapper/Classes/Boxtype.php',
