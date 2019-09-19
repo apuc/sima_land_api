@@ -4,6 +4,7 @@ namespace Classes\Wrapper;
 
 use Exception;
 use Meta;
+use Links;
 
 abstract class Wrapper
 {
@@ -122,7 +123,7 @@ abstract class Wrapper
 
     #endregion
     #region Public methods
-    public function getMetaFromJson()
+    public function getMetaFromJson() : Meta
     {
         if ($this->json === '') return null;
 
@@ -133,7 +134,7 @@ abstract class Wrapper
         }
     }
 
-    public function getLinksFromJson()
+    public function getLinksFromJson() : Links
     {
         if ($this->json === '') return null;
 

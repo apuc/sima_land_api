@@ -15,7 +15,7 @@ use Classes\Wrapper\Settlement;
 use Classes\Wrapper\Wrapper;
 use http\Exception;
 
-
+/*
 try {
     print_r(Classes\Wrapper\TireSeason::run()
         ->getPage(1)
@@ -24,23 +24,23 @@ try {
 catch (Exception $e)
 {
     echo $e;
-}
+}*/
 
-/*
+
 $data = array(
     'path'=>'2',
     'level'=>'2');
 
 try {
     print_r(Category::run()
-        ->getPage(1)
-        ->getLinksFromJson());
+        ->getById(1)
+        ->getItemFromJson());
 }
 catch (Exception $e)
 {
     echo $e;
 }
-
+/*
 try {
     print_r(Goods::run()
         ->getById(10000)
