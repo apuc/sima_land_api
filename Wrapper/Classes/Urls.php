@@ -35,6 +35,7 @@ interface Urls
     const VolumeDiscount = 'volume-discount/';
     const Attr = 'attr/';
     const OurLegalEntity = 'our-legal-entity/';
+    const OwnershipType = 'ownership-type/';
     const Option = 'option/';
     const Spec = 'spec/';
 }
