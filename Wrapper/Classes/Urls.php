@@ -15,4 +15,5 @@ interface Urls
     const Settlement = 'settlement/';
     const Gift = 'gift/';
     const Comment = 'item-comment/';
+    const Offer = 'offer/';
 }

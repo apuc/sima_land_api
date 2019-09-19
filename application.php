@@ -7,6 +7,7 @@ use Classes\Wrapper\Currency;
 use Classes\Wrapper\Author;
 use Classes\Wrapper\District;
 use Classes\Wrapper\Gift;
+use Classes\Wrapper\Offer;
 use Classes\Wrapper\Series;
 use Classes\Wrapper\Settlement;
 use http\Exception;
@@ -94,10 +95,20 @@ catch (Exception $e)
 {
     echo $e;
 }
-*/
+
 try {
     print_r(Comment::run()
         ->getPage(1)
+        ->jsonToObj());
+}
+catch (Exception $e)
+{
+    echo $e;
+}
+*/
+try {
+    print_r(Offer::run()
+        ->getById(55)
         ->jsonToObj());
 }
 catch (Exception $e)
