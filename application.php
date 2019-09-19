@@ -142,7 +142,7 @@ catch (Exception $e)
 */
 
 try {
-    print_r(Classes\Wrapper\TransportCondition::run()
+    print_r(Classes\Wrapper\ClaimReasonType::run()
         ->getPage(1)
         ->getItemFromJson());
 }

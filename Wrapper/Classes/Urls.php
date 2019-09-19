@@ -32,6 +32,7 @@ interface Urls
     const PaymentType = 'payment-type/';
     const SpecialOfferType = 'special-offer-type/';
     const CertificateType = 'certificate-type/';
+    const ClaimReasonType = 'claim-item-reason-type/';
     const VolumeDiscount = 'volume-discount/';
     const Attr = 'attr/';
     const OurLegalEntity = 'our-legal-entity/';
