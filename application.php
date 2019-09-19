@@ -2,6 +2,7 @@
 require 'vendor/autoload.php';
 
 use Classes\Wrapper\Category;
+use Classes\Wrapper\Comment;
 use Classes\Wrapper\Currency;
 use Classes\Wrapper\Author;
 use Classes\Wrapper\District;
@@ -83,9 +84,19 @@ catch (Exception $e)
 {
     echo $e;
 }
-*/
+
 try {
     print_r(Gift::run()
+        ->getPage(1)
+        ->jsonToObj());
+}
+catch (Exception $e)
+{
+    echo $e;
+}
+*/
+try {
+    print_r(Comment::run()
         ->getPage(1)
         ->jsonToObj());
 }

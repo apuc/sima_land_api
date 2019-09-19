@@ -14,6 +14,7 @@ return array(
     'CertificateTypeItem' => $baseDir . '/Wrapper/Items/CertificateTypeItem.php',
     'Classes\\Wrapper\\Author' => $baseDir . '/Wrapper/Classes/Author.php',
     'Classes\\Wrapper\\Category' => $baseDir . '/Wrapper/Classes/Category.php',
+    'Classes\\Wrapper\\Comment' => $baseDir . '/Wrapper/Classes/Comment.php',
     'Classes\\Wrapper\\Currency' => $baseDir . '/Wrapper/Classes/Currency.php',
     'Classes\\Wrapper\\District' => $baseDir . '/Wrapper/Classes/District.php',
     'Classes\\Wrapper\\Gift' => $baseDir . '/Wrapper/Classes/Gift.php',

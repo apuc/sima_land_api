@@ -14,4 +14,5 @@ interface Urls
     const District = 'district/';
     const Settlement = 'settlement/';
     const Gift = 'gift/';
+    const Comment = 'item-comment/';
 }
