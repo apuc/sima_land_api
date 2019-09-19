@@ -34,4 +34,6 @@ interface Urls
     const CertificateType = 'certificate-type/';
     const VolumeDiscount = 'volume-discount/';
     const Attr = 'attr/';
+    const OurLegalEntity = 'our-legal-entity/';
+    const Option = 'option/';
 }

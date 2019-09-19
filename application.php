@@ -15,14 +15,12 @@ use Classes\Wrapper\Settlement;
 use Classes\Wrapper\Wrapper;
 use http\Exception;
 
-
+/*
 $data = array(
     'path'=>'2',
     'level'=>'2');
 
 try {
-
-
     print_r(Category::run()
         ->getPage(1)
         ->getLinksFromJson());
@@ -31,7 +29,7 @@ catch (Exception $e)
 {
     echo $e;
 }
-/*
+
 try {
     print_r(Goods::run()
         ->getById(10000)
@@ -141,15 +139,15 @@ catch (Exception $e)
 {
     echo $e;
 }
+*/
 
 try {
-    print_r(Classes\Wrapper\SettlementExt::run()
+    print_r(Classes\Wrapper\OurLegalEntity::run()
         ->getPage(1)
-        ->getMetaFromJson());
+        ->getItemFromJson());
 }
 catch (Exception $e)
 {
     echo $e;
 }
 
-*/
