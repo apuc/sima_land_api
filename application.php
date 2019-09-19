@@ -140,7 +140,7 @@ catch (Exception $e)
 }
 */
 try {
-    print_r(Classes\Wrapper\DeliveryCompany::run()
+    print_r(Classes\Wrapper\DeliveryCondition::run()
         ->getPage(1)
         ->jsonToObj());
 }
