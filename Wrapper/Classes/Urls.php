@@ -13,6 +13,7 @@ interface Urls
     const Series = 'series/';
     const District = 'district/';
     const Settlement = 'settlement/';
+    const SettlementExt = 'settlement-ext/';
     const Gift = 'gift/';
     const Comment = 'item-comment/';
     const Offer = 'offer/';
