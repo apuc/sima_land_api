@@ -17,7 +17,7 @@ use http\Exception;
 
 
 try {
-    print_r(Classes\Wrapper\ClaimResponseCommentPhoto::run()
+    print_r(Classes\Wrapper\PhotoSize::run()
         ->getPage(1)
         ->getItemFromJson());
 }

@@ -44,6 +44,7 @@ interface Urls
     const ClaimReasonType = 'claim-item-reason-type/';
     const ClaimResponse = 'claim-item-response/';
     const ClaimResponseCommentPhoto = 'claim-item-response-comment-photo/';
+    const PhotoSize = 'photo-size/';
     const VolumeDiscount = 'volume-discount/';
     const Attr = 'attr/';
     const Unit = 'unit/';
