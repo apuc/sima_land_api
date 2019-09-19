@@ -7,6 +7,7 @@ interface Urls
     const MainPath = 'https://www.sima-land.ru/api/v3/';
     const Category = 'category/';
     const Goods = 'item/';
+    const FilterPage = 'filter-page/';
     const GoodsMostLiked = 'item-most-liked/';
     const Currency = 'currency/';
     const Author = 'author/';
@@ -41,6 +42,7 @@ interface Urls
     const SpecialOfferType = 'special-offer-type/';
     const CertificateType = 'certificate-type/';
     const ClaimReasonType = 'claim-item-reason-type/';
+    const ClaimResponse = 'claim-item-response/';
     const VolumeDiscount = 'volume-discount/';
     const Attr = 'attr/';
     const Unit = 'unit/';
