@@ -29,6 +29,7 @@ return array(
     'Classes\\Wrapper\\Material' => $baseDir . '/Wrapper/Classes/Material.php',
     'Classes\\Wrapper\\News' => $baseDir . '/Wrapper/Classes/News.php',
     'Classes\\Wrapper\\Offer' => $baseDir . '/Wrapper/Classes/Offer.php',
+    'Classes\\Wrapper\\PaymentType' => $baseDir . '/Wrapper/Classes/PaymentType.php',
     'Classes\\Wrapper\\PickupPoint' => $baseDir . '/Wrapper/Classes/PickupPoint.php',
     'Classes\\Wrapper\\Series' => $baseDir . '/Wrapper/Classes/Series.php',
     'Classes\\Wrapper\\Settlement' => $baseDir . '/Wrapper/Classes/Settlement.php',

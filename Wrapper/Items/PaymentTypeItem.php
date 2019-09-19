@@ -4,10 +4,13 @@
 class PaymentTypeItem
 {
     public $id; //int
-    public $settlement_id; //long
-    public $delivery_type_id; //int
-    public $sum; //int
-    public $percent; //int
-    public $markup; //int
-    public $settlement_osm_id; //object
+    public $name; //String
+    public $sort; //int
+    public $is_disabled; //int
+    public $text; //String
+    public $text_block; //String
+    public $description; //String
+    public $url; //String
+    public $short_name; //String
+    public $absolute_url; //String
 }

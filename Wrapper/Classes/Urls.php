@@ -27,4 +27,5 @@ interface Urls
     const Barcode = 'item-barcode/';
     const DeliveryCompany = 'delivery-company/';
     const DeliveryCondition = 'delivery-condition/';
+    const PaymentType = 'payment-type/';
 }

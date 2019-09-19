@@ -140,8 +140,8 @@ catch (Exception $e)
 }
 */
 try {
-    print_r(Classes\Wrapper\DeliveryCondition::run()
-        ->getPage(1)
+    print_r(Classes\Wrapper\PaymentType::run()
+        ->getById(0)
         ->jsonToObj());
 }
 catch (Exception $e)
