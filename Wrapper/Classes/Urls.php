@@ -28,6 +28,7 @@ interface Urls
     const News = 'news/';
     const NewsComment = 'news-comment/';
     const CarModel = 'car-model/';
+    const CarModification = 'car-modification/';
     const Boxtype = 'boxtype/';
     const Barcode = 'item-barcode/';
     const DeliveryCompany = 'delivery-company/';

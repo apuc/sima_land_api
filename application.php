@@ -17,7 +17,7 @@ use http\Exception;
 
 
 try {
-    print_r(Classes\Wrapper\Manager::run()
+    print_r(Classes\Wrapper\CarModification::run()
         ->getPage(1)
         ->getItemFromJson());
 }
