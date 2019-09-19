@@ -23,4 +23,5 @@ interface Urls
     const PickupPoint = 'pickup-point/';
     const News = 'news/';
     const CarModel = 'car-model/';
+    const Boxtype = 'boxtype/';
 }
