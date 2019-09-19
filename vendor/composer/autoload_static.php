@@ -34,6 +34,7 @@ class ComposerStaticInit92ebd324df36a7db2111e8bed48013af
         'Classes\\Wrapper\\PickupPoint' => __DIR__ . '/../..' . '/Wrapper/Classes/PickupPoint.php',
         'Classes\\Wrapper\\Series' => __DIR__ . '/../..' . '/Wrapper/Classes/Series.php',
         'Classes\\Wrapper\\Settlement' => __DIR__ . '/../..' . '/Wrapper/Classes/Settlement.php',
+        'Classes\\Wrapper\\SpecialOfferType' => __DIR__ . '/../..' . '/Wrapper/Classes/SpecialOfferType.php',
         'Classes\\Wrapper\\Trademark' => __DIR__ . '/../..' . '/Wrapper/Classes/Trademark.php',
         'Classes\\Wrapper\\Urls' => __DIR__ . '/../..' . '/Wrapper/Classes/Urls.php',
         'Classes\\Wrapper\\Wrapper' => __DIR__ . '/../..' . '/Wrapper/Classes/Wrapper.php',

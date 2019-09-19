@@ -33,6 +33,7 @@ return array(
     'Classes\\Wrapper\\PickupPoint' => $baseDir . '/Wrapper/Classes/PickupPoint.php',
     'Classes\\Wrapper\\Series' => $baseDir . '/Wrapper/Classes/Series.php',
     'Classes\\Wrapper\\Settlement' => $baseDir . '/Wrapper/Classes/Settlement.php',
+    'Classes\\Wrapper\\SpecialOfferType' => $baseDir . '/Wrapper/Classes/SpecialOfferType.php',
     'Classes\\Wrapper\\Trademark' => $baseDir . '/Wrapper/Classes/Trademark.php',
     'Classes\\Wrapper\\Urls' => $baseDir . '/Wrapper/Classes/Urls.php',
     'Classes\\Wrapper\\Wrapper' => $baseDir . '/Wrapper/Classes/Wrapper.php',
