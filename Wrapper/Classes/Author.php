@@ -1,8 +1,10 @@
 <?php
 
+
 namespace Classes\Wrapper;
 
-class Currency extends Wrapper
+
+class Author extends Wrapper
 {
     private $json = '';
 
@@ -15,7 +17,7 @@ class Currency extends Wrapper
     {
         if ($id >= 1)
             $this->json = Wrapper::ExecuteCurl(
-                Urls::MainPath . Urls::Currency . $id . '/');
+                Urls::MainPath.Urls::Author . $id . '/');
         return $this;
     }
 
@@ -23,28 +25,27 @@ class Currency extends Wrapper
     {
         if ($page >= 1)
             $this->json = Wrapper::ExecuteCurl(
-                Urls::MainPath . Urls::Currency . "?" . http_build_query(['page' => $page]));
+                Urls::MainPath.Urls::Author . "?" . http_build_query(['page' => $page]));
         return $this;
     }
 
     public function query(array $data)
     {
         if (!empty($data))
-            $this->json = Wrapper::ExecuteCurl(Urls::MainPath . Urls::Currency . "?" . http_build_query($data));
+            $this->json = Wrapper::ExecuteCurl(
+                Urls::MainPath.Urls::Author . "?" . http_build_query($data));
         return $this;
     }
-
     public function jsonToObj()
     {
         if ($this->json === '') return null;
 
         try {
-            return $this->getObjFromJson($this->CheckStatus($this->ValidateJson($this->json)), "CurrencyItem");
+            return $this->getObjFromJson($this->CheckStatus($this->ValidateJson($this->json)), "AuthorItem");
         } catch (Exception $e) {
             throw $e;
         }
     }
-
     /**
      * @return string
      */

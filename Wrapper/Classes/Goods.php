@@ -48,4 +48,12 @@ class Goods extends Wrapper
             throw $e;
         }
     }
+
+    /**
+     * @return string
+     */
+    public function getJson(): string
+    {
+        return $this->json;
+    }
 }

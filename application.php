@@ -1,7 +1,10 @@
 <?php
 require 'vendor/autoload.php';
 use Classes\Wrapper\Category;
+use Classes\Wrapper\Currency;
+use Classes\Wrapper\Author;
 
+/*
 $data = array(
     'path'=>'2',
     'level'=>'2');
@@ -15,7 +18,7 @@ catch (Exception $e)
     echo $e;
 }
 
-/*try {
+try {
     print_r(Goods::run()
         ->getById(10000)
         ->jsonToObj());
@@ -35,3 +38,12 @@ catch (Exception $e)
     echo $e;
 }
 */
+try {
+    print_r(Author::run()
+        ->getPage(1)
+        ->jsonToObj());
+}
+catch (Exception $e)
+{
+    echo $e;
+}

@@ -12,6 +12,7 @@ return array(
     'CarModelItem' => $baseDir . '/Wrapper/Items/CarModelItem.php',
     'CategoryItem' => $baseDir . '/Wrapper/Items/CategoryItem.php',
     'CertificateTypeItem' => $baseDir . '/Wrapper/Items/CertificateTypeItem.php',
+    'Classes\\Wrapper\\Author' => $baseDir . '/Wrapper/Classes/Author.php',
     'Classes\\Wrapper\\Category' => $baseDir . '/Wrapper/Classes/Category.php',
     'Classes\\Wrapper\\Currency' => $baseDir . '/Wrapper/Classes/Currency.php',
     'Classes\\Wrapper\\Goods' => $baseDir . '/Wrapper/Classes/Goods.php',

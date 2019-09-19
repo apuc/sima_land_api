@@ -13,6 +13,7 @@ class ComposerStaticInit92ebd324df36a7db2111e8bed48013af
         'CarModelItem' => __DIR__ . '/../..' . '/Wrapper/Items/CarModelItem.php',
         'CategoryItem' => __DIR__ . '/../..' . '/Wrapper/Items/CategoryItem.php',
         'CertificateTypeItem' => __DIR__ . '/../..' . '/Wrapper/Items/CertificateTypeItem.php',
+        'Classes\\Wrapper\\Author' => __DIR__ . '/../..' . '/Wrapper/Classes/Author.php',
         'Classes\\Wrapper\\Category' => __DIR__ . '/../..' . '/Wrapper/Classes/Category.php',
         'Classes\\Wrapper\\Currency' => __DIR__ . '/../..' . '/Wrapper/Classes/Currency.php',
         'Classes\\Wrapper\\Goods' => __DIR__ . '/../..' . '/Wrapper/Classes/Goods.php',

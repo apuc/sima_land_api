@@ -2,6 +2,8 @@
 
 namespace Classes\Wrapper;
 
+use Exception;
+
 abstract class Wrapper
 {
     protected static function ExecuteCurl(string $url)
