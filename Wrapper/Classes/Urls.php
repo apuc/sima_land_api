@@ -56,6 +56,7 @@ interface Urls
     const Spec = 'spec/';
     const ContactGroup = 'contact-group/';
     const TireDiameter = 'tire-diameter/';
+    const TireSeason = 'tire-season/';
     const TireLoadIndex = 'tire-load-index/';
     const TireSpeedIndex = 'tire-speed-index/';
     const WheelLz = 'wheel-lz/';

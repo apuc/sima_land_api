@@ -17,7 +17,7 @@ use http\Exception;
 
 
 try {
-    print_r(Classes\Wrapper\AttrGoods::run()
+    print_r(Classes\Wrapper\TireSeason::run()
         ->getPage(1)
         ->getItemFromJson());
 }
