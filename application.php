@@ -140,7 +140,7 @@ catch (Exception $e)
 }
 */
 try {
-    print_r(Classes\Wrapper\SpecialOfferType::run()
+    print_r(Classes\Wrapper\CertificateType::run()
         ->getPage(1)
         ->jsonToObj());
 }

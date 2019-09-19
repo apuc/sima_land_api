@@ -17,6 +17,7 @@ return array(
     'Classes\\Wrapper\\Boxtype' => $baseDir . '/Wrapper/Classes/Boxtype.php',
     'Classes\\Wrapper\\CarModel' => $baseDir . '/Wrapper/Classes/CarModel.php',
     'Classes\\Wrapper\\Category' => $baseDir . '/Wrapper/Classes/Category.php',
+    'Classes\\Wrapper\\CertificateType' => $baseDir . '/Wrapper/Classes/CertificateType.php',
     'Classes\\Wrapper\\Comment' => $baseDir . '/Wrapper/Classes/Comment.php',
     'Classes\\Wrapper\\Country' => $baseDir . '/Wrapper/Classes/Country.php',
     'Classes\\Wrapper\\Currency' => $baseDir . '/Wrapper/Classes/Currency.php',

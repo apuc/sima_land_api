@@ -18,6 +18,7 @@ class ComposerStaticInit92ebd324df36a7db2111e8bed48013af
         'Classes\\Wrapper\\Boxtype' => __DIR__ . '/../..' . '/Wrapper/Classes/Boxtype.php',
         'Classes\\Wrapper\\CarModel' => __DIR__ . '/../..' . '/Wrapper/Classes/CarModel.php',
         'Classes\\Wrapper\\Category' => __DIR__ . '/../..' . '/Wrapper/Classes/Category.php',
+        'Classes\\Wrapper\\CertificateType' => __DIR__ . '/../..' . '/Wrapper/Classes/CertificateType.php',
         'Classes\\Wrapper\\Comment' => __DIR__ . '/../..' . '/Wrapper/Classes/Comment.php',
         'Classes\\Wrapper\\Country' => __DIR__ . '/../..' . '/Wrapper/Classes/Country.php',
         'Classes\\Wrapper\\Currency' => __DIR__ . '/../..' . '/Wrapper/Classes/Currency.php',

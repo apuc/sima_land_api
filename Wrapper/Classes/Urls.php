@@ -29,4 +29,5 @@ interface Urls
     const DeliveryCondition = 'delivery-condition/';
     const PaymentType = 'payment-type/';
     const SpecialOfferType = 'special-offer-type/';
+    const CertificateType = 'certificate-type/';
 }
