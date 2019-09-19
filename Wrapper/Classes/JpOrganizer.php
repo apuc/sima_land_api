@@ -4,9 +4,8 @@
 namespace Classes\Wrapper;
 
 use http\Exception;
-
-/*Опция атрибута товара/категории*/
-class Option extends Wrapper
+/*Организатор совместных покупок*/
+class JpOrganizer extends Wrapper
 {
     public static function run()
     {
@@ -17,7 +16,7 @@ class Option extends Wrapper
     {
         if ($id >= 1)
             $this->json = Wrapper::ExecuteCurl(
-                Urls::MainPath . Urls::Option . $id . '/');
+                Urls::MainPath . Urls::JpOrganizer . $id . '/');
         return $this;
     }
 
@@ -25,7 +24,7 @@ class Option extends Wrapper
     {
         if ($page >= 1)
             $this->json = Wrapper::ExecuteCurl(
-                Urls::MainPath . Urls::Option . "?" . http_build_query(['page' => $page]));
+                Urls::MainPath . Urls::JpOrganizer . "?" . http_build_query(['page' => $page]));
         return $this;
     }
 
@@ -33,7 +32,7 @@ class Option extends Wrapper
     {
         if (!empty($data))
             $this->json = Wrapper::ExecuteCurl(
-                Urls::MainPath . Urls::Option . "?" . http_build_query($data));
+                Urls::MainPath . Urls::JpOrganizer . "?" . http_build_query($data));
         return $this;
     }
 
@@ -42,7 +41,7 @@ class Option extends Wrapper
         if ($this->json === '') return null;
 
         try {
-            return $this->getItems($this->CheckStatus($this->ValidateJson($this->json)), "OptionItem");
+            return $this->getItems($this->CheckStatus($this->ValidateJson($this->json)), "JpOrganizerItem");
         } catch (Exception $e) {
             throw $e;
         }

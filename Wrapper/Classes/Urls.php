@@ -19,6 +19,7 @@ interface Urls
     const Manager = 'manager/';
     const Offer = 'offer/';
     const Wholesale = 'wholesale/';
+    const JpOrganizer = 'jp-organizer/';
     const DeliveryAddress = 'delivery-address/';
     const DeliveryDirection = 'delivery-direction/';
     const Material = 'material/';

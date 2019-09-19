@@ -17,7 +17,7 @@ use http\Exception;
 
 
 try {
-    print_r(Classes\Wrapper\DeliveryDirection::run()
+    print_r(Classes\Wrapper\JpOrganizer::run()
         ->getPage(1)
         ->getItemFromJson());
 }
