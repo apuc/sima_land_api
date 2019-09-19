@@ -42,4 +42,5 @@ interface Urls
     const Option = 'option/';
     const Spec = 'spec/';
     const ContactGroup = 'contact-group/';
+    const TireDiameter = 'tire-diameter/';
 }
