@@ -17,7 +17,7 @@ use http\Exception;
 
 
 try {
-    print_r(Classes\Wrapper\PhotoSize::run()
+    print_r(Classes\Wrapper\DeliveryInterval::run()
         ->getPage(1)
         ->getItemFromJson());
 }

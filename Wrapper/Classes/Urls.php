@@ -36,6 +36,7 @@ interface Urls
     const Barcode = 'item-barcode/';
     const DeliveryCompany = 'delivery-company/';
     const DeliveryCondition = 'delivery-condition/';
+    const DeliveryInterval = 'delivery-interval/';
     const TransportCondition = 'transport-condition/';
     const DeliveryTime = 'delivery-time/';
     const PaymentType = 'payment-type/';
