@@ -9,6 +9,7 @@ abstract class Wrapper
 {
     protected $json = '';
 
+    #region Protected Static methods
     protected static function ExecuteCurl(string $url)
     {
         //echo $url . "\n";
@@ -109,10 +110,18 @@ abstract class Wrapper
     {
         if (isset($page['_meta'])) {
             return self::createObjFromArr($page['_meta'], "Meta");
-        }
-        else return null;
+        } else return null;
     }
 
+    protected static function getLinks($page)
+    {
+        if (isset($page['_links'])) {
+            return self::createObjFromArr($page['_links'], "Links");
+        } else return null;
+    }
+
+    #endregion
+    #region Public methods
     public function getMetaFromJson()
     {
         if ($this->json === '') return null;
@@ -123,14 +132,24 @@ abstract class Wrapper
             throw $e;
         }
     }
-    /**
-     * @return string
-     */
+
+    public function getLinksFromJson()
+    {
+        if ($this->json === '') return null;
+
+        try {
+            return $this->getLinks($this->CheckStatus($this->ValidateJson($this->json)));
+        } catch (\http\Exception $e) {
+            throw $e;
+        }
+    }
+
     public function getJson(): string
     {
         return $this->json;
     }
-
+    #endregion
+    #region Abstracts methods
     abstract public function getById($id);
 
     abstract public function getPage($page);
@@ -138,6 +157,6 @@ abstract class Wrapper
     abstract public function query(array $data);
 
     abstract public function getItemFromJson();
-
+    #endregion
 }
 
