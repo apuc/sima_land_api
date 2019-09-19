@@ -36,6 +36,7 @@ interface Urls
     const ClaimReasonType = 'claim-item-reason-type/';
     const VolumeDiscount = 'volume-discount/';
     const Attr = 'attr/';
+    const Unit = 'unit/';
     const OurLegalEntity = 'our-legal-entity/';
     const OwnershipType = 'ownership-type/';
     const Option = 'option/';

@@ -48,6 +48,7 @@ return array(
     'Classes\\Wrapper\\SpecialOfferType' => $baseDir . '/Wrapper/Classes/SpecialOfferType.php',
     'Classes\\Wrapper\\Trademark' => $baseDir . '/Wrapper/Classes/Trademark.php',
     'Classes\\Wrapper\\TransportCondition' => $baseDir . '/Wrapper/Classes/TransportCondition.php',
+    'Classes\\Wrapper\\Unit' => $baseDir . '/Wrapper/Classes/Unit.php',
     'Classes\\Wrapper\\Urls' => $baseDir . '/Wrapper/Classes/Urls.php',
     'Classes\\Wrapper\\VolumeDiscount' => $baseDir . '/Wrapper/Classes/VolumeDiscount.php',
     'Classes\\Wrapper\\Wrapper' => $baseDir . '/Wrapper/Classes/Wrapper.php',
@@ -84,6 +85,7 @@ return array(
     'SpecOfferTypeItem' => $baseDir . '/Wrapper/Items/SpecOfferTypeItem.php',
     'Trademark' => $baseDir . '/Wrapper/Items/GoodsInfo/Trademark.php',
     'TransportConditionItem' => $baseDir . '/Wrapper/Items/TransportConditionItem.php',
+    'UnitItem' => $baseDir . '/Wrapper/Items/UnitItem.php',
     'VolumeDiscountItem' => $baseDir . '/Wrapper/Items/VolumeDiscountItem.php',
     'WorkTime' => $baseDir . '/Wrapper/Items/PickupPointTime/WorkTime.php',
 );
