@@ -41,7 +41,7 @@ class Country extends Wrapper
         if ($this->json === '') return null;
 
         try {
-            return $this->getObjFromJson($this->CheckStatus($this->ValidateJson($this->json)), "MaterialItem");
+            return $this->getObjFromJson($this->CheckStatus($this->ValidateJson($this->json)), "Country");
         } catch (Exception $e) {
             throw $e;
         }
