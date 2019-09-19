@@ -5,6 +5,7 @@ use Classes\Wrapper\Category;
 use Classes\Wrapper\Comment;
 use Classes\Wrapper\Currency;
 use Classes\Wrapper\Author;
+use Classes\Wrapper\DeliveryAddress;
 use Classes\Wrapper\District;
 use Classes\Wrapper\Gift;
 use Classes\Wrapper\Offer;
@@ -105,10 +106,20 @@ catch (Exception $e)
 {
     echo $e;
 }
-*/
+
 try {
     print_r(Offer::run()
         ->getById(55)
+        ->jsonToObj());
+}
+catch (Exception $e)
+{
+    echo $e;
+}
+*/
+try {
+    print_r(DeliveryAddress::run()
+        ->getPage(1)
         ->jsonToObj());
 }
 catch (Exception $e)

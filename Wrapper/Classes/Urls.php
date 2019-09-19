@@ -16,4 +16,5 @@ interface Urls
     const Gift = 'gift/';
     const Comment = 'item-comment/';
     const Offer = 'offer/';
+    const DeliveryAddress = 'delivery-address/';
 }
