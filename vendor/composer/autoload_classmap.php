@@ -62,6 +62,7 @@ return array(
     'Classes\\Wrapper\\WheelEt' => $baseDir . '/Wrapper/Classes/WheelEt.php',
     'Classes\\Wrapper\\WheelLz' => $baseDir . '/Wrapper/Classes/WheelLz.php',
     'Classes\\Wrapper\\WheelPcd' => $baseDir . '/Wrapper/Classes/WheelPcd.php',
+    'Classes\\Wrapper\\Wholesale' => $baseDir . '/Wrapper/Classes/Wholesale.php',
     'Classes\\Wrapper\\Wrapper' => $baseDir . '/Wrapper/Classes/Wrapper.php',
     'CommentItem' => $baseDir . '/Wrapper/Items/CommentItem.php',
     'ContactGroupItem' => $baseDir . '/Wrapper/Items/ContactGroupItem.php',
@@ -102,5 +103,6 @@ return array(
     'TransportConditionItem' => $baseDir . '/Wrapper/Items/TransportConditionItem.php',
     'UnitItem' => $baseDir . '/Wrapper/Items/UnitItem.php',
     'VolumeDiscountItem' => $baseDir . '/Wrapper/Items/VolumeDiscountItem.php',
+    'WholesaleItem' => $baseDir . '/Wrapper/Items/WholesaleItem.php',
     'WorkTime' => $baseDir . '/Wrapper/Items/PickupPointTime/WorkTime.php',
 );

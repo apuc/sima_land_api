@@ -63,6 +63,7 @@ class ComposerStaticInit92ebd324df36a7db2111e8bed48013af
         'Classes\\Wrapper\\WheelEt' => __DIR__ . '/../..' . '/Wrapper/Classes/WheelEt.php',
         'Classes\\Wrapper\\WheelLz' => __DIR__ . '/../..' . '/Wrapper/Classes/WheelLz.php',
         'Classes\\Wrapper\\WheelPcd' => __DIR__ . '/../..' . '/Wrapper/Classes/WheelPcd.php',
+        'Classes\\Wrapper\\Wholesale' => __DIR__ . '/../..' . '/Wrapper/Classes/Wholesale.php',
         'Classes\\Wrapper\\Wrapper' => __DIR__ . '/../..' . '/Wrapper/Classes/Wrapper.php',
         'CommentItem' => __DIR__ . '/../..' . '/Wrapper/Items/CommentItem.php',
         'ContactGroupItem' => __DIR__ . '/../..' . '/Wrapper/Items/ContactGroupItem.php',
@@ -103,6 +104,7 @@ class ComposerStaticInit92ebd324df36a7db2111e8bed48013af
         'TransportConditionItem' => __DIR__ . '/../..' . '/Wrapper/Items/TransportConditionItem.php',
         'UnitItem' => __DIR__ . '/../..' . '/Wrapper/Items/UnitItem.php',
         'VolumeDiscountItem' => __DIR__ . '/../..' . '/Wrapper/Items/VolumeDiscountItem.php',
+        'WholesaleItem' => __DIR__ . '/../..' . '/Wrapper/Items/WholesaleItem.php',
         'WorkTime' => __DIR__ . '/../..' . '/Wrapper/Items/PickupPointTime/WorkTime.php',
     );
 

@@ -16,7 +16,9 @@ interface Urls
     const SettlementExt = 'settlement-ext/';
     const Gift = 'gift/';
     const Comment = 'item-comment/';
+    const Manager = 'manager/';
     const Offer = 'offer/';
+    const Wholesale = 'wholesale/';
     const DeliveryAddress = 'delivery-address/';
     const Material = 'material/';
     const Country = 'country/';

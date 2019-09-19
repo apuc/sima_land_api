@@ -15,6 +15,17 @@ use Classes\Wrapper\Settlement;
 use Classes\Wrapper\Wrapper;
 use http\Exception;
 
+
+try {
+    print_r(Classes\Wrapper\Wholesale::run()
+        ->getPage(1)
+        ->getItemFromJson());
+}
+catch (Exception $e)
+{
+    echo $e;
+}
+
 /*
 $data = array(
     'path'=>'2',
@@ -141,13 +152,4 @@ catch (Exception $e)
 }
 */
 
-try {
-    print_r(Classes\Wrapper\WheelEt::run()
-        ->getPage(1)
-        ->getItemFromJson());
-}
-catch (Exception $e)
-{
-    echo $e;
-}
 
