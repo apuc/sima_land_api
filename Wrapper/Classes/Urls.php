@@ -36,4 +36,5 @@ interface Urls
     const Attr = 'attr/';
     const OurLegalEntity = 'our-legal-entity/';
     const Option = 'option/';
+    const Spec = 'spec/';
 }
