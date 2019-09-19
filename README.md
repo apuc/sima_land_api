@@ -11,7 +11,7 @@ How to get json for first page of category:
 How to get item of category with id = 1:
 ```php
      print_r(Category::run()
-         ->(1)
+         ->getById(1)
          ->getLinksFromJson());
 ```
 How to get total count of pages of category:
