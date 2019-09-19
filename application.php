@@ -17,7 +17,7 @@ use http\Exception;
 
 
 try {
-    print_r(Classes\Wrapper\DeliveryInterval::run()
+    print_r(Classes\Wrapper\AttrGoods::run()
         ->getPage(1)
         ->getItemFromJson());
 }

@@ -48,6 +48,7 @@ interface Urls
     const PhotoSize = 'photo-size/';
     const VolumeDiscount = 'volume-discount/';
     const Attr = 'attr/';
+    const AttrGoods = 'attr-item/';
     const Unit = 'unit/';
     const OurLegalEntity = 'our-legal-entity/';
     const OwnershipType = 'ownership-type/';

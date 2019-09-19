@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AttrGoodsItem' => $baseDir . '/Wrapper/Items/AttrGoodsItem.php',
     'AttrItem' => $baseDir . '/Wrapper/Items/AttrItem.php',
     'AuthorItem' => $baseDir . '/Wrapper/Items/AuthorItem.php',
     'BarcodeItem' => $baseDir . '/Wrapper/Items/BarcodeItem.php',
@@ -17,6 +18,7 @@ return array(
     'ClaimReasonTypeItem' => $baseDir . '/Wrapper/Items/ClaimReasonTypeItem.php',
     'ClaimResponseCommentPhotoItem' => $baseDir . '/Wrapper/Items/ClaimResponseCommentPhotoItem.php',
     'Classes\\Wrapper\\Attr' => $baseDir . '/Wrapper/Classes/Attr.php',
+    'Classes\\Wrapper\\AttrGoods' => $baseDir . '/Wrapper/Classes/AttrGoods.php',
     'Classes\\Wrapper\\Author' => $baseDir . '/Wrapper/Classes/Author.php',
     'Classes\\Wrapper\\Barcode' => $baseDir . '/Wrapper/Classes/Barcode.php',
     'Classes\\Wrapper\\Boxtype' => $baseDir . '/Wrapper/Classes/Boxtype.php',

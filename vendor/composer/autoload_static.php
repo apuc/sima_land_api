@@ -7,6 +7,7 @@ namespace Composer\Autoload;
 class ComposerStaticInit92ebd324df36a7db2111e8bed48013af
 {
     public static $classMap = array (
+        'AttrGoodsItem' => __DIR__ . '/../..' . '/Wrapper/Items/AttrGoodsItem.php',
         'AttrItem' => __DIR__ . '/../..' . '/Wrapper/Items/AttrItem.php',
         'AuthorItem' => __DIR__ . '/../..' . '/Wrapper/Items/AuthorItem.php',
         'BarcodeItem' => __DIR__ . '/../..' . '/Wrapper/Items/BarcodeItem.php',
@@ -18,6 +19,7 @@ class ComposerStaticInit92ebd324df36a7db2111e8bed48013af
         'ClaimReasonTypeItem' => __DIR__ . '/../..' . '/Wrapper/Items/ClaimReasonTypeItem.php',
         'ClaimResponseCommentPhotoItem' => __DIR__ . '/../..' . '/Wrapper/Items/ClaimResponseCommentPhotoItem.php',
         'Classes\\Wrapper\\Attr' => __DIR__ . '/../..' . '/Wrapper/Classes/Attr.php',
+        'Classes\\Wrapper\\AttrGoods' => __DIR__ . '/../..' . '/Wrapper/Classes/AttrGoods.php',
         'Classes\\Wrapper\\Author' => __DIR__ . '/../..' . '/Wrapper/Classes/Author.php',
         'Classes\\Wrapper\\Barcode' => __DIR__ . '/../..' . '/Wrapper/Classes/Barcode.php',
         'Classes\\Wrapper\\Boxtype' => __DIR__ . '/../..' . '/Wrapper/Classes/Boxtype.php',
