@@ -22,6 +22,7 @@ class ComposerStaticInit92ebd324df36a7db2111e8bed48013af
         'Classes\\Wrapper\\Country' => __DIR__ . '/../..' . '/Wrapper/Classes/Country.php',
         'Classes\\Wrapper\\Currency' => __DIR__ . '/../..' . '/Wrapper/Classes/Currency.php',
         'Classes\\Wrapper\\DeliveryAddress' => __DIR__ . '/../..' . '/Wrapper/Classes/DeliveryAddress.php',
+        'Classes\\Wrapper\\DeliveryCompany' => __DIR__ . '/../..' . '/Wrapper/Classes/DeliveryCompany.php',
         'Classes\\Wrapper\\District' => __DIR__ . '/../..' . '/Wrapper/Classes/District.php',
         'Classes\\Wrapper\\Gift' => __DIR__ . '/../..' . '/Wrapper/Classes/Gift.php',
         'Classes\\Wrapper\\Goods' => __DIR__ . '/../..' . '/Wrapper/Classes/Goods.php',

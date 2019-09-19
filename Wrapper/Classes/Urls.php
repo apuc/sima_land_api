@@ -25,4 +25,5 @@ interface Urls
     const CarModel = 'car-model/';
     const Boxtype = 'boxtype/';
     const Barcode = 'item-barcode/';
+    const DeliveryCompany = 'delivery-company/';
 }
