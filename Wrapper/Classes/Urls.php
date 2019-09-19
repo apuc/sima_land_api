@@ -43,6 +43,7 @@ interface Urls
     const CertificateType = 'certificate-type/';
     const ClaimReasonType = 'claim-item-reason-type/';
     const ClaimResponse = 'claim-item-response/';
+    const ClaimResponseCommentPhoto = 'claim-item-response-comment-photo/';
     const VolumeDiscount = 'volume-discount/';
     const Attr = 'attr/';
     const Unit = 'unit/';
