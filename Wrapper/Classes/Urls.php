@@ -21,6 +21,7 @@ interface Urls
     const Material = 'material/';
     const Country = 'country/';
     const Trademark = 'trademark/';
+    const Datatype = 'datatype/';
     const PickupPoint = 'pickup-point/';
     const News = 'news/';
     const NewsComment = 'news-comment/';
