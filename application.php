@@ -142,7 +142,7 @@ catch (Exception $e)
 */
 
 try {
-    print_r(Classes\Wrapper\TireLoadIndex::run()
+    print_r(Classes\Wrapper\TireSpeedIndex::run()
         ->getPage(1)
         ->getItemFromJson());
 }

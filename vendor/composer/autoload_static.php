@@ -50,6 +50,7 @@ class ComposerStaticInit92ebd324df36a7db2111e8bed48013af
         'Classes\\Wrapper\\SpecialOfferType' => __DIR__ . '/../..' . '/Wrapper/Classes/SpecialOfferType.php',
         'Classes\\Wrapper\\TireDiameter' => __DIR__ . '/../..' . '/Wrapper/Classes/TireDiameter.php',
         'Classes\\Wrapper\\TireLoadIndex' => __DIR__ . '/../..' . '/Wrapper/Classes/TireLoadIndex.php',
+        'Classes\\Wrapper\\TireSpeedIndex' => __DIR__ . '/../..' . '/Wrapper/Classes/TireSpeedIndex.php',
         'Classes\\Wrapper\\Trademark' => __DIR__ . '/../..' . '/Wrapper/Classes/Trademark.php',
         'Classes\\Wrapper\\TransportCondition' => __DIR__ . '/../..' . '/Wrapper/Classes/TransportCondition.php',
         'Classes\\Wrapper\\Unit' => __DIR__ . '/../..' . '/Wrapper/Classes/Unit.php',

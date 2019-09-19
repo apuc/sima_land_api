@@ -49,6 +49,7 @@ return array(
     'Classes\\Wrapper\\SpecialOfferType' => $baseDir . '/Wrapper/Classes/SpecialOfferType.php',
     'Classes\\Wrapper\\TireDiameter' => $baseDir . '/Wrapper/Classes/TireDiameter.php',
     'Classes\\Wrapper\\TireLoadIndex' => $baseDir . '/Wrapper/Classes/TireLoadIndex.php',
+    'Classes\\Wrapper\\TireSpeedIndex' => $baseDir . '/Wrapper/Classes/TireSpeedIndex.php',
     'Classes\\Wrapper\\Trademark' => $baseDir . '/Wrapper/Classes/Trademark.php',
     'Classes\\Wrapper\\TransportCondition' => $baseDir . '/Wrapper/Classes/TransportCondition.php',
     'Classes\\Wrapper\\Unit' => $baseDir . '/Wrapper/Classes/Unit.php',

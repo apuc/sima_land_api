@@ -6,7 +6,7 @@ namespace Classes\Wrapper;
 
 use http\Exception;
 
-class TireLoadIndex extends Wrapper
+class TireSpeedIndex extends Wrapper
 {
     public static function run()
     {
@@ -17,7 +17,7 @@ class TireLoadIndex extends Wrapper
     {
         if ($id >= 1)
             $this->json = Wrapper::ExecuteCurl(
-                Urls::MainPath . Urls::TireLoadIndex . $id . '/');
+                Urls::MainPath . Urls::TireSpeedIndex . $id . '/');
         return $this;
     }
 
@@ -25,7 +25,7 @@ class TireLoadIndex extends Wrapper
     {
         if ($page >= 1)
             $this->json = Wrapper::ExecuteCurl(
-                Urls::MainPath . Urls::TireLoadIndex . "?" . http_build_query(['page' => $page]));
+                Urls::MainPath . Urls::TireSpeedIndex . "?" . http_build_query(['page' => $page]));
         return $this;
     }
 
@@ -33,7 +33,7 @@ class TireLoadIndex extends Wrapper
     {
         if (!empty($data))
             $this->json = Wrapper::ExecuteCurl(
-                Urls::MainPath . Urls::TireLoadIndex . "?" . http_build_query($data));
+                Urls::MainPath . Urls::TireSpeedIndex . "?" . http_build_query($data));
         return $this;
     }
 
@@ -47,4 +47,7 @@ class TireLoadIndex extends Wrapper
             throw $e;
         }
     }
+}
+{
+
 }

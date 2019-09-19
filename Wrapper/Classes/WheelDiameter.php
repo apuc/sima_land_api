@@ -17,7 +17,7 @@ class WheelDiameter extends Wrapper
     {
         if ($id >= 1)
             $this->json = Wrapper::ExecuteCurl(
-                Urls::MainPath . Urls::WheelPcd . $id . '/');
+                Urls::MainPath . Urls::WheelDiameter . $id . '/');
         return $this;
     }
 
@@ -25,7 +25,7 @@ class WheelDiameter extends Wrapper
     {
         if ($page >= 1)
             $this->json = Wrapper::ExecuteCurl(
-                Urls::MainPath . Urls::WheelPcd . "?" . http_build_query(['page' => $page]));
+                Urls::MainPath . Urls::WheelDiameter . "?" . http_build_query(['page' => $page]));
         return $this;
     }
 
@@ -33,7 +33,7 @@ class WheelDiameter extends Wrapper
     {
         if (!empty($data))
             $this->json = Wrapper::ExecuteCurl(
-                Urls::MainPath . Urls::WheelPcd . "?" . http_build_query($data));
+                Urls::MainPath . Urls::WheelDiameter . "?" . http_build_query($data));
         return $this;
     }
 
