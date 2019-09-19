@@ -140,7 +140,7 @@ catch (Exception $e)
 }
 */
 try {
-    print_r(Classes\Wrapper\Boxtype::run()
+    print_r(Classes\Wrapper\Barcode::run()
         ->getPage(1)
         ->jsonToObj());
 }

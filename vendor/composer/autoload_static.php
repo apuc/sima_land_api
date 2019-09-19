@@ -14,6 +14,7 @@ class ComposerStaticInit92ebd324df36a7db2111e8bed48013af
         'CategoryItem' => __DIR__ . '/../..' . '/Wrapper/Items/CategoryItem.php',
         'CertificateTypeItem' => __DIR__ . '/../..' . '/Wrapper/Items/CertificateTypeItem.php',
         'Classes\\Wrapper\\Author' => __DIR__ . '/../..' . '/Wrapper/Classes/Author.php',
+        'Classes\\Wrapper\\Barcode' => __DIR__ . '/../..' . '/Wrapper/Classes/Barcode.php',
         'Classes\\Wrapper\\Boxtype' => __DIR__ . '/../..' . '/Wrapper/Classes/Boxtype.php',
         'Classes\\Wrapper\\CarModel' => __DIR__ . '/../..' . '/Wrapper/Classes/CarModel.php',
         'Classes\\Wrapper\\Category' => __DIR__ . '/../..' . '/Wrapper/Classes/Category.php',
