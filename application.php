@@ -140,8 +140,8 @@ catch (Exception $e)
 }
 */
 try {
-    print_r(Classes\Wrapper\Attr::run()
-        ->getPage(1)
+    print_r(Classes\Wrapper\DeliveryTime::run()
+        ->getById(45201)
         ->jsonToObj());
 }
 catch (Exception $e)
