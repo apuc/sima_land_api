@@ -6,7 +6,7 @@ namespace Classes\Wrapper;
 
 use http\Exception;
 
-class TireDiameter extends Wrapper
+class WheelPcd extends Wrapper
 {
     public static function run()
     {
@@ -17,7 +17,7 @@ class TireDiameter extends Wrapper
     {
         if ($id >= 1)
             $this->json = Wrapper::ExecuteCurl(
-                Urls::MainPath . Urls::TireDiameter . $id . '/');
+                Urls::MainPath . Urls::WheelPcd . $id . '/');
         return $this;
     }
 
@@ -25,7 +25,7 @@ class TireDiameter extends Wrapper
     {
         if ($page >= 1)
             $this->json = Wrapper::ExecuteCurl(
-                Urls::MainPath . Urls::TireDiameter . "?" . http_build_query(['page' => $page]));
+                Urls::MainPath . Urls::WheelPcd . "?" . http_build_query(['page' => $page]));
         return $this;
     }
 
@@ -33,7 +33,7 @@ class TireDiameter extends Wrapper
     {
         if (!empty($data))
             $this->json = Wrapper::ExecuteCurl(
-                Urls::MainPath . Urls::TireDiameter . "?" . http_build_query($data));
+                Urls::MainPath . Urls::WheelPcd . "?" . http_build_query($data));
         return $this;
     }
 

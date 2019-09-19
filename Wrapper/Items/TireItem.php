@@ -1,7 +1,7 @@
 <?php
 
 
-class TireDiameterItem
+class TireItem
 {
     public $id; //int
     public $value; //int

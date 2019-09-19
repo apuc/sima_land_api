@@ -43,4 +43,6 @@ interface Urls
     const Spec = 'spec/';
     const ContactGroup = 'contact-group/';
     const TireDiameter = 'tire-diameter/';
+    const WheelPcd = 'wheel-pcd/';
+    const WheelDia = 'wheel-dia/';
 }
