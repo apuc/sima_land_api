@@ -1,10 +1,11 @@
 <?php
 
+
 namespace Classes\Wrapper;
 
 use http\Exception;
 
-class Category extends Wrapper
+class Option extends Wrapper
 {
     public static function run()
     {
@@ -15,7 +16,7 @@ class Category extends Wrapper
     {
         if ($id >= 1)
             $this->json = Wrapper::ExecuteCurl(
-                Urls::MainPath . Urls::Category . $id . '/');
+                Urls::MainPath . Urls::Option . $id . '/');
         return $this;
     }
 
@@ -23,7 +24,7 @@ class Category extends Wrapper
     {
         if ($page >= 1)
             $this->json = Wrapper::ExecuteCurl(
-                Urls::MainPath . Urls::Category . "?" . http_build_query(['page' => $page]));
+                Urls::MainPath . Urls::Option . "?" . http_build_query(['page' => $page]));
         return $this;
     }
 
@@ -31,7 +32,7 @@ class Category extends Wrapper
     {
         if (!empty($data))
             $this->json = Wrapper::ExecuteCurl(
-                Urls::MainPath . Urls::Category . "?" . http_build_query($data));
+                Urls::MainPath . Urls::Option . "?" . http_build_query($data));
         return $this;
     }
 
@@ -40,9 +41,10 @@ class Category extends Wrapper
         if ($this->json === '') return null;
 
         try {
-            return $this->getItems($this->CheckStatus($this->ValidateJson($this->json)), "CategoryItem");
+            return $this->getItems($this->CheckStatus($this->ValidateJson($this->json)), "OptionItem");
         } catch (Exception $e) {
             throw $e;
         }
     }
+
 }

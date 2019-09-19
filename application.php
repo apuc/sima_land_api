@@ -142,7 +142,7 @@ catch (Exception $e)
 */
 
 try {
-    print_r(Classes\Wrapper\OurLegalEntity::run()
+    print_r(Classes\Wrapper\Option::run()
         ->getPage(1)
         ->getItemFromJson());
 }
