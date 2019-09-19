@@ -3,6 +3,7 @@ require 'vendor/autoload.php';
 use Classes\Wrapper\Category;
 use Classes\Wrapper\Currency;
 use Classes\Wrapper\Author;
+use Classes\Wrapper\District;
 use Classes\Wrapper\Series;
 
 use http\Exception;
@@ -50,9 +51,19 @@ catch (Exception $e)
 {
     echo $e;
 }
-*/
+
 try {
     print_r(Series::run()
+        ->getPage(1)
+        ->jsonToObj());
+}
+catch (Exception $e)
+{
+    echo $e;
+}
+*/
+try {
+    print_r(District::run()
         ->getPage(1)
         ->jsonToObj());
 }

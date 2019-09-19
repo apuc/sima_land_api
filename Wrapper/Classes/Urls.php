@@ -11,4 +11,5 @@ interface Urls
     const Currency = 'currency/';
     const Author = 'author/';
     const Series = 'series/';
+    const District = 'district/';
 }
