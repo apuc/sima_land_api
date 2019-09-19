@@ -12,6 +12,7 @@ use Classes\Wrapper\Material;
 use Classes\Wrapper\Offer;
 use Classes\Wrapper\Series;
 use Classes\Wrapper\Settlement;
+use Classes\Wrapper\Wrapper;
 use http\Exception;
 
 /*
@@ -139,7 +140,7 @@ catch (Exception $e)
 }
 */
 try {
-    print_r(Classes\Wrapper\Trademark::run()
+    print_r(Classes\Wrapper\PickupPoint::run()
         ->getPage(1)
         ->jsonToObj());
 }

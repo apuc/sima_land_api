@@ -20,4 +20,5 @@ interface Urls
     const Material = 'material/';
     const Country = 'country/';
     const Trademark = 'trademark/';
+    const PickupPoint = 'pickup-point/';
 }
