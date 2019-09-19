@@ -38,4 +38,5 @@ interface Urls
     const OwnershipType = 'ownership-type/';
     const Option = 'option/';
     const Spec = 'spec/';
+    const TransportCondition = 'transport-condition/';
 }
