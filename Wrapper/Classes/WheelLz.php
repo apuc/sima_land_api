@@ -3,10 +3,11 @@
 
 namespace Classes\Wrapper;
 
+/*Количество крепёжных точек автомобильного диска*/
 
 use http\Exception;
 
-class TireSpeedIndex extends Wrapper
+class WheelLz extends Wrapper
 {
     public static function run()
     {
@@ -17,7 +18,7 @@ class TireSpeedIndex extends Wrapper
     {
         if ($id >= 1)
             $this->json = Wrapper::ExecuteCurl(
-                Urls::MainPath . Urls::TireSpeedIndex . $id . '/');
+                Urls::MainPath . Urls::WheelLz . $id . '/');
         return $this;
     }
 
@@ -25,7 +26,7 @@ class TireSpeedIndex extends Wrapper
     {
         if ($page >= 1)
             $this->json = Wrapper::ExecuteCurl(
-                Urls::MainPath . Urls::TireSpeedIndex . "?" . http_build_query(['page' => $page]));
+                Urls::MainPath . Urls::WheelLz . "?" . http_build_query(['page' => $page]));
         return $this;
     }
 
@@ -33,7 +34,7 @@ class TireSpeedIndex extends Wrapper
     {
         if (!empty($data))
             $this->json = Wrapper::ExecuteCurl(
-                Urls::MainPath . Urls::TireSpeedIndex . "?" . http_build_query($data));
+                Urls::MainPath . Urls::WheelLz . "?" . http_build_query($data));
         return $this;
     }
 

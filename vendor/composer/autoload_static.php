@@ -58,6 +58,7 @@ class ComposerStaticInit92ebd324df36a7db2111e8bed48013af
         'Classes\\Wrapper\\VolumeDiscount' => __DIR__ . '/../..' . '/Wrapper/Classes/VolumeDiscount.php',
         'Classes\\Wrapper\\WheelDia' => __DIR__ . '/../..' . '/Wrapper/Classes/WheelDia.php',
         'Classes\\Wrapper\\WheelDiameter' => __DIR__ . '/../..' . '/Wrapper/Classes/WheelDiameter.php',
+        'Classes\\Wrapper\\WheelLz' => __DIR__ . '/../..' . '/Wrapper/Classes/WheelLz.php',
         'Classes\\Wrapper\\WheelPcd' => __DIR__ . '/../..' . '/Wrapper/Classes/WheelPcd.php',
         'Classes\\Wrapper\\Wrapper' => __DIR__ . '/../..' . '/Wrapper/Classes/Wrapper.php',
         'CommentItem' => __DIR__ . '/../..' . '/Wrapper/Items/CommentItem.php',
