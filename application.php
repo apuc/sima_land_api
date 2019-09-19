@@ -21,8 +21,11 @@ $data = array(
     'level'=>'2');
 
 try {
+
+
     print_r(Category::run()
-        ->query($data)->jsonToObj());
+        ->query($data)
+        ->getMetaFromJson());
 }
 catch (Exception $e)
 {
@@ -142,9 +145,10 @@ catch (Exception $e)
 try {
     print_r(Classes\Wrapper\SettlementExt::run()
         ->getPage(1)
-        ->jsonToObj());
+        ->getMetaFromJson());
 }
 catch (Exception $e)
 {
     echo $e;
 }
+

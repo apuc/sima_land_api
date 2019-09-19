@@ -37,12 +37,12 @@ class VolumeDiscount extends Wrapper
         return $this;
     }
 
-    public function jsonToObj()
+    public function getItemFromJson()
     {
         if ($this->json === '') return null;
 
         try {
-            return $this->getObjFromJson($this->CheckStatus($this->ValidateJson($this->json)), "VolumeDiscountItem");
+            return $this->getItems($this->CheckStatus($this->ValidateJson($this->json)), "VolumeDiscountItem");
         } catch (Exception $e) {
             throw $e;
         }

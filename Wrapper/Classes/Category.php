@@ -7,7 +7,6 @@ use http\Exception;
 class Category extends Wrapper
 {
 
-
     public static function run()
     {
         return new self();
@@ -17,7 +16,7 @@ class Category extends Wrapper
     {
         if ($id >= 1)
             $this->json = Wrapper::ExecuteCurl(
-                Urls::MainPath.Urls::Category . $id . '/');
+                Urls::MainPath . Urls::Category . $id . '/');
         return $this;
     }
 
@@ -25,7 +24,7 @@ class Category extends Wrapper
     {
         if ($page >= 1)
             $this->json = Wrapper::ExecuteCurl(
-                Urls::MainPath.Urls::Category . "?" . http_build_query(['page' => $page]));
+                Urls::MainPath . Urls::Category . "?" . http_build_query(['page' => $page]));
         return $this;
     }
 
@@ -33,16 +32,16 @@ class Category extends Wrapper
     {
         if (!empty($data))
             $this->json = Wrapper::ExecuteCurl(
-                Urls::MainPath.Urls::Category . "?" . http_build_query($data));
+                Urls::MainPath . Urls::Category . "?" . http_build_query($data));
         return $this;
     }
 
-    public function jsonToObj()
+    public function getItemFromJson()
     {
         if ($this->json === '') return null;
 
         try {
-            return $this->getObjFromJson($this->CheckStatus($this->ValidateJson($this->json)), "CategoryItem");
+            return $this->getItems($this->CheckStatus($this->ValidateJson($this->json)), "CategoryItem");
         } catch (Exception $e) {
             throw $e;
         }

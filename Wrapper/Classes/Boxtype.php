@@ -37,12 +37,12 @@ class Boxtype extends Wrapper
         return $this;
     }
 
-    public function jsonToObj()
+    public function getItemFromJson()
     {
         if ($this->json === '') return null;
 
         try {
-            return $this->getObjFromJson($this->CheckStatus($this->ValidateJson($this->json)), "BoxtypeItem");
+            return $this->getItems($this->CheckStatus($this->ValidateJson($this->json)), "BoxtypeItem");
         } catch (Exception $e) {
             throw $e;
         }

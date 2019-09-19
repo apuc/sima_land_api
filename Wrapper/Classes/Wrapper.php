@@ -3,6 +3,7 @@
 namespace Classes\Wrapper;
 
 use Exception;
+use Meta;
 
 abstract class Wrapper
 {
@@ -91,7 +92,7 @@ abstract class Wrapper
         return $page;
     }
 
-    protected static function getObjFromJson($page, $object)
+    protected static function getItems($page, $object)
     {
         if (isset($page['items'])) {
             $arr = array();
@@ -104,6 +105,24 @@ abstract class Wrapper
             return self::createObjFromArr($page, $object);
     }
 
+    protected static function getMeta($page)
+    {
+        if (isset($page['_meta'])) {
+            return self::createObjFromArr($page['_meta'], "Meta");
+        }
+        else return null;
+    }
+
+    public function getMetaFromJson()
+    {
+        if ($this->json === '') return null;
+
+        try {
+            return $this->getMeta($this->CheckStatus($this->ValidateJson($this->json)));
+        } catch (\http\Exception $e) {
+            throw $e;
+        }
+    }
     /**
      * @return string
      */
@@ -118,6 +137,7 @@ abstract class Wrapper
 
     abstract public function query(array $data);
 
-    abstract public function jsonToObj();
+    abstract public function getItemFromJson();
+
 }
 

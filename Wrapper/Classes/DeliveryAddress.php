@@ -37,12 +37,12 @@ class DeliveryAddress extends Wrapper
         return $this;
     }
 
-    public function jsonToObj()
+    public function getItemFromJson()
     {
         if ($this->json === '') return null;
 
         try {
-            return $this->getObjFromJson($this->CheckStatus($this->ValidateJson($this->json)), "DeliveryAddressItem");
+            return $this->getItems($this->CheckStatus($this->ValidateJson($this->json)), "DeliveryAddressItem");
         } catch (Exception $e) {
             throw $e;
         }

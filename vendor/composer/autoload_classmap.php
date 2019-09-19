@@ -55,6 +55,7 @@ return array(
     'GiftItem' => $baseDir . '/Wrapper/Items/GiftItem.php',
     'GoodsItem' => $baseDir . '/Wrapper/Items/GoodsItem.php',
     'MaterialItem' => $baseDir . '/Wrapper/Items/MaterialItem.php',
+    'Meta' => $baseDir . '/Wrapper/Items/Meta.php',
     'Modifier' => $baseDir . '/Wrapper/Items/GoodsInfo/Modifier.php',
     'NewsItem' => $baseDir . '/Wrapper/Items/NewsItem.php',
     'OfferItem' => $baseDir . '/Wrapper/Items/OfferItem.php',

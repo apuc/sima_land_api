@@ -37,12 +37,12 @@ class Attr extends Wrapper
         return $this;
     }
 
-    public function jsonToObj()
+    public function getItemFromJson()
     {
         if ($this->json === '') return null;
 
         try {
-            return $this->getObjFromJson($this->CheckStatus($this->ValidateJson($this->json)), "AttrItem");
+            return $this->getItems($this->CheckStatus($this->ValidateJson($this->json)), "AttrItem");
         } catch (Exception $e) {
             throw $e;
         }

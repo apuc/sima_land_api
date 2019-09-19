@@ -37,12 +37,12 @@ class CertificateType extends Wrapper
         return $this;
     }
 
-    public function jsonToObj()
+    public function getItemFromJson()
     {
         if ($this->json === '') return null;
 
         try {
-            return $this->getObjFromJson($this->CheckStatus($this->ValidateJson($this->json)), "CertificateTypeItem");
+            return $this->getItems($this->CheckStatus($this->ValidateJson($this->json)), "CertificateTypeItem");
         } catch (Exception $e) {
             throw $e;
         }

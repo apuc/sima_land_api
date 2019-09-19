@@ -36,12 +36,12 @@ class DeliveryTime extends Wrapper
         return $this;
     }
 
-    public function jsonToObj()
+    public function getItemFromJson()
     {
         if ($this->json === '') return null;
 
         try {
-            return $this->getObjFromJson($this->CheckStatus($this->ValidateJson($this->json)), "DeliveryTimeItem");
+            return $this->getItems($this->CheckStatus($this->ValidateJson($this->json)), "DeliveryTimeItem");
         } catch (Exception $e) {
             throw $e;
         }

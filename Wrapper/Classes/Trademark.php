@@ -36,12 +36,12 @@ class Trademark extends Wrapper
         return $this;
     }
 
-    public function jsonToObj()
+    public function getItemFromJson()
     {
         if ($this->json === '') return null;
 
         try {
-            return $this->getObjFromJson($this->CheckStatus($this->ValidateJson($this->json)), "Trademark");
+            return $this->getItems($this->CheckStatus($this->ValidateJson($this->json)), "Trademark");
         } catch (Exception $e) {
             throw $e;
         }

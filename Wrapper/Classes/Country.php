@@ -36,12 +36,12 @@ class Country extends Wrapper
         return $this;
     }
 
-    public function jsonToObj()
+    public function getItemFromJson()
     {
         if ($this->json === '') return null;
 
         try {
-            return $this->getObjFromJson($this->CheckStatus($this->ValidateJson($this->json)), "Country");
+            return $this->getItems($this->CheckStatus($this->ValidateJson($this->json)), "Country");
         } catch (Exception $e) {
             throw $e;
         }

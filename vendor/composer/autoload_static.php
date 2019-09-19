@@ -56,6 +56,7 @@ class ComposerStaticInit92ebd324df36a7db2111e8bed48013af
         'GiftItem' => __DIR__ . '/../..' . '/Wrapper/Items/GiftItem.php',
         'GoodsItem' => __DIR__ . '/../..' . '/Wrapper/Items/GoodsItem.php',
         'MaterialItem' => __DIR__ . '/../..' . '/Wrapper/Items/MaterialItem.php',
+        'Meta' => __DIR__ . '/../..' . '/Wrapper/Items/Meta.php',
         'Modifier' => __DIR__ . '/../..' . '/Wrapper/Items/GoodsInfo/Modifier.php',
         'NewsItem' => __DIR__ . '/../..' . '/Wrapper/Items/NewsItem.php',
         'OfferItem' => __DIR__ . '/../..' . '/Wrapper/Items/OfferItem.php',

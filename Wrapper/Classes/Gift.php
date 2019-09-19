@@ -36,12 +36,12 @@ class Gift extends Wrapper
         return $this;
     }
 
-    public function jsonToObj()
+    public function getItemFromJson()
     {
         if ($this->json === '') return null;
 
         try {
-            return $this->getObjFromJson($this->CheckStatus($this->ValidateJson($this->json)), "GiftItem");
+            return $this->getItems($this->CheckStatus($this->ValidateJson($this->json)), "GiftItem");
         } catch (Exception $e) {
             throw $e;
         }
