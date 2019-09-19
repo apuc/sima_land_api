@@ -140,8 +140,8 @@ catch (Exception $e)
 }
 */
 try {
-    print_r(Classes\Wrapper\CertificateType::run()
-        ->getPage(1)
+    print_r(Classes\Wrapper\VolumeDiscount::run()
+        ->getById(8)
         ->jsonToObj());
 }
 catch (Exception $e)

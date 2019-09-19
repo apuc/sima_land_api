@@ -38,6 +38,7 @@ class ComposerStaticInit92ebd324df36a7db2111e8bed48013af
         'Classes\\Wrapper\\SpecialOfferType' => __DIR__ . '/../..' . '/Wrapper/Classes/SpecialOfferType.php',
         'Classes\\Wrapper\\Trademark' => __DIR__ . '/../..' . '/Wrapper/Classes/Trademark.php',
         'Classes\\Wrapper\\Urls' => __DIR__ . '/../..' . '/Wrapper/Classes/Urls.php',
+        'Classes\\Wrapper\\VolumeDiscount' => __DIR__ . '/../..' . '/Wrapper/Classes/VolumeDiscount.php',
         'Classes\\Wrapper\\Wrapper' => __DIR__ . '/../..' . '/Wrapper/Classes/Wrapper.php',
         'CommentItem' => __DIR__ . '/../..' . '/Wrapper/Items/CommentItem.php',
         'Country' => __DIR__ . '/../..' . '/Wrapper/Items/GoodsInfo/Country.php',
@@ -62,6 +63,7 @@ class ComposerStaticInit92ebd324df36a7db2111e8bed48013af
         'SettlementItem' => __DIR__ . '/../..' . '/Wrapper/Items/SettlementItem.php',
         'SpecOfferTypeItem' => __DIR__ . '/../..' . '/Wrapper/Items/SpecOfferTypeItem.php',
         'Trademark' => __DIR__ . '/../..' . '/Wrapper/Items/GoodsInfo/Trademark.php',
+        'VolumeDiscountItem' => __DIR__ . '/../..' . '/Wrapper/Items/VolumeDiscountItem.php',
         'WorkTime' => __DIR__ . '/../..' . '/Wrapper/Items/PickupPointTime/WorkTime.php',
     );
 

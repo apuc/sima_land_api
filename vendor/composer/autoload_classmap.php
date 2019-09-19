@@ -37,6 +37,7 @@ return array(
     'Classes\\Wrapper\\SpecialOfferType' => $baseDir . '/Wrapper/Classes/SpecialOfferType.php',
     'Classes\\Wrapper\\Trademark' => $baseDir . '/Wrapper/Classes/Trademark.php',
     'Classes\\Wrapper\\Urls' => $baseDir . '/Wrapper/Classes/Urls.php',
+    'Classes\\Wrapper\\VolumeDiscount' => $baseDir . '/Wrapper/Classes/VolumeDiscount.php',
     'Classes\\Wrapper\\Wrapper' => $baseDir . '/Wrapper/Classes/Wrapper.php',
     'CommentItem' => $baseDir . '/Wrapper/Items/CommentItem.php',
     'Country' => $baseDir . '/Wrapper/Items/GoodsInfo/Country.php',
@@ -61,5 +62,6 @@ return array(
     'SettlementItem' => $baseDir . '/Wrapper/Items/SettlementItem.php',
     'SpecOfferTypeItem' => $baseDir . '/Wrapper/Items/SpecOfferTypeItem.php',
     'Trademark' => $baseDir . '/Wrapper/Items/GoodsInfo/Trademark.php',
+    'VolumeDiscountItem' => $baseDir . '/Wrapper/Items/VolumeDiscountItem.php',
     'WorkTime' => $baseDir . '/Wrapper/Items/PickupPointTime/WorkTime.php',
 );

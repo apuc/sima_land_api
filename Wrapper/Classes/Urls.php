@@ -30,4 +30,5 @@ interface Urls
     const PaymentType = 'payment-type/';
     const SpecialOfferType = 'special-offer-type/';
     const CertificateType = 'certificate-type/';
+    const VolumeDiscount = 'volume-discount/';
 }
