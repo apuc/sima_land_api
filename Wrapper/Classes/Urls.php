@@ -46,4 +46,5 @@ interface Urls
     const WheelPcd = 'wheel-pcd/';
     const WheelDia = 'wheel-dia/';
     const WheelDiameter = 'wheel-diameter/';
+    const DrawingCompetition = 'drawing-competition/';
 }
