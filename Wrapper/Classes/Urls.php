@@ -20,6 +20,7 @@ interface Urls
     const Offer = 'offer/';
     const Wholesale = 'wholesale/';
     const DeliveryAddress = 'delivery-address/';
+    const DeliveryDirection = 'delivery-direction/';
     const Material = 'material/';
     const Country = 'country/';
     const Trademark = 'trademark/';
