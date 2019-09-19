@@ -19,4 +19,5 @@ interface Urls
     const DeliveryAddress = 'delivery-address/';
     const Material = 'material/';
     const Country = 'country/';
+    const Trademark = 'trademark/';
 }

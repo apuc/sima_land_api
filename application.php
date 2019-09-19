@@ -139,7 +139,7 @@ catch (Exception $e)
 }
 */
 try {
-    print_r(Classes\Wrapper\Country::run()
+    print_r(Classes\Wrapper\Trademark::run()
         ->getPage(1)
         ->jsonToObj());
 }

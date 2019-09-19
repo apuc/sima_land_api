@@ -25,6 +25,7 @@ return array(
     'Classes\\Wrapper\\Offer' => $baseDir . '/Wrapper/Classes/Offer.php',
     'Classes\\Wrapper\\Series' => $baseDir . '/Wrapper/Classes/Series.php',
     'Classes\\Wrapper\\Settlement' => $baseDir . '/Wrapper/Classes/Settlement.php',
+    'Classes\\Wrapper\\Trademark' => $baseDir . '/Wrapper/Classes/Trademark.php',
     'Classes\\Wrapper\\Urls' => $baseDir . '/Wrapper/Classes/Urls.php',
     'Classes\\Wrapper\\Wrapper' => $baseDir . '/Wrapper/Classes/Wrapper.php',
     'CommentItem' => $baseDir . '/Wrapper/Items/CommentItem.php',
