@@ -28,6 +28,7 @@ interface Urls
     const Barcode = 'item-barcode/';
     const DeliveryCompany = 'delivery-company/';
     const DeliveryCondition = 'delivery-condition/';
+    const TransportCondition = 'transport-condition/';
     const DeliveryTime = 'delivery-time/';
     const PaymentType = 'payment-type/';
     const SpecialOfferType = 'special-offer-type/';
@@ -39,5 +40,5 @@ interface Urls
     const OwnershipType = 'ownership-type/';
     const Option = 'option/';
     const Spec = 'spec/';
-    const TransportCondition = 'transport-condition/';
+    const ContactGroup = 'contact-group/';
 }

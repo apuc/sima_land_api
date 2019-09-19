@@ -142,7 +142,7 @@ catch (Exception $e)
 */
 
 try {
-    print_r(Classes\Wrapper\ClaimReasonType::run()
+    print_r(Classes\Wrapper\ContactGroup::run()
         ->getPage(1)
         ->getItemFromJson());
 }
