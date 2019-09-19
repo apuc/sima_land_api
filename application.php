@@ -3,6 +3,9 @@ require 'vendor/autoload.php';
 use Classes\Wrapper\Category;
 use Classes\Wrapper\Currency;
 use Classes\Wrapper\Author;
+use Classes\Wrapper\Series;
+
+use http\Exception;
 
 /*
 $data = array(
@@ -37,9 +40,19 @@ catch (Exception $e)
 {
     echo $e;
 }
-*/
+
 try {
     print_r(Author::run()
+        ->getPage(1)
+        ->jsonToObj());
+}
+catch (Exception $e)
+{
+    echo $e;
+}
+*/
+try {
+    print_r(Series::run()
         ->getPage(1)
         ->jsonToObj());
 }

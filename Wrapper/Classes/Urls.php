@@ -10,4 +10,5 @@ interface Urls
     const GoodsMostLiked = 'item-most-liked/';
     const Currency = 'currency/';
     const Author = 'author/';
+    const Series = 'series/';
 }

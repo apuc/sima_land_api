@@ -6,6 +6,8 @@ use Exception;
 
 abstract class Wrapper
 {
+    protected $json = '';
+
     protected static function ExecuteCurl(string $url)
     {
         //echo $url . "\n";
@@ -102,10 +104,20 @@ abstract class Wrapper
             return self::createObjFromArr($page, $object);
     }
 
+    /**
+     * @return string
+     */
+    public function getJson(): string
+    {
+        return $this->json;
+    }
+
     abstract public function getById($id);
 
     abstract public function getPage($page);
 
     abstract public function query(array $data);
+
+    abstract public function jsonToObj();
 }
 

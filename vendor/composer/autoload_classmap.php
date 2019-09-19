@@ -16,6 +16,7 @@ return array(
     'Classes\\Wrapper\\Category' => $baseDir . '/Wrapper/Classes/Category.php',
     'Classes\\Wrapper\\Currency' => $baseDir . '/Wrapper/Classes/Currency.php',
     'Classes\\Wrapper\\Goods' => $baseDir . '/Wrapper/Classes/Goods.php',
+    'Classes\\Wrapper\\Series' => $baseDir . '/Wrapper/Classes/Series.php',
     'Classes\\Wrapper\\Urls' => $baseDir . '/Wrapper/Classes/Urls.php',
     'Classes\\Wrapper\\Wrapper' => $baseDir . '/Wrapper/Classes/Wrapper.php',
     'CommentItem' => $baseDir . '/Wrapper/Items/CommentItem.php',

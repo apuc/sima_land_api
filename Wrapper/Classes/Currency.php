@@ -2,10 +2,10 @@
 
 namespace Classes\Wrapper;
 
+use http\Exception;
+
 class Currency extends Wrapper
 {
-    private $json = '';
-
     public static function run()
     {
         return new self();
@@ -43,13 +43,5 @@ class Currency extends Wrapper
         } catch (Exception $e) {
             throw $e;
         }
-    }
-
-    /**
-     * @return string
-     */
-    public function getJson(): string
-    {
-        return $this->json;
     }
 }

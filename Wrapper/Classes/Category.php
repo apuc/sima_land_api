@@ -2,9 +2,11 @@
 
 namespace Classes\Wrapper;
 
+use http\Exception;
+
 class Category extends Wrapper
 {
-    private $json = '';
+
 
     public static function run()
     {

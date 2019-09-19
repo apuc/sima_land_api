@@ -8,7 +8,8 @@
     ],
     "require": {
       "ext-json": "*",
-      "ext-curl": "*"
+      "ext-curl": "*",
+      "ext-http": "*"
     },
     "autoload": {
         "classmap": ["Wrapper/Classes", "Wrapper/Items"]

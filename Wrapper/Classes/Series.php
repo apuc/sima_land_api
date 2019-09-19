@@ -5,7 +5,7 @@ namespace Classes\Wrapper;
 
 use http\Exception;
 
-class Author extends Wrapper
+class Series extends Wrapper
 {
     public static function run()
     {
@@ -16,7 +16,7 @@ class Author extends Wrapper
     {
         if ($id >= 1)
             $this->json = Wrapper::ExecuteCurl(
-                Urls::MainPath . Urls::Author . $id . '/');
+                Urls::MainPath.Urls::Series . $id . '/');
         return $this;
     }
 
@@ -24,7 +24,7 @@ class Author extends Wrapper
     {
         if ($page >= 1)
             $this->json = Wrapper::ExecuteCurl(
-                Urls::MainPath . Urls::Author . "?" . http_build_query(['page' => $page]));
+                Urls::MainPath.Urls::Series . "?" . http_build_query(['page' => $page]));
         return $this;
     }
 
@@ -32,7 +32,7 @@ class Author extends Wrapper
     {
         if (!empty($data))
             $this->json = Wrapper::ExecuteCurl(
-                Urls::MainPath . Urls::Author . "?" . http_build_query($data));
+                Urls::MainPath.Urls::Series . "?" . http_build_query($data));
         return $this;
     }
 
@@ -41,10 +41,9 @@ class Author extends Wrapper
         if ($this->json === '') return null;
 
         try {
-            return $this->getObjFromJson($this->CheckStatus($this->ValidateJson($this->json)), "AuthorItem");
+            return $this->getObjFromJson($this->CheckStatus($this->ValidateJson($this->json)), "SeriesItem");
         } catch (Exception $e) {
             throw $e;
         }
     }
-
 }
