@@ -3,17 +3,17 @@
 trait ObjImporter
 {
 
-    protected static function getItems($page, $object)
+    protected function getItems($page, $object)
     {
         if (isset($page['items'])) {
             $arr = array();
             foreach ($page['items'] as $item) {
-                $elem = self::createObjFromArr($item, $object);
+                $elem = $this->createObjFromArr($item, $object);
                 array_push($arr, $elem);
             }
             return $arr;
         } else
-            return self::createObjFromArr($page, $object);
+            return $this->createObjFromArr($page, $object);
     }
 
     protected function getMeta($page)

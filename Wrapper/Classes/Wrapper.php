@@ -62,8 +62,13 @@ class Wrapper implements IWrapper
 
     public function getItemFromJson()
     {
-        return $this->getItems($this->CheckStatus($this->ValidateJson($this->json)), $this->getNameOfObjFromPath());
+        if ($this->json === '') return null;
 
+        try {
+            return $this->getItems($this->CheckStatus($this->ValidateJson($this->json)), $this->getNameOfObjFromPath());
+        } catch (\Exception $e) {
+            throw $e;
+        }
     }
 
     public function getMetaFromJson(): Meta
