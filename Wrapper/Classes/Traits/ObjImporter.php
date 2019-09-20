@@ -2,7 +2,6 @@
 
 trait ObjImporter
 {
-
     protected function getItems($page, $object)
     {
         if (isset($page['items'])) {

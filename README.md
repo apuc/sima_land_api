@@ -34,5 +34,10 @@ How to run custom query and get array of CategoryItems from it:
 
     print_r(Wrapper::runFor(IUrls::Category)
         ->query($data)->getItemFromJson()
-
+```
+How to get array of all most liked goods items:
+```php
+     print_r(Wrapper::runFor(IUrls::GoodsMostLiked)
+            ->getPage(1)->getItemFromJson()
+        );
 ```

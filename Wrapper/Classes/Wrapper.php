@@ -2,13 +2,13 @@
 
 namespace Classes\Wrapper;
 
-use Exception;
 use IWrapper;
 use JsonTrait;
 use ParserTrait;
 use PathTrait;
 use ObjImporter;
 
+use Exception;
 use Links;
 use Meta;
 
