@@ -41,3 +41,9 @@ How to get array of all most liked goods items:
             ->getPage(1)->getItemFromJson()
         );
 ```
+How to get all name of categories in custom query:
+```php
+foreach (Wrapper::runFor(IUrls::Category)
+        ->getPage(1)->getItemFromJson() as $item)
+            echo $item->name . "\n";
+```
