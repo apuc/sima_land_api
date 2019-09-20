@@ -2,7 +2,6 @@
 
 namespace Classes\Wrapper;
 
-use http\Exception;
 use IWrapper;
 use JsonTrait;
 use ParserTrait;
@@ -11,7 +10,6 @@ use ObjImporter;
 
 use Links;
 use Meta;
-use BaseItem;
 
 class Wrapper implements IWrapper
 {

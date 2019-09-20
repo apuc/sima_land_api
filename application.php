@@ -5,12 +5,11 @@ use Classes\Wrapper\IUrls;
 use Classes\Wrapper\Wrapper;
 
 try {
-
     $data = array(
-        'path'=>'2',
-        'level'=>'2');
+        'path' => '2',
+        'level' => '2');
 
-    print_r(Wrapper::runFor(IUrls::Wholesale)
+    print_r(Wrapper::runFor(IUrls::Category)
         ->getPage(1)->getItemFromJson()
     );
 } catch (Exception $e) {

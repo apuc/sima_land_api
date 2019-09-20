@@ -105,6 +105,5 @@ trait PathTrait
         if ($this->path == IUrls::ClaimResponseCommentPhoto)
             return ClaimResponseCommentPhotoItem::class;
         else return BaseItem::class;
-
     }
 }
