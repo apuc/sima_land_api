@@ -1,5 +1,5 @@
 {
-    "name": "kizilov/sima-land-wrapper",
+    "name": "craft-group/sima-land-api",
     "description": "Simple wrapper for www.sima-land.ru/api",
     "keywords": ["sima-land","api"],
     "license": "MIT",
