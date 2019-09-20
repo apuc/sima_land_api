@@ -25,7 +25,6 @@ class Wrapper implements IWrapper
      */
     public function __construct($path)
     {
-        //echo $path;
         $this->path = $path;
     }
 
