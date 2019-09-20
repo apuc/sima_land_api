@@ -23,7 +23,7 @@ trait JsonTrait
 
     protected static function ExecuteCurl(string $url): string
     {
-        echo $url . "\n";
+        //echo $url . "\n";
         $curl = curl_init($url);
         curl_setopt($curl, CURLOPT_HTTPHEADER, array('Accept: application/json'));
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
