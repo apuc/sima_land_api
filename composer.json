@@ -1,10 +1,13 @@
 {
     "name": "kizilov/sima-land-wrapper",
     "description": "Simple wrapper for www.sima-land.ru/api",
+    "keywords": ["sima-land","api"],
+    "license": "MIT",
     "authors": [
         {
             "name": "Kovalenko Ilja",
-            "email": "dalek@mail.ua"
+            "email": "dalek@mail.ua",
+            "role": "Developer"
         }
     ],
     "minimum-stability": "dev",
