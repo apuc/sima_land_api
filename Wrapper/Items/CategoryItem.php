@@ -1,10 +1,7 @@
 <?php
 
-class CategoryItem
+class CategoryItem extends BaseItem
 {
-    public $id; //int
-    public $sid; //int
-    public $name; //String
     public $priority; //int
     public $priority_home; //int
     public $priority_menu; //int

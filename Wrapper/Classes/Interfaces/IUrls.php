@@ -2,7 +2,7 @@
 
 namespace Classes\Wrapper;
 
-interface Urls
+interface IUrls
 {
     const MainPath = 'https://www.sima-land.ru/api/v3/';
     const Category = 'category/';
