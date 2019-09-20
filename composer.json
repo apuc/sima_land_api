@@ -19,7 +19,6 @@
     },
     "require": {
       "php": ">=7.1.0",
-      "ext-json": "*",
       "ext-curl": "*",
       "ext-http": "*",
         "craft-group/sima-land-api": "dev-master"
