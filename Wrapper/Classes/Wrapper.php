@@ -2,6 +2,7 @@
 
 namespace Classes\Wrapper;
 
+use Exception;
 use IWrapper;
 use JsonTrait;
 use ParserTrait;
@@ -64,7 +65,7 @@ class Wrapper implements IWrapper
 
         try {
             return $this->getItems($this->CheckStatus($this->ValidateJson($this->json)), $this->getNameOfObjFromPath());
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             throw $e;
         }
     }
@@ -75,7 +76,7 @@ class Wrapper implements IWrapper
 
         try {
             return $this->getMeta($this->CheckStatus($this->ValidateJson($this->json)));
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             throw $e;
         }
     }
@@ -86,7 +87,7 @@ class Wrapper implements IWrapper
 
         try {
             return $this->getLinks($this->CheckStatus($this->ValidateJson($this->json)));
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             throw $e;
         }
     }
