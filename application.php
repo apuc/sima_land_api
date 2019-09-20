@@ -9,7 +9,7 @@ try {
         'path' => '2',
         'level' => '2');
 
-    print_r(Wrapper::runFor(IUrls::GoodsMostLiked)
+    print_r(Wrapper::runFor(IUrls::Category)
         ->getPage(1)->getItemFromJson()
     );
 } catch (Exception $e) {
