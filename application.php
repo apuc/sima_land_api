@@ -10,7 +10,7 @@ try {
         'level' => '2');
 
     print_r(Wrapper::runFor(IUrls::Category)
-        ->getPage(1)->getItemFromJson()
+        ->getPage(1)->getMetaFromJson()->pageCount
     );
 } catch (Exception $e) {
     print_r($e);

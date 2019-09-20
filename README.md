@@ -18,7 +18,7 @@ How to get total count of pages of category:
 ```php
     print_r(Wrapper::runFor(IUrls::Category)
            ->getPage(1)
-           ->getMetaFromJson()->totalCount);
+           ->getMetaFromJson()->pageCount);
 ```
 How to get href to last page of category:
 ```php
