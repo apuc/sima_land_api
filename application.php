@@ -6,8 +6,6 @@ use Classes\Wrapper\Wrapper;
 
 try {
 
-
-
     $data = array(
         'path' => '2',
         'level' => '2');
