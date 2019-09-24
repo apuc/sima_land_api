@@ -93,11 +93,9 @@ class Wrapper implements IWrapper
 
     public static function objectToArray($data)
     {
-        if (is_array($data) || is_object($data))
-        {
+        if (is_array($data) || is_object($data)) {
             $result = array();
-            foreach ($data as $key => $value)
-            {
+            foreach ($data as $key => $value) {
                 $result[$key] = Wrapper::objectToArray($value);
             }
             return $result;
