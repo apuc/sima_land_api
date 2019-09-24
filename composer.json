@@ -14,11 +14,11 @@
     "config": {
         "preferred-install": "dist",
         "platform": {
-            "php": "7.1.0"
+            "php": "7.0.0"
         }
     },
     "require": {
-      "php": ">=7.1.0",
+      "php": ">=7.0.0",
       "ext-curl": "*",
       "ext-http": "*",
         "craft-group/sima-land-api": "dev-master"
