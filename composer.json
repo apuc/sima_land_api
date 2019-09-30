@@ -20,7 +20,6 @@
     "require": {
       "php": ">=7.0.0",
       "ext-curl": "*",
-      "ext-http": "*",
         "craft-group/sima-land-api": "dev-master"
     },
     "autoload": {
